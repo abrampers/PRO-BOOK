@@ -47,7 +47,7 @@ Pengguna dapat mendaftarkan diri sebagai user agar dapat menggunakan aplikasi in
 
 ### Search-Books
 
-![](mocks/search.jpg)
+![](mocks/search.png)
 
 Search-Books merupakan halaman utama yang ditampilkan ketika user telah login. Pada halaman Search-Books, terdapat sebuah input field dapat diisi pengguna untuk melakukan pencarian buku berdasarkan judul.
 
@@ -57,7 +57,7 @@ Perlu diperhatikan, pada bagian atas terdapat logo, tombol logout, dan tulisan d
 
 ### Search-Result
 
-![](mocks/search_result.jpg)
+![](mocks/search_result.png)
 
 Pada Search-Result, ditampilkan daftar buku dan jumlah hasil pencarian. Pada tiap entri buku ditampilkan judul, penulis, gambar, potongan sinopsis, serta rating dari buku tersebut. Jika tombol detail ditekan, pengguna akan dibawa ke halaman Book-Detail dari buku yang bersangkutan.
 
@@ -69,7 +69,7 @@ Pada halaman ini, ditampilkan detail buku yang terdiri dari judul, penulis, gamb
 
 Pada halaman ini juga disediakan dropdown untuk memasukkan jumlah buku yang ingin dipesan dan tombol order. Jika tombol order ditekan, proses pemesanan akan dilakukan **menggunakan AJAX**, yang berarti halaman tidak akan di-*refresh* setelah tombol order ditekan. Tidak ada proses pembayaran yang ditangani oleh sistem.
 
-![](mocks/notification.jpg)
+![](mocks/notification.png)
 
 Setelah proses pemesanan selesai dilakukan, akan muncul notifikasi pada browser pengguna. **Jangan menampilkan notifikasi setelah tombol order ditekan, tetapi setelah mendapat response dari AJAX**. Informasi yang diberikan oleh notifikasi mengikuti contoh.
 
@@ -92,7 +92,7 @@ Pada bagian bawah halaman, terdapat tombol Back dan Save. Jika tombol Back ditek
 
 ### History
 
-![](mocks/history.jpg)
+![](mocks/history.png)
 
 Pada halaman ini, ditampilkan daftar buku yang sudah pernah dipesan oleh pengguna, diurutkan berdasarkan waktu pemesanan dengan pesanan paling baru merupakan entri paling atas.
 
