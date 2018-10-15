@@ -1,9 +1,15 @@
 # Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
 
+NOTE: Konvensi nama file sesuai nama kelas
+
+## Development Prerequisites
+
+Install editorconfig plugin in editor
+
 Membuat sebuah Website Toko Buku
 ## Deskripsi Singkat
 
-Pada tugas besar ini, Anda diminta untuk membuat aplikasi *toko buku online* **berbasis web** yang memungkinkan seorang pengguna untuk membeli dan memberi komentar pada buku. Untuk menggunakan aplikasi ini, seorang pengguna harus melakukan *login*. 
+Pada tugas besar ini, Anda diminta untuk membuat aplikasi *toko buku online* **berbasis web** yang memungkinkan seorang pengguna untuk membeli dan memberi komentar pada buku. Untuk menggunakan aplikasi ini, seorang pengguna harus melakukan *login*.
 
 Anda diminta untuk membuat tampilan sedemikian hingga mirip dengan tampilan pada contoh. Website yang diminta tidak responsive. Desain tampilan tidak perlu dibuat indah. Icon dan jenis font tidak harus sama dengan contoh. Warna font, garis pemisah, dan perbedaan ukuran font harus terlihat sesuai contoh. Format rating dan waktu harus terlihat sesuai contoh. Perhatikan juga **tata letak** elemen-elemen.
 
@@ -36,7 +42,7 @@ Setiap kelompok beranggotakan **3 orang dari kelas yang sama**. Jika jumlah maha
 
 Pengguna dapat melakukan login sebagai user. Login hanya membandingkan username dan password saja, dan tidak perlu proteksi apapun. Identitas pengguna yang sudah login akan disimpan sebagai cookie dalam browser (misal cookie menyimpan id=2 menandakan bahwa pengguna dengan id 2 sudah login). Identitas tersebut tidak boleh disimpan sebagai parameter HTTP GET. Jika cookie ini tidak ada, maka pengguna dianggap belum login dan aplikasi akan selalu mengarahkan (*redirect*) pengguna ke halaman ini, meskipun pengguna membuka halaman yang lain. Masa berlaku cookie ditentukan sendiri oleh peserta.
 
-**--Bonus--** 
+**--Bonus--**
 Data yang disimpan pada cookie berupa `access token` yang dibangkitkan secara random dan memiliki `expiry time`. Jika `access token` ini tidak ada atau tidak valid, maka pengguna dianggap belum login. `Expiry time` sebuah `access token` berbeda dengan waktu berlaku cookie.
 
 ### Register
@@ -110,7 +116,7 @@ Rating dibuat seperti contoh.
 ### Validasi
 
 Validasi **wajib** dilakukan pada *client-side*, dengan menggunakan **javascript** bukan HTML 5 input type, yaitu:
-- Setiap field pada form tidak boleh kosong. 
+- Setiap field pada form tidak boleh kosong.
 - Email harus sesuai format email.
 - Jumlah buku yang dipesan minimal 1.
 - Rating buku hanya boleh bernilai 1-5.
