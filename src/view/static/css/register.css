@@ -1,0 +1,33 @@
+.auth-pane-container {
+	width: 580px;
+	height: 700px;
+}
+
+.auth-pane-content {
+	width: 97%;
+	height: 86%;
+}
+
+.auth-title-container {
+	margin-top: 24px 0px 10px 0px;
+}
+
+.auth-alt-container {
+	width: 80%;
+}
+
+.auth-submit-container {
+	margin: 10px 0px 24px 0;
+}
+
+button {
+	width: 120px;
+}
+
+h1 {
+	font-size: 3.3rem;
+}
+
+h4 {
+	font-size: 2.1rem;
+}

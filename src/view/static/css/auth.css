@@ -8,7 +8,7 @@
 }
 
 .auth-pane-container {
-	width: 400px;
+	width: 420px;
 	height: 510px;
 	background-color: #54c0ff;
 	border-radius: 20px;
@@ -23,7 +23,7 @@
 	width: 96%;
 	height: 84%;
 	box-sizing: border-box;
-	background-color: #eaeaea;
+	background-color: #ededed;
 	background-image: url('../img/auth_bg.jpg');
 	background-blend-mode: screen;
 	background-size: 100% 100%;
@@ -40,7 +40,11 @@
 }
 
 .auth-alt-container {
+	width: 75%;
 	margin-top: 8px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
 }
 
 .auth-submit-container {
@@ -78,4 +82,37 @@ form {
 h1 {
 	background-color: white;
 	border-radius: 4px;
+}
+
+button {
+	width: 94px;
+	height: 50px;
+	box-sizing: border-box;
+	border: 2.4px solid orangered;
+	border-radius: 4px;
+	background-color: white;
+	outline: none;
+	cursor:pointer;
+	font-family: 'Chathura', sans-serif;
+	font-weight: 600;
+	font-size: 2.6rem;
+	color: orangered;
+	text-align: center;
+	text-decoration: none;
+	line-height: 28px;
+	-webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+	background-color: orangered;
+	color: white;
+	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	transform: scale(1.08);
+}
+
+button:active {
+  background-color: orangered;
+	color: white;
+	transform: scale(0.96);
 }

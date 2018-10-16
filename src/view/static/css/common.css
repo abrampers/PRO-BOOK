@@ -20,7 +20,7 @@ h4 {
 
 p {
 	font-family: 'Chathura', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 1.8rem;
 	color: #505050;
 	margin: 0px;
@@ -44,42 +44,40 @@ input {
 	border: 0;
   outline: 0;
   background: transparent;
-	border-bottom: 1.4px solid black;
+	border-bottom: 1.6px solid gray;
 	font-family: 'Roboto Mono', monospace;
 	font-weight: 200;
 	font-size: 1.1rem;
 	color: #505050;
-}
-
-button {
-	width: 92px;
-	height: 50px;
-	box-sizing: border-box;
-	border: 2.4px solid orangered;
-	border-radius: 4px;
-	background-color: white;
-	outline: none;
-	cursor:pointer;
-	font-family: 'Chathura', sans-serif;
-	font-weight: 600;
-	font-size: 2.6rem;
-	color: orangered;
-	text-align: center;
-	text-decoration: none;
-	line-height: 28px;
 	-webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
 
-button:hover {
-	background-color: orangered;
-	color: white;
-	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	transform: scale(1.08);
+input:focus {
+	border-bottom: 4px solid black;
+	color: black;
 }
 
-button:active {
-  background-color: orangered;
-	color: white;
-	transform: scale(0.96);
+textarea {
+	width: 100%;
+	height: 60px;
+	padding: 8px 8px 12px 8px;
+	margin-top: 12px;
+	box-sizing: border-box;
+	border: 0;
+	outline: 0;
+	resize: none;
+  background: transparent;
+	border: 1.6px solid gray;
+	font-family: 'Roboto Mono', monospace;
+	font-weight: 200;
+	font-size: 1.1rem;
+	color: #505050;
+	-webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+textarea:focus {
+	border: 4px solid black;
+	color: black;
 }
