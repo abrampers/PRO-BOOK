@@ -111,7 +111,7 @@ CREATE TABLE `Users` (
   `phonenumber` varchar(255) DEFAULT NULL,
   `pathpp` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'Koko widodo','cebong','cebongarmy@kokowi.com','bowobangsat','istana presiden 100','08136969669',NULL);
+INSERT INTO `Users` VALUES (1,'Koko widodo','cebong','cebongarmy@kokowi.com','bowobangsat','istana presiden 100','08136969669',NULL),(2,'Erick Thohir','sayacebong','asu@gmail.com','64ca1296793ddd885bb6ceed0a9aa70e','san siro','123456789',NULL);
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -133,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-17 13:39:35
+-- Dump completed on 2018-10-17 13:47:26
