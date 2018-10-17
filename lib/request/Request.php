@@ -2,16 +2,16 @@
 include_once 'RequestInterface.php';
 class Request implements RequestInterface {
     function __construct() {
-        $this->bootstrapSelf();
+        $this->importServerVariables();
     }
 
-    private function bootstrapSelf() {
+    private function importServerVariables() {
         foreach($_SERVER as $key => $value) {
-            $this->{$this->toCamelCase($key)} = $value;
+            $this->{Request::toCamelCase($key)} = $value;
         }
     }
 
-    private function toCamelCase($string) {
+    private static function toCamelCase($string) {
         $result = strtolower($string);
 
         preg_match_all('/_[a-z]/', $result, $matches);
@@ -23,7 +23,7 @@ class Request implements RequestInterface {
     }
 
     public function getBody() {
-        if($this->requestMethod === "GET") {
+        if ($this->requestMethod === "GET") {
             return;
         }
         if ($this->requestMethod == "POST") {
