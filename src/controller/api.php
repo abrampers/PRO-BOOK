@@ -7,5 +7,5 @@ function validateUsername(string $username) {
 
 function validateEmail(string $email) {
   $db = new MarufDB('localhost', 'probook', 'root', '');
-  return array('valid' => (bool) $db->validateEmail($username));
+  return array('valid' => (bool) $db->validateEmail($email));
 }

@@ -54,8 +54,8 @@ function render_template() {
                 <div class='auth-form-item-field-text-container'>
                   <input id='formEmailField' type='text' name='email'>
                 </div>
-                <div id='formUEmailValidation' class='auth-form-item-field-validation-container'>
-                  <img id='formUEmailValidationIcon' class='auth-form-item-validation-icon' src='src/view/static/img/icon_failed.svg' alt='Failed icon'>
+                <div id='formEmailValidation' class='auth-form-item-field-validation-container'>
+                  <img id='formEmailValidationIcon' class='auth-form-item-validation-icon' src='src/view/static/img/icon_failed.svg' alt='Failed icon'>
                 </div>
               </div>
 						</div>

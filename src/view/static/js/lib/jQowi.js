@@ -8,7 +8,7 @@ function selectorHandler(query) {
 
 function ajaxHandler(requestParams) {
   const xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = () => {
+  xhttp.onreadystatechange = function () {
     if (this.readyState == XMLHttpRequest.DONE) {
       if (this.status == 200) {
         requestParams.callback(this.response);

@@ -52,7 +52,6 @@ function validateUsername(event) {
     method: 'GET',
     url: '/username?username=' + username,
     callback: (response) => {
-      console.log(response);
       response = JSON.parse(response);
       const usernameValidationIcon = $$('#formUsernameValidationIcon');
       if (response.valid) {
@@ -70,7 +69,6 @@ function validateEmail(event) {
     method: 'GET',
     url: '/email?email=' + email,
     callback: (response) => {
-      console.log(response);
       response = JSON.parse(response);
       const emailValidationIcon = $$('#formEmailValidationIcon');
       if (response.valid) {
