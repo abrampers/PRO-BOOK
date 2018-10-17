@@ -95,9 +95,9 @@ class MarufDB {
     $query = $this->pdo->prepare("SELECT * FROM Users WHERE username = ?");
     $query->execute(array($username));
     if ($query->rowCount() > 0) {
-      return 1;
-    } else {
       return 0;
+    } else {
+      return 1;
     }
   }
 
@@ -105,9 +105,9 @@ class MarufDB {
     $query = $this->pdo->prepare("SELECT * FROM Users WHERE email = ?");
     $query->execute(array($email));
     if ($query->rowCount() > 0) {
-      return 1;
-    } else {
       return 0;
+    } else {
+      return 1;
     }
   }
 

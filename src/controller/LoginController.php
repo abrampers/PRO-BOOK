@@ -3,7 +3,7 @@ include_once "lib/request/Request.class.php";
 include_once "src/model/MarufDB.class.php";
 include_once "lib/jkwtoken/JKWToken.class.php";
 function loginController(Request $request) {
-  $db = new MarufDB('localhost', 'probook', 'root', '');
+  $db = new MarufDB('localhost', 'probook', 'root', 'Nicho01');
   $user_id = $db->checkLogin($request->username, $request->password);
   if($user_id != -1) {
     $JKWToken = new JKWToken();
