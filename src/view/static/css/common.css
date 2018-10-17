@@ -1,0 +1,80 @@
+body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0px;
+}
+
+h1 {
+	font-family: 'Bungee Shade', cursive;
+	font-size: 3.5rem;
+	margin-top: 14px;
+	margin-bottom: 14px;
+}
+
+h4 {
+	font-family: 'Chathura', sans-serif;
+	font-weight: 600;
+	font-size: 2.4rem;
+	margin: 0px;
+}
+
+p {
+	font-family: 'Chathura', sans-serif;
+	font-weight: 400;
+	font-size: 1.8rem;
+	margin: 0px;
+}
+
+input {
+	width: 100%;
+	height: 36px;
+	padding: 8px;
+	margin: 0px;
+	box-sizing: border-box;
+	border: 0;
+  outline: 0;
+  background: transparent;
+	border-bottom: 1.6px solid gray;
+	font-family: 'Roboto Mono', monospace;
+	font-weight: 200;
+	font-size: 1.1rem;
+	color: #505050;
+	-webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+input:hover {
+	border-bottom: 4px solid gray;
+}
+
+input:focus {
+	border-bottom: 4px solid black;
+	color: black;
+}
+
+textarea {
+	width: 100%;
+	padding: 8px 8px 12px 8px;
+	margin-top: 12px;
+	box-sizing: border-box;
+	border: 0;
+	outline: 0;
+	resize: none;
+  background: transparent;
+	border: 1.6px solid gray;
+	font-family: 'Roboto Mono', monospace;
+	font-weight: 200;
+	font-size: 1.1rem;
+	color: #505050;
+	-webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+textarea:hover {
+	border: 4px solid gray;
+}
+
+textarea:focus {
+	border: 4px solid black;
+	color: black;
+}
