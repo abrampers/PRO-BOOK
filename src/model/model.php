@@ -1,9 +1,10 @@
 <?php
-include('dbconnection.class.php');
-$db = new DBConnection('localhost', 'probook', 'root', 'Nicho01');
+include('MarufDB.class.php');
+echo bin2hex(openssl_random_pseudo_bytes(16));
+$db = new MarufDB('localhost', 'probook', 'root', 'Nicho01');
 // $login =
 // $db->getAllUsers();
-if ($db->check_login("cebong", 'bowobangsat') == 1) {
+if ($db->checkLogin("\xbf\x27 OR 1=1 /* ", 'bowobangsat') == 1) {
     echo 'memek';
 } else {
     echo 'asu';
