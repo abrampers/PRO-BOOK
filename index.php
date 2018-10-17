@@ -5,6 +5,7 @@ include_once 'lib/template_engine/Template.class.php';
 include_once 'src/controller/middleware/TestMiddleware.middleware.php';
 include_once 'src/controller/middleware/AuthMiddleware.middleware.php';
 include_once 'src/controller/LoginController.php';
+include_once 'src/controller/api.php';
 $router = new Router(new Request);
 
 $router->get('/', function($request) {
@@ -41,5 +42,5 @@ $router->post('/login', function($request) {
 
 // REST API
 $router->get('/username', function($request) {
-  return array('valid' => validateUsername($request->username));
+  return json_encode(array('valid' => validateUsername($request->username)));
 });
