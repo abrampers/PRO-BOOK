@@ -20,14 +20,14 @@ function render_template() {
         <div class='auth-title-container'>
           <h1 class='auth-title'>LOGIN</h1>
         </div>
-        <form action='' method='post' id='loginForm'>
+        <form id='loginForm' action='' method='post'>
 
           <div class='auth-form-item'>
             <div class='auth-form-item-label-container'>
               <h4>Username</h4>
             </div>
             <div class='auth-form-item-field-container'>
-              <input type='text' name='username' required autofocus>
+              <input id='formUsernameField' type='text' name='username' autofocus>
             </div>
           </div>
 
@@ -36,7 +36,7 @@ function render_template() {
               <h4>Password</h4>
             </div>
             <div class='auth-form-item-field-container'>
-              <input type='password' name='password' required>
+              <input id='formPasswordField' type='password' name='password'>
             </div>
           </div>
 
@@ -47,7 +47,7 @@ function render_template() {
           </a>
         </div>
         <div class='auth-submit-container'>
-          <button type='submit' form='loginForm'>LOGIN</button>
+          <button id='formSubmitButton' type='submit' form='loginForm'>LOGIN</button>
         </div>
       </div>
 		</div>

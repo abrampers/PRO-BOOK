@@ -1,9 +1,19 @@
 import $$ from './lib/jQowi.js'
 
-let count = 0;
-setInterval(() => {
-  $$('h1')[0].innerHTML = 'kontol' + count;
-  count += 1;
-}, 200);
+function validateForm() {
+  let usernameField = $$('#formUsernameField');
+  let passwordField = $$('#formPasswordField');
 
-$$.ajax('huyuuu');
+  if (usernameField.value.length == 0) {
+    alert('huyu username');
+    return false;
+  } else if (passwordField.value.length == 0) {
+    alert('huyu password');
+    return false;
+  } else {
+    return true;
+  }
+}
+
+let loginForm = $$('#loginForm');
+loginForm.onsubmit = validateForm;

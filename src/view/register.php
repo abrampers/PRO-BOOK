@@ -8,9 +8,10 @@ function render_template() {
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/auth.css'>
   <link rel='stylesheet' href='src/view/static/css/register.css'>
-  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Chathura" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <script type='module' src='src/view/static/js/register.js'></script>
+  <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <title>Register</title>
 </head>
 <body>
@@ -27,7 +28,7 @@ function render_template() {
 								<h4>Name</h4>
 							</div>
 							<div class='auth-form-item-field-container'>
-								<input type='text' name='name' required autofocus>
+								<input id='formNameField' type='text' name='name' autofocus>
 							</div>
 						</div>
 
@@ -36,7 +37,7 @@ function render_template() {
 								<h4>Email</h4>
 							</div>
 							<div class='auth-form-item-field-container'>
-								<input type='email' name='email' required>
+								<input id='formEmailField' type='text' name='email'>
 							</div>
 						</div>
 
@@ -45,7 +46,7 @@ function render_template() {
 								<h4>Username</h4>
 							</div>
 							<div class='auth-form-item-field-container'>
-								<input type='text' name='username' required>
+								<input id='formUsernameField' type='text' name='username'>
 							</div>
 						</div>
 
@@ -54,7 +55,7 @@ function render_template() {
 								<h4>Password</h4>
 							</div>
 							<div class='auth-form-item-field-container'>
-								<input type='password' name='password' required>
+								<input id='formPasswordField' type='password' name='password'>
 							</div>
 						</div>
 
@@ -63,7 +64,7 @@ function render_template() {
 								<h4>Confirm Password</h4>
 							</div>
 							<div class='auth-form-item-field-container'>
-								<input type='password' name='confirmPassword' required>
+								<input id='formConfirmPasswordField' type='password' name='confirmPassword'>
 							</div>
 						</div>
 
@@ -72,7 +73,7 @@ function render_template() {
 								<h4>Address</h4>
 							</div>
 							<div class='auth-form-item-field-container'>
-								<textarea form='registerForm'></textarea>
+								<textarea id='formAddressField' name='address' form='registerForm'></textarea>
 							</div>
 						</div>
 
@@ -81,7 +82,7 @@ function render_template() {
 								<h4>Phone Number</h4>
 							</div>
 							<div class='auth-form-item-field-container'>
-								<input type='text' name='phoneNumber' required>
+								<input id='formPhoneNumberField' type='text' name='phoneNumber'>
 							</div>
 						</div>
 

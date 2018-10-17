@@ -1,18 +1,16 @@
-let selector_handler = (query) => {
+let selectorHandler = (query) => {
   if (query.startsWith('#')) {
-    return document.getElementById(query);
-  } else if (query.startsWith('.')) {
-    return document.getElementsByClassName(query);
+    return document.querySelector(query);
   } else {
-    return document.getElementsByTagName(query);
+    return document.querySelectorAll(query);
   }
 };
 
-let ajax_handler = (request) => {
+let ajaxHandler = (request) => {
   console.log(request);
 };
 
-let $$ = selector_handler;
-$$.ajax = ajax_handler;
+let $$ = selectorHandler;
+$$.ajax = ajaxHandler;
 
 export default $$;
