@@ -42,5 +42,5 @@ $router->post('/login', function($request) {
 
 // REST API
 $router->get('/username', function($request) {
-  return json_encode(array('valid' => validateUsername($request->username)));
+  return json_encode(validateUsername($request->username));
 });
