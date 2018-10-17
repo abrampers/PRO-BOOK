@@ -29,3 +29,7 @@ $router->get('/loginh', function($request) {
 $router->post('/data', function($request) {
   return json_encode($request->getBody());
 });
+
+$router->post('/testinglogin', function($request) {
+
+});
