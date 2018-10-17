@@ -1,8 +1,8 @@
 import $$ from './lib/jQowi.js'
 
-function isEmail(email) {
+function isEmail(value) {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
+  return re.test(String(value).toLowerCase());
 }
 
 function isNum(value) {
@@ -55,7 +55,7 @@ function validateUsername(event) {
       response = JSON.parse(response);
       const usernameValidationIcon = $$('#formUsernameValidationIcon');
       usernameValidationIcon.style.opacity = 1;
-      if (response.valid) {
+      if (response.valid && username.length > 0) {
         usernameValidationIcon.src = 'src/view/static/img/icon_success.svg'
       } else {
         usernameValidationIcon.src = 'src/view/static/img/icon_failed.svg'
@@ -73,7 +73,7 @@ function validateEmail(event) {
       response = JSON.parse(response);
       const emailValidationIcon = $$('#formEmailValidationIcon');
       emailValidationIcon.style.opacity = 1;
-      if (response.valid) {
+      if (response.valid && isEmail(email)) {
         emailValidationIcon.src = 'src/view/static/img/icon_success.svg'
       } else {
         emailValidationIcon.src = 'src/view/static/img/icon_failed.svg'
