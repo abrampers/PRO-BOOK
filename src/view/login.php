@@ -1,5 +1,6 @@
 <?php
 function renderLoginView(string $apakek) {
+    http_response_code(202);
     return <<<HTML
     <!DOCTYPE html>
     <html>
