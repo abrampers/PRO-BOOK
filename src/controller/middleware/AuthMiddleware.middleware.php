@@ -5,6 +5,5 @@ include_once "model/MarufDB.class.php";
 class AuthMiddleware implements MiddlewareInterface {
   public function run(Closure $callback, Request $request) {
 
-    if()
   }
 }

@@ -3,7 +3,9 @@ include_once 'lib/request/Request.class.php';
 include_once 'lib/router/Router.class.php';
 include_once 'lib/template_engine/Template.class.php';
 include_once 'src/controller/middleware/TestMiddleware.middleware.php';
+include_once 'src/controller/LoginController.php';
 $router = new Router(new Request);
+$db = new MarufDB();
 
 $router->get('/', function($request) {
   return <<<HTML
@@ -26,10 +28,4 @@ $router->get('/loginh', function($request) {
   exit();
 });
 
-$router->post('/data', function($request) {
-  return json_encode($request->getBody());
-});
-
-$router->post('/testinglogin', function($request) {
-
-});
+$router->post('/login', loginController($request));
