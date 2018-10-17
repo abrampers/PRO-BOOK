@@ -1,6 +1,7 @@
 <?php
 include('MarufDB.class.php');
 echo bin2hex(openssl_random_pseudo_bytes(16));
+echo strtotime(date("Y-m-d"));
 $db = new MarufDB('localhost', 'probook', 'root', 'Nicho01');
 // $login =
 // $db->getAllUsers();

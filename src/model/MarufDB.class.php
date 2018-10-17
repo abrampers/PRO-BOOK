@@ -24,12 +24,23 @@ class MarufDB {
   }
 
   public function getUserId($token) {
-    $query = $this->pdo->prepare("SELECT * FROM ActiveSessions WHERE token = ?");
+    $query = $this->pdo->prepare("SELECT * FROM ActiveTokens WHERE token = ?");
     $query->execute(array($token));
     if ($query->rowCount() < 1) {
       return -1;
     } else {
       return $query->fetch()['id'];
+    }
+  }
+
+  public function getUsername($token) {
+    $user_id = $this->getUserId($token);
+    if ($user_id == -1) {
+      return "";
+    } else {
+      $query = $this->pdo->prepare("SELECT name FROM Users WHERE id = ?");
+      $query->execute($array($user_id));
+      return $query->fetch()['name'];
     }
   }
 
@@ -53,19 +64,50 @@ class MarufDB {
     return $query->fetchAll();
   }
 
-  public function addSession($user_id, $token) {
-    $query = $this->pdo->prepare("INSERT INTO ActiveSessions (user_id, token, login_date) VALUES (?, ?, now())");
+  public function addToken($user_id, $token) {
+    $query = $this->pdo->prepare("INSERT INTO ActiveTokens (user_id, token, login_date) VALUES (?, ?, now())");
     $query->execute(array($user_id, $token));
     return 1;
   }
 
-  public function checkSession($token) {
-    $query = $this->pdo->prepare("SELECT login_date FROM ActiveSessions WHERE token = ?");
+  public function checkToken($token) {
+    $query = $this->pdo->prepare("SELECT login_date FROM ActiveTokens WHERE token = ?");
     $query->execute(array($token));
     if ($query->rowCount() > 0) {
-      return 1;
+      $curDate = date("Y-m-d");
+      if (strtotime($curDate) - strtotime($query->fetch()['login_date']) < (24*60*60)) {
+        return 1;
+      } else {
+        return $this-> deleteToken($token);
+      }
     } else {
       return 0;
+    }
+  }
+
+  public function deleteToken($token) {
+    $query = $this->pdo->prepare("DELETE FROM ActiveTokens WHERE token = ?");
+    $query->execute(array($token));
+    return 0;
+  }
+
+  public function validateUsername($username) {
+    $query = $this->pdo->prepare("SELECT * FROM Users WHERE username = ?");
+    $query->execute(array($username));
+    if ($query->rowCount() > 0) {
+      return 0;
+    } else {
+      return 1;
+    }
+  }
+
+  public function validateEmail($email) {
+    $query = $this->pdo->prepare("SELECT * FROM Users WHERE email = ?");
+    $query->execute(array($email));
+    if ($query->rowCount() > 0) {
+      return 0;
+    } else {
+      return 1;
     }
   }
 

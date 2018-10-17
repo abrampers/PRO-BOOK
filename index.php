@@ -3,6 +3,7 @@ include_once 'lib/request/Request.class.php';
 include_once 'lib/router/Router.class.php';
 include_once 'lib/template_engine/Template.class.php';
 include_once 'src/controller/middleware/TestMiddleware.middleware.php';
+include_once 'src/controller/middleware/AuthMiddleware.middleware.php';
 include_once 'src/controller/LoginController.php';
 $router = new Router(new Request);
 
@@ -26,6 +27,13 @@ $router->get('/loginh', function($request) {
   header('Location: http://localhost:5000/login');
   exit();
 });
+
+$router->get('/loginewe', function($request) {
+  // header('Location: http://localhost:5000/login');
+  print_r($_COOKIE);
+},
+new AuthMiddleware
+);
 
 $router->post('/login', function($request) {
   return loginController($request);
