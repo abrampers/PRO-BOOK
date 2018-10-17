@@ -7,8 +7,9 @@ function loginController(Request $request) {
   $user_id = $db->checkLogin($request->username, $request->password);
   if($user_id != -1) {
     $JKWToken = new JKWToken();
-    if ($db->addSession($user_id. $JKWToken) == 1) {
-      setcookie("PHPSESSID", $JKWToken->generateJKWToken(), time() + 300,'/');
+    $token = $JKWToken->generateJKWToken();
+    if ($db->addSession($user_id, $token) == 1) {
+      setcookie("PHPSESSID", $token, time() + 300,'/');
       return '<h1>huyuhuyuhuyuhuyu</h1>';
     } else {
       return '<h1>Failed</h1>';

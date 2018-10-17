@@ -30,3 +30,8 @@ $router->get('/loginh', function($request) {
 $router->post('/login', function($request) {
   return loginController($request);
 });
+
+// REST API
+$router->get('/username', function($request) {
+  return array('valid' => validateUsername($request));
+});
