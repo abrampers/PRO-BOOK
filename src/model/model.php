@@ -1,10 +1,10 @@
 <?php
 include('MarufDB.class.php');
-echo bin2hex(openssl_random_pseudo_bytes(4));
+echo bin2hex(openssl_random_pseudo_bytes(16));
 $db = new MarufDB('localhost', 'probook', 'root', 'Nicho01');
 // $login =
 // $db->getAllUsers();
-if ($db->check_login("\xbf\x27 OR 1=1 /* ", 'bowobangsat') == 1) {
+if ($db->checkLogin("\xbf\x27 OR 1=1 /* ", 'bowobangsat') == 1) {
     echo 'memek';
 } else {
     echo 'asu';
