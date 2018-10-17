@@ -2,6 +2,7 @@
 include_once "lib/request/Request.class.php";
 include_once "src/model/MarufDB.class.php";
 function loginController(Request $request) {
+  $db = new MarufDB("root", "");
   if($db->checkLogin($request->username, $request->password)) {
     // cookie
     return '<h1>huyuhuyuhuyuhuyu</h1>';

@@ -28,7 +28,7 @@ HTML
 					<div class='auth-title-container'>
 						<h1 class='auth-title'>LOGIN</h1>
 					</div>
-					<form action='/testinglogin' method='post' id='loginForm'>
+					<form action='/login' method='post' id='loginForm'>
 
 						<div class='auth-form-item'>
 							<div class='auth-form-item-label-container'>
