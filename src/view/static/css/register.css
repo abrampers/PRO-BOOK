@@ -1,5 +1,5 @@
 .auth-pane-container {
-	width: 580px;
+	width: 560px;
 	height: 700px;
 }
 
@@ -9,23 +9,33 @@
 }
 
 .auth-title-container {
-	margin-top: 24px 0px 10px 0px;
+	margin-top: 20px 0px 10px 0px;
 }
 
 .auth-alt-container {
 	width: 80%;
+	margin: 10px;
 }
 
 .auth-submit-container {
 	margin: 10px 0px 24px 0;
 }
 
+form {
+	width: 90%;
+}
+
 button {
 	width: 120px;
 }
 
-h1 {
-	font-size: 3.3rem;
+input {
+	font-size: 0.9rem;
+}
+
+textarea {
+	height: 65px;
+	font-size: 0.9rem;
 }
 
 h4 {
