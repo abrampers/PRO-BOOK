@@ -43,6 +43,12 @@ class MarufDB {
     return $query->fetch()['id'];
   }
 
+  public function addProfile($name, $username, $email, $password, $address, $phonenumber) {
+    $query = $this->pdo->prepare("INSERT INTO Users (name, username, email, password, address, phonenumber) VALUES (?, ?, ?, ?, ?, ?)");
+    $query->execute(array($name, $username, $email, md5($password), $address, $phonenumber));
+    return 1;
+  }
+
   public function showProfile($user_id) {
     $query = $this->pdo->prepare("SELECT * FROM Users WHERE id = ?");
     $query->execute(array($user_id));
