@@ -5,7 +5,7 @@ include_once 'lib/template_engine/Template.class.php';
 include_once 'src/controller/middleware/TestMiddleware.middleware.php';
 include_once 'src/controller/LoginController.php';
 $router = new Router(new Request);
-$db = new MarufDB('localhost', 'probook', 'root', '');
+// $db = new MarufDB('localhost', 'probook', 'root', 'Nicho01');
 
 $router->get('/', function($request) {
   return <<<HTML
