@@ -41,7 +41,7 @@ function render_template() {
                   <input id='formUsernameField' type='text' name='username'>
                 </div>
                 <div id='formUsernameValidation' class='auth-form-item-field-validation-container'>
-                  <img id='formUsernameValidationIcon' class='auth-form-item-validation-icon' src='src/view/static/img/icon_failed.svg' alt='Failed icon'>
+                  <img id='formUsernameValidationIcon' class='auth-form-item-validation-icon' src='src/view/static/img/icon_failed.svg' alt='Validation icon'>
                 </div>
               </div>
             </div>
@@ -55,7 +55,7 @@ function render_template() {
                   <input id='formEmailField' type='text' name='email'>
                 </div>
                 <div id='formEmailValidation' class='auth-form-item-field-validation-container'>
-                  <img id='formEmailValidationIcon' class='auth-form-item-validation-icon' src='src/view/static/img/icon_failed.svg' alt='Failed icon'>
+                  <img id='formEmailValidationIcon' class='auth-form-item-validation-icon' src='src/view/static/img/icon_failed.svg' alt='Validation icon'>
                 </div>
               </div>
 						</div>

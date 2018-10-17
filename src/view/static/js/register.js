@@ -54,6 +54,7 @@ function validateUsername(event) {
     callback: (response) => {
       response = JSON.parse(response);
       const usernameValidationIcon = $$('#formUsernameValidationIcon');
+      usernameValidationIcon.style.opacity = 1;
       if (response.valid) {
         usernameValidationIcon.src = 'src/view/static/img/icon_success.svg'
       } else {
@@ -71,6 +72,7 @@ function validateEmail(event) {
     callback: (response) => {
       response = JSON.parse(response);
       const emailValidationIcon = $$('#formEmailValidationIcon');
+      emailValidationIcon.style.opacity = 1;
       if (response.valid) {
         emailValidationIcon.src = 'src/view/static/img/icon_success.svg'
       } else {
