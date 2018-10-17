@@ -4,7 +4,9 @@ echo bin2hex(openssl_random_pseudo_bytes(16));
 $db = new MarufDB('localhost', 'probook', 'root', 'Nicho01');
 // $login =
 // $db->getAllUsers();
-if ($db->checkLogin("\xbf\x27 OR 1=1 /* ", 'bowobangsat') == 1) {
+// $result = $db->addProfile('Erick Thohir', 'sayacebong', 'asu@gmail.com', 'bowoanjing', 'san siro', '123456789');
+echo $result;
+if ($db->checkLogin("sayacebong", 'bowoanjing') == 1) {
     echo 'memek';
 } else {
     echo 'asu';
