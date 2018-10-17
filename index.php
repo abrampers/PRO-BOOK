@@ -1,8 +1,8 @@
 <?php
 include_once 'lib/request/Request.php';
 include_once 'lib/router/Router.php';
+include_once 'lib/template_engine/Template.php';
 include_once 'src/controller/middleware/TestMiddleware.php';
-include_once 'src/view/login.php';
 $router = new Router(new Request);
 
 $router->get('/', function($request) {
@@ -12,7 +12,13 @@ HTML;
 });
 
 $router->get('/login', function($request) {
-  return renderLoginView("huyuuu");
+  $template = new Template('src/view/login.php');
+  return $template->render();
+});
+
+$router->get('/register', function($request) {
+  $template = new Template('src/view/register.php');
+  return $template->render();
 });
 
 $router->get('/loginh', function($request) {
@@ -21,6 +27,5 @@ $router->get('/loginh', function($request) {
 });
 
 $router->post('/data', function($request) {
-  print_r($_POST);
   return json_encode($request->getBody());
 });
