@@ -19,7 +19,7 @@ function render_template() {
 					<div class='auth-title-container'>
 						<h1 class='auth-title'>LOGIN</h1>
 					</div>
-					<form action='' method='post' id='loginForm'>
+					<form action='/testinglogin' method='post' id='loginForm'>
 
 						<div class='auth-form-item'>
 							<div class='auth-form-item-label-container'>
