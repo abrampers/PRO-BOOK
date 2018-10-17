@@ -7,8 +7,8 @@ class Router {
   );
   private $routes;
 
-  function __construct(RequestInterface $request) {
-    $this->request = $request;
+  function __construct(RequestInterface $req) {
+    $this->request = $req;
   }
 
   function get(string $route, Closure $callback, MiddlewareInterface $middleware = null) {
@@ -25,7 +25,7 @@ class Router {
   }
 
   function post(string $route, Closure $callback, MiddlewareInterface $middleware = null) {
-      $method = 'POST';
+    $method = 'POST';
       if(!in_array(strtoupper($method), $this->supportedHttpMethods)) {
         $this->invalidMethodHandler();
         return;
