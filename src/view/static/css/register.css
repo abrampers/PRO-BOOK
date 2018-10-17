@@ -21,6 +21,23 @@
 	margin: 10px 0px 24px 0;
 }
 
+.auth-form-item-field-text-container {
+	flex: 9 9 90%;
+  display: flex;
+	justify-content: flex-start;
+}
+
+.auth-form-item-field-validation-container {
+	flex: 1 1 10%;
+  display: flex;
+	justify-content: flex-start;
+}
+
+.auth-form-item-validation-icon {
+  height: 24px;
+  padding: 7px 0px 0px 6px;
+}
+
 form {
 	width: 90%;
 }

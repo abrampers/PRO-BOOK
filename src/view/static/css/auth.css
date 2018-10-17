@@ -24,7 +24,7 @@
 	height: 84%;
 	box-sizing: border-box;
 	background-color: #ededed;
-	background-image: url('../img/auth_bg.jpg');
+	background-image: url('../img/bg_auth.jpg');
 	background-blend-mode: screen;
 	background-size: 100% 100%;
 	border-radius: 16px;
@@ -88,7 +88,7 @@ button {
 	width: 94px;
 	height: 50px;
 	box-sizing: border-box;
-	border: 2.4px solid orangered;
+	border: 3px solid orangered;
 	border-radius: 4px;
 	background-color: white;
 	outline: none;

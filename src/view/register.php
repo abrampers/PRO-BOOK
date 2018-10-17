@@ -34,20 +34,30 @@ function render_template() {
 
 						<div class='auth-form-item'>
 							<div class='auth-form-item-label-container'>
-								<h4>Email</h4>
-							</div>
-							<div class='auth-form-item-field-container'>
-								<input id='formEmailField' type='text' name='email'>
-							</div>
-						</div>
-
-						<div class='auth-form-item'>
-							<div class='auth-form-item-label-container'>
 								<h4>Username</h4>
 							</div>
 							<div class='auth-form-item-field-container'>
-								<input id='formUsernameField' type='text' name='username'>
+                <div class='auth-form-item-field-text-container'>
+                  <input id='formUsernameField' type='text' name='username'>
+                </div>
+                <div id='formUsernameValidation' class='auth-form-item-field-validation-container'>
+                  <img id='formUsernameValidationIcon' class='auth-form-item-validation-icon' src='src/view/static/img/icon_failed.svg' alt='Failed icon'>
+                </div>
+              </div>
+            </div>
+
+            <div class='auth-form-item'>
+							<div class='auth-form-item-label-container'>
+								<h4>Email</h4>
 							</div>
+              <div class='auth-form-item-field-container'>
+                <div class='auth-form-item-field-text-container'>
+                  <input id='formEmailField' type='text' name='email'>
+                </div>
+                <div id='formUEmailValidation' class='auth-form-item-field-validation-container'>
+                  <img id='formUEmailValidationIcon' class='auth-form-item-validation-icon' src='src/view/static/img/icon_failed.svg' alt='Failed icon'>
+                </div>
+              </div>
 						</div>
 
 						<div class='auth-form-item'>
