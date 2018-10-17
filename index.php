@@ -41,5 +41,5 @@ $router->post('/login', function($request) {
 
 // REST API
 $router->get('/username', function($request) {
-  return array('valid' => validateUsername($request));
+  return array('valid' => validateUsername($request->username));
 });
