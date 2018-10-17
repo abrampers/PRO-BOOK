@@ -1,5 +1,5 @@
 <?php
-function render_template() {
+function render_template(bool $error = FALSE) {
   return <<<HTML
 
 <!DOCTYPE html>
@@ -14,13 +14,22 @@ function render_template() {
   <title>Login</title>
 </head>
 <body>
+HTML
+.
+  ($error ?
+    <<<HTML
+    <h1>SALAH JING PASSWORDLU</h1>
+HTML
+  : '')
+.
+  <<<HTML
 	<div class='auth-page-container'>
 		<div class='auth-pane-container'>
       <div class='auth-pane-content'>
         <div class='auth-title-container'>
           <h1 class='auth-title'>LOGIN</h1>
         </div>
-        <form id='loginForm' action='' method='post'>
+        <form id='loginForm' action='/login' method='post'>
 
           <div class='auth-form-item'>
             <div class='auth-form-item-label-container'>
