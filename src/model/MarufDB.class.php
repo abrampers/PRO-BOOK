@@ -6,9 +6,9 @@ class MarufDB {
   private $dbPassword;
   private $pdo;
 
-  public function __construct($dbUser, $dbPassword) {
-    $this->host = 'localhost';
-    $this->dbName = 'probook';
+  public function __construct($host, $dbName, $dbUser, $dbPassword) {
+    $this->host = $host;
+    $this->dbName = $dbName;
     $this->dbUser = $dbUser;
     $this->dbPassword = $dbPassword;
     $this->Connect();
@@ -23,16 +23,50 @@ class MarufDB {
     }
   }
 
+  public function getUserId($token) {
+    $query = $this->pdo->prepare("SELECT * FROM ActiveSessions WHERE token = ?");
+    $query->execute(array($token));
+    if ($query->rowCount() < 1) {
+      return -1;
+    } else {
+      return $query->fetch()['id'];
+    }
+  }
+
   public function checkLogin($username, $password) {
-    $query = $this->pdo->prepare("SELECT * FROM Users WHERE username = ? AND password = ?");
-    $query->execute(array($username, md5($password)));
-    return $query->rowCount();
+    try {
+      $query = $this->pdo->prepare("SELECT * FROM Users WHERE username = ? AND password = ?");
+      $query->execute(array($username, md5($password)));
+      if ($query->rowCount() > 0) {
+        return $query->fetch()['id'];
+      } else {
+        return -1;
+      }
+    } catch (PDOException $e) {
+      return -1;
+    }
   }
 
   public function searchBook($title) {
     $query = $this->pdo->prepare("SELECT * FROM Books WHERE title = ?");
     $query->execute(array("%{$title}%"));
     return $query->fetchAll();
+  }
+
+  public function addSession($user_id, $token) {
+    $query = $this->pdo->prepare("INSERT INTO ActiveSessions (user_id, token, login_date) VALUES (?, ?, now())");
+    $query->execute(array($user_id, $token));
+    return 1;
+  }
+
+  public function checkSession($token) {
+    $query = $this->pdo->prepare("SELECT login_date FROM ActiveSessions WHERE token = ?");
+    $query->execute(array($token));
+    if ($query->rowCount() > 0) {
+      return 1;
+    } else {
+      return 0;
+    }
   }
 
   public function orderBook($book_id, $user_id, $amount, $order_date) {
