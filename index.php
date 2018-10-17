@@ -44,3 +44,7 @@ $router->post('/login', function($request) {
 $router->get('/username', function($request) {
   return json_encode(validateUsername($request->username));
 });
+
+$router->get('/email', function($request) {
+  return json_encode(validateEmail($request->email));
+});
