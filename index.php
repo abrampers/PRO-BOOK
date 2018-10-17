@@ -1,8 +1,8 @@
 <?php
-include_once 'lib/request/Request.php';
-include_once 'lib/router/Router.php';
-include_once 'lib/template_engine/Template.php';
-include_once 'src/controller/middleware/TestMiddleware.php';
+include_once 'lib/request/Request.class.php';
+include_once 'lib/router/Router.class.php';
+include_once 'lib/template_engine/Template.class.php';
+include_once 'src/controller/middleware/TestMiddleware.middleware.php';
 $router = new Router(new Request);
 
 $router->get('/', function($request) {
@@ -28,4 +28,8 @@ $router->get('/loginh', function($request) {
 
 $router->post('/data', function($request) {
   return json_encode($request->getBody());
+});
+
+$router->post('/testinglogin', function($request) {
+
 });
