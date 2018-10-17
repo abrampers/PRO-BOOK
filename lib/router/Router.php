@@ -5,24 +5,54 @@ class Router {
         "GET",
         "POST"
     );
+    private $routes;
 
     function __construct(RequestInterface $request) {
         $this->request = $request;
     }
 
-    function __call($name, $args) {
-        list($route, $method) = $args;
-        if(!in_array(strtoupper($name), $this->supportedHttpMethods)) {
+    function get(string $route, Closure $callback, MiddlewareInterface $middleware = null) {
+        $method = 'GET';
+        if(!in_array(strtoupper($method), $this->supportedHttpMethods)) {
+            $this->invalidMethodHandler();
+            return;
+        }
+
+        $this->routes[strtoupper($method)][$this->formatRoute($route)] = array(
+            'callback' => $callback,
+            'middleware' => $middleware
+        );
+    }
+
+    function post(string $route, Closure $callback, MiddlewareInterface $middleware = null) {
+        $method = 'POST';
+        if(!in_array(strtoupper($method), $this->supportedHttpMethods)) {
+            $this->invalidMethodHandler();
+            return;
+        }
+
+        $this->routes[strtoupper($method)][$this->formatRoute($route)] = array(
+            'callback' => $callback,
+            'middleware' => $middleware
+        );
+    }
+
+    function __call(string $method, $args) {
+        list($route, $callback, $middleware) = $args;
+        if(!in_array(strtoupper($method), $this->supportedHttpMethods)) {
             $this->invalidMethodHandler();
         }
-        $this->{strtolower($name)}[$this->formatRoute($route)] = $method;
+        $this->routes[strtoupper($method)][$this->formatRoute($route)] = array(
+            'callback' => $callback,
+            'middleware' => $middleware
+        );
     }
 
     /**
      * Removes trailing forward slashes from the right of the route.
      * @param route (string)
      */
-    private function formatRoute($route) {
+    private function formatRoute(string $route) {
         $result = rtrim($route, '/');
         if ($result === '') {
             return '/';
@@ -31,28 +61,77 @@ class Router {
     }
 
     private function invalidMethodHandler() {
-        header("{$this->request->serverProtocol} 405 Method Not Allowed");
+        // header("{$this->request->serverProtocol} 405 Method Not Allowed");
+        echo "405 Method Not Allowed";
     }
+
     private function defaultRequestHandler() {
-        header("{$this->request->serverProtocol} 404 Not Found");
+        // header("{$this->request->serverProtocol} 404 Not Found");
+        echo "404 Not Found";
+    }
+
+    private function matchRoute(string $uri, string $requestMethod) {
+        foreach($this->routes[$requestMethod] as $route => $v) {
+            if(strcmp($uri, $route) == 0) {
+                return $v;
+            }
+        }
+        echo "huyuuuuuuu";
+        return null;
+    }
+
+    private function importGetVariables() {
+        foreach($_GET as $key => $value) {
+            $this->request->{Router::toCamelCase($key)} = $value;
+        }
+    }
+
+    private function importPostVariable() {
+        foreach($_POST as $key => $value) {
+            $this->request->{Router::toCamelCase($key)} = $value;
+        }
+    }
+
+    private static function toCamelCase($string) {
+        $result = strtolower($string);
+
+        preg_match_all('/_[a-z]/', $result, $matches);
+        foreach($matches[0] as $match) {
+            $c = str_replace('_', '', strtoupper($match));
+            $result = str_replace($match, $c, $result);
+        }
+        return $result;
     }
 
     /**
      * Resolves a route
      */
-    function resolve() {
+    function route() {
+        $requestMethod = strtoupper($this->request->requestMethod);
+        list('callback' => $callback, 'middleware' => $middleware) = $this->matchRoute(parse_url($this->request->requestUri)['path'], $requestMethod);
 
-        $methodDictionary = $this->{strtolower($this->request->requestMethod)};
-        $formatedRoute = $this->formatRoute($this->request->requestUri);
-        $method = $methodDictionary[$formatedRoute];
-        if(is_null($method)) {
+        if ($requestMethod == 'GET') {
+            $this->importGetVariables();
+        } else if ($requestMethod == 'POST') { // POST
+            $this->importPostVariable();
+        } else {
+            $this->invalidMethodHandler();
+            return;
+        }
+
+        if (is_null($callback)) {
             $this->defaultRequestHandler();
             return;
         }
-        echo call_user_func_array($method, array($this->request));
+
+        if (!is_null($middleware)) {
+            echo $middleware->run($callback, $this->request);
+        } else {
+            echo $callback(array($request));
+        }
     }
 
     function __destruct() {
-        $this->resolve();
+        $this->route();
     }
 }
