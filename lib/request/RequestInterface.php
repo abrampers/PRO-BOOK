@@ -1,4 +1,4 @@
 <?php
 interface RequestInterface {
-    public function getBody();
+  public function getBody();
 }

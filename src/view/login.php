@@ -1,9 +1,12 @@
+<?php
+function render_template() {
+  return <<<HTML
+
 <!DOCTYPE html>
 <html>
 <head>
-		<link rel='stylesheet' href='static/css/common.css'>
-		<link rel='stylesheet' href='static/css/auth.css'>
-		<link rel='stylesheet' href='static/css/login.css'>
+		<link rel='stylesheet' href='src/view/static/css/common.css'>
+		<link rel='stylesheet' href='src/view/static/css/auth.css'>
 		<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Chathura" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
@@ -49,3 +52,6 @@
 	</div>
 </body>
 </html>
+
+HTML;
+}
