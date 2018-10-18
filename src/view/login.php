@@ -1,5 +1,5 @@
 <?php
-function render_template(string $serverName = null, int $serverPort = 5000, bool $error = FALSE) {
+function render_template(bool $error = FALSE) {
   if (is_null($serverName)) {
     $serverName = 'localhost';
   }

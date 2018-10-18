@@ -24,7 +24,7 @@ function render_template() {
 					<div class='auth-title-container'>
             <h1 class='auth-title'>REGISTER</h1>
 					</div>
-					<form action='' method='post' id='registerForm'>
+					<form action='/register' method='post' id='registerForm'>
 
 						<div class='auth-form-item'>
 							<div class='auth-form-item-label-container'>
