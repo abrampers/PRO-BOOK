@@ -23,6 +23,12 @@
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: orangered;
   color: white;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+
+.auth-input-validation-message-container.is-visible {
+  opacity: 1;
 }
 
 .auth-input-validation-message-container {

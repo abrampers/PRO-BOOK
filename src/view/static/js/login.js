@@ -29,19 +29,15 @@ $$('#formSubmitButtonInner').onmouseenter = () => {
   let invalidCredentialsMessageContainer = $$('#invalidCredentialsMessageContainer');
   if (!invalidCredentialsMessageContainer) userHoveredOut = true;
   if (userHoveredOut) {
-    if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.style.opacity = 0;
+    if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.classList.add('is-hidden');
     if ($$('#formSubmitButton').disabled) {
       $$('#inputValidationMessage').innerHTML = inputValidationMessage;
-      $$('#inputValidationMessageContainer').style.opacity = 1;
-    } else {
-      $$('#inputValidationMessage').innerHTML = '';
-      $$('#inputValidationMessageContainer').style.opacity = 0;
+      $$('#inputValidationMessageContainer').classList.add('is-visible');
     }
   }
 };
 
 $$('#formSubmitButtonInner').onmouseleave = () => {
-  $$('#inputValidationMessage').innerHTML = '';
-  $$('#inputValidationMessageContainer').style.opacity = 0;
+  $$('#inputValidationMessageContainer').classList.remove('is-visible');
   userHoveredOut = true;
 };
