@@ -7,7 +7,7 @@ class LoginController implements ControllerInterface {
       $JKWToken = new JKWToken();
       $token = $JKWToken->generateJKWToken();
       if ($db->addToken($user_id, $token) == 1) {
-        setcookie("token", $token, time() + (10 * 60), '/');
+        setcookie("token", $token, time() + (int)$_ENV['COOKIE_EXPIRED_TIME'], '/');
         return '<h1>huyuhuyuhuyuhuyu</h1>';
       } else {
         return '<h1>Failed</h1>';
