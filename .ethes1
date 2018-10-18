@@ -1,7 +1,0 @@
-#list of ethes variables
-DB_HOST=localhost
-DB_NAME=probook
-DB_USERNAME=root
-DB_PASSWORD=
-COOKIE_EXPIRED_TIME=600
-JKWTOKEN_BYTES_LENGTH=16
