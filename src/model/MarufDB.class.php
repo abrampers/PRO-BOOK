@@ -74,7 +74,15 @@ class MarufDB {
     $query = $this->pdo->prepare("SELECT login_timestamp FROM ActiveTokens WHERE token = ?");
     $query->execute(array($token));
     if ($query->rowCount() > 0) {
+<<<<<<< Updated upstream
       if (strtotime($curDate) - strtotime($query->fetch()['login_date']) < (3*60*60)) {
+||||||| merged common ancestors
+      $curDate = date("Y-m-d");
+      if (strtotime($curDate) - strtotime($query->fetch()['login_date']) < (24*60*60)) {
+=======
+      $curDate = date("Y-m-d");
+      if (strtotime($curDate) - strtotime($query->fetch()['login_date']) < (3*60*60)) {
+>>>>>>> Stashed changes
         return 1;
       } else {
         return $this-> deleteToken($token);
