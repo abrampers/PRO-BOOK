@@ -11,10 +11,15 @@ $router = new Router(new Request);
 
 $router->get('/', function($request) {
   return <<<HTML
-  <h1>Hello World</h1>
+  <h1>Main Page HUYU</h1>
 HTML;
 });
 
+/***************/
+/* ROUTE PATHS */
+/************* */
+
+/** GET */
 $router->get('/login', function($request) {
   $template = new Template('src/view/login.php');
   return $template->render();
@@ -25,23 +30,45 @@ $router->get('/register', function($request) {
   return $template->render();
 });
 
-$router->get('/loginh', function($request) {
-  header("Location: http://{$request->serverName}:{$request->serverPort}/login");
-  exit();
+$router->get('/browse', function($request) {
+  $template = new Template('src/view/register.php');
+  return $template->render();
 });
 
-$router->get('/loginewe', function($request) {
-  // header('Location: http://localhost:5000/login');
-  print_r($_COOKIE);
-},
-[new TokenValidationMiddleware, new AuthMiddleware]
-);
+$router->get('/history', function($request) {
+  $template = new Template('src/view/register.php');
+  return $template->render();
+});
 
+$router->get('/history/review', function($request) {
+  $template = new Template('src/view/register.php');
+  return $template->render();
+});
+
+$router->get('/profile', function($request) {
+  $template = new Template('src/view/register.php');
+  return $template->render();
+});
+
+$router->get('/profile/edit', function($request) {
+  $template = new Template('src/view/register.php');
+  return $template->render();
+});
+
+$router->get('/deletecookie', function($request) {
+  setcookie('token', '', time() - 3600);
+});
+
+/** POST */
 $router->post('/login', function($request) {
   return loginController($request);
 });
 
-// REST API
+/************/
+/* REST API */
+/************/
+
+/** GET */
 $router->get('/username', function($request) {
   print_r($request);
   return json_encode(validateUsername($request->username));
@@ -50,3 +77,9 @@ $router->get('/username', function($request) {
 $router->get('/email', function($request) {
   return json_encode(validateEmail($request->email));
 });
+
+$router->get('/search', function($request) {
+  return json_encode(validateEmail($request->email));
+});
+
+/** POST */
