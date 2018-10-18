@@ -15,7 +15,7 @@ class LoginController implements ControllerInterface {
       }
     } else {
       $template = new Template('src/view/login.php');
-      return $template->render($request->serverName, $request->serverPort, True);
+      return $template->render(True);
     }
   }
 }
