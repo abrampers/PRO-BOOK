@@ -1,55 +1,84 @@
 <?php
-include_once 'lib/request/Request.class.php';
-include_once 'lib/router/Router.class.php';
-include_once 'lib/template_engine/Template.class.php';
-include_once 'lib/dotethes/DotEthes.class.php';
-include_once 'src/controller/middleware/TestMiddleware.middleware.php';
-include_once 'src/controller/middleware/AuthMiddleware.middleware.php';
-include_once 'src/controller/middleware/TokenValidationMiddleware.middleware.php';
-include_once 'src/controller/LoginController.php';
-include_once 'src/controller/api.php';
+include_once 'src/autoloader.php';
+
 $router = new Router(new Request);
 $dotEthes = new DotEthes(__DIR__);
 $dotEthes->load();
 
+
+/***************/
+/* ROUTE PATHS */
+/************* */
+
+/** GET */
 $router->get('/', function($request) {
   return <<<HTML
-  <h1>Hello World</h1>
+  <h1>Main Page HUYU</h1>
 HTML;
-});
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/login', function($request) {
   $template = new Template('src/view/login.php');
   return $template->render();
-});
+}, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
 
 $router->get('/register', function($request) {
   $template = new Template('src/view/register.php');
   return $template->render();
+}, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
+
+$router->get('/browse', function($request) {
+  $template = new Template('src/view/huyu.php');
+  return $template->render();
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
+$router->get('/history', function($request) {
+  $template = new Template('src/view/huyu.php');
+  return $template->render();
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
+$router->get('/history/review', function($request) {
+  $template = new Template('src/view/huyu.php');
+  return $template->render();
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
+$router->get('/profile', function($request) {
+  $template = new Template('src/view/huyu.php');
+  return $template->render();
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
+$router->get('/profile/edit', function($request) {
+  $template = new Template('src/view/huyu.php');
+  return $template->render();
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
+$router->get('/deletecookie', function($request) {
+  $db = new MarufDB('localhost', 'probook', 'root', '');
+  $db->deleteToken($request->token);
+  setcookie('token', '', time() - 3600, '/');
 });
 
-$router->get('/loginh', function($request) {
-  header("Location: http://{$request->serverName}:{$request->serverPort}/login");
-  exit();
-});
-
-$router->get('/loginewe', function($request) {
-  // header('Location: http://localhost:5000/login');
-  print_r($_COOKIE);
-},
-[new TokenValidationMiddleware, new AuthMiddleware]
-);
-
+/** POST */
 $router->post('/login', function($request) {
-  return loginController($request);
+  return LoginController::control($request);
 });
 
-// REST API
+/************/
+/* REST API */
+/************/
+
+/** GET */
 $router->get('/username', function($request) {
   print_r($request);
   return json_encode(validateUsername($request->username));
 });
 
 $router->get('/email', function($request) {
-  return json_encode(validateEmail($request->email));
+  return json_encode(Api::validateEmail($request->email));
 });
+
+$router->get('/search', function($request) {
+  return json_encode(Api::validateEmail($request->email));
+});
+
+/** POST */

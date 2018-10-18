@@ -1,5 +1,4 @@
 <?php
-include('Loader.class.php');
 class DotEthes {
   protected $filePath;
   protected $loader;
