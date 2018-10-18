@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `ActiveTokens`;
 CREATE TABLE `ActiveTokens` (
   `user_id` int(11) DEFAULT NULL,
   `token` varchar(300) DEFAULT NULL,
-  `login_date` date DEFAULT NULL
+  `login_timestamp` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -35,7 +35,6 @@ CREATE TABLE `ActiveTokens` (
 
 LOCK TABLES `ActiveTokens` WRITE;
 /*!40000 ALTER TABLE `ActiveTokens` DISABLE KEYS */;
-INSERT INTO `ActiveTokens` VALUES (2,'e55126c44b5b912c87a6953e46edaa6d','2018-10-17');
 /*!40000 ALTER TABLE `ActiveTokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +77,7 @@ CREATE TABLE `Orders` (
   `is_review` tinyint(1) DEFAULT NULL,
   `book_id` int(11) DEFAULT NULL,
   `amount` int(11) DEFAULT NULL,
-  `order_date` date DEFAULT NULL,
+  `order_timestamp` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -157,4 +156,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-18 14:36:51
+-- Dump completed on 2018-10-18 18:12:57
