@@ -1,5 +1,5 @@
 .auth-pane-container {
-	width: 560px;
+	width: 570px;
 	height: 700px;
 }
 
@@ -36,6 +36,7 @@
 .auth-form-item-validation-icon {
   height: 24px;
   padding: 7px 0px 0px 6px;
+  opacity: 0;
 }
 
 form {
