@@ -1,7 +1,5 @@
 <?php
 function render_template(bool $error = FALSE) {
-  $registerLink = 'http://' . $_ENV['SERVER_NAME'] . ':' . $_ENV['SERVER_PORT'] . '/register';
-
   return <<<HTML
 
 <!DOCTYPE html>
@@ -61,7 +59,7 @@ HTML
 
         </form>
         <div class='auth-alt-container'>
-          <a href='$registerLink'>
+          <a href='/register'>
             <p>Don't have an account?</p>
           </a>
         </div>

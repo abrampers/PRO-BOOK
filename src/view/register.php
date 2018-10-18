@@ -103,7 +103,7 @@ function render_template() {
 
         </form>
         <div class='auth-alt-container'>
-          <a href='https://www.w3schools.com/html/'>
+          <a href='/login'>
             <p>Already have an account?</p>
           </a>
         </div>
