@@ -4,6 +4,7 @@ include_once 'lib/router/Router.class.php';
 include_once 'lib/template_engine/Template.class.php';
 include_once 'src/controller/middleware/TestMiddleware.middleware.php';
 include_once 'src/controller/middleware/AuthMiddleware.middleware.php';
+include_once 'src/controller/middleware/TokenValidationMiddleware.middleware.php';
 include_once 'src/controller/LoginController.php';
 include_once 'src/controller/api.php';
 $router = new Router(new Request);
@@ -25,7 +26,7 @@ $router->get('/register', function($request) {
 });
 
 $router->get('/loginh', function($request) {
-  header('Location: http://localhost:5000/login');
+  header("Location: http://{$request->serverName}:{$request->serverPort}/login");
   exit();
 });
 
@@ -33,7 +34,7 @@ $router->get('/loginewe', function($request) {
   // header('Location: http://localhost:5000/login');
   print_r($_COOKIE);
 },
-new AuthMiddleware
+[new TokenValidationMiddleware, new AuthMiddleware]
 );
 
 $router->post('/login', function($request) {
@@ -42,6 +43,7 @@ $router->post('/login', function($request) {
 
 // REST API
 $router->get('/username', function($request) {
+  print_r($request);
   return json_encode(validateUsername($request->username));
 });
 
