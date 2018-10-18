@@ -2,6 +2,8 @@
 include_once 'src/autoloader.php';
 
 $router = new Router(new Request);
+$dotEthes = new DotEthes(__DIR__);
+$dotEthes->load();
 
 
 /***************/

@@ -1,6 +1,6 @@
 <?php
 function loginController(Request $request) {
-  $db = new MarufDB('localhost', 'probook', 'root', '');
+  $db = new MarufDB($_ENV['DB_HOST'], $_ENV['DB_NAME'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
   $user_id = $db->checkLogin($request->username, $request->password);
   if($user_id != -1) {
     $JKWToken = new JKWToken();

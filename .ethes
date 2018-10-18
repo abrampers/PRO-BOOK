@@ -1,0 +1,6 @@
+#list of ethes variables
+DB_HOST=localhost
+DB_NAME=probook
+DB_USERNAME=root
+DB_PASSWORD=Nicho01
+COOKIE_EXPIRED_TIME=600
