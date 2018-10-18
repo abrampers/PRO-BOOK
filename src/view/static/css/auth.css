@@ -7,6 +7,24 @@
 	align-items: center;
 }
 
+.auth-input-validation-message-container {
+  position: fixed;
+  width: auto;
+  height: 36px;
+  padding: 0px 18px;
+  top: 75px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  display: flex;
+	justify-content: center;
+  align-items: center;
+  opacity: 0;
+  border-radius: 20px;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: orangered;
+  color: white;
+}
+
 .auth-pane-container {
 	width: 420px;
 	height: 510px;
@@ -74,6 +92,7 @@ form {
 }
 
 .auth-form-item-field-container {
+  padding-right: 10px;
 	flex: 7 7 70%;
   display: flex;
 	justify-content: flex-start;
@@ -86,7 +105,8 @@ h1 {
 
 button {
 	width: 94px;
-	height: 50px;
+  height: 50px;
+  padding: 0px;
 	box-sizing: border-box;
 	border: 3px solid orangered;
 	border-radius: 4px;
@@ -115,6 +135,18 @@ button:active {
   background-color: orangered;
 	color: white;
 	transform: scale(0.96);
+}
+
+button[disabled] {
+  border: 3px solid lightsalmon;
+  color: lightsalmon;
+}
+
+button:hover[disabled] {
+  border: 3px solid lightsalmon;
+  background-color: white;
+  color: lightsalmon;
+  transform: scale(1);
 }
 
 p {

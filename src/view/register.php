@@ -15,11 +15,14 @@ function render_template() {
   <title>Register</title>
 </head>
 <body>
+  <div id='inputValidationMessageContainer' class='auth-input-validation-message-container'>
+    <p id='inputValidationMessage'></p>
+  </div>
 	<div class='auth-page-container'>
 		<div class='auth-pane-container'>
 				<div class='auth-pane-content'>
 					<div class='auth-title-container'>
-						<h1 class='auth-title'>REGISTER</h1>
+            <h1 class='auth-title'>REGISTER</h1>
 					</div>
 					<form action='' method='post' id='registerForm'>
 
@@ -103,7 +106,11 @@ function render_template() {
 						</a>
 					</div>
 					<div class='auth-submit-container'>
-						<button type='submit' form='registerForm'>REGISTER</button>
+						<button id='formSubmitButton' type='submit' form='registerForm' disabled>
+              <div id='formSubmitButtonInner' class='auth-submit-inner'>
+                REGISTER
+              </div>
+            </button>
 					</div>
 				</div>
 		</div>
