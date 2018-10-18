@@ -11,7 +11,7 @@ class Router {
     $this->request = $req;
   }
 
-  function get(string $route, Closure $callback, MiddlewareInterface $middleware = null) {
+  function get(string $route, Closure $callback, $middlewares = null) {
     $method = 'GET';
     if(!in_array(strtoupper($method), $this->supportedHttpMethods)) {
       $this->invalidMethodHandler();
@@ -20,11 +20,11 @@ class Router {
 
     $this->routes[strtoupper($method)][$this->formatRoute($route)] = array(
       'callback' => $callback,
-      'middleware' => $middleware
+      'middlewares' => $middlewares
     );
   }
 
-  function post(string $route, Closure $callback, MiddlewareInterface $middleware = null) {
+  function post(string $route, Closure $callback, $middlewares = null) {
     $method = 'POST';
       if(!in_array(strtoupper($method), $this->supportedHttpMethods)) {
         $this->invalidMethodHandler();
@@ -33,18 +33,18 @@ class Router {
 
       $this->routes[strtoupper($method)][$this->formatRoute($route)] = array(
         'callback' => $callback,
-        'middleware' => $middleware
+        'middlewares' => $middlewares
       );
   }
 
   function __call(string $method, $args) {
-      list($route, $callback, $middleware) = $args;
+      list($route, $callback, $middlewares) = $args;
       if(!in_array(strtoupper($method), $this->supportedHttpMethods)) {
         $this->invalidMethodHandler();
       }
       $this->routes[strtoupper($method)][$this->formatRoute($route)] = array(
         'callback' => $callback,
-        'middleware' => $middleware
+        'middlewares' => $middlewares
       );
   }
 
@@ -116,18 +116,22 @@ class Router {
       return;
     }
 
-    list('callback' => $callback, 'middleware' => $middleware) = $this->matchRoute(parse_url($this->request->requestUri)['path'], $requestMethod);
+    list('callback' => $callback, 'middlewares' => $middlewares) = $this->matchRoute(parse_url($this->request->requestUri)['path'], $requestMethod);
 
     if (is_null($callback)) {
       $this->defaultRequestHandler();
       return;
     }
 
-    if (!is_null($middleware)) {
-      echo $middleware->run($callback, $this->request);
-    } else {
-      echo $callback($this->request);
+    if (!is_null($middlewares)) {
+      foreach($middlewares as $middleware) {
+        if (!$middleware->run($this->request)) {
+          exit();
+        }
+      }
     }
+
+    echo $callback($this->request);
   }
 
   function __destruct() {
