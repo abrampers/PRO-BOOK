@@ -60,7 +60,7 @@ $router->get('/deletecookie', function($request) {
 
 /** POST */
 $router->post('/login', function($request) {
-  return loginController($request);
+  return LoginController::control($request);
 });
 
 /************/
