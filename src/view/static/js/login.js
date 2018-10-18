@@ -1,19 +1,45 @@
-import $$ from './lib/jQowi.js'
+import $$ from './lib/jQowi.js';
 
-function validateForm() {
-  let usernameField = $$('#formUsernameField');
-  let passwordField = $$('#formPasswordField');
+const invalidUsernameMessage = 'Username cannot be empty';
+const invalidPasswordMessage = 'Password cannot be empty';
+
+let inputValidationMessage = invalidUsernameMessage;
+let userHoveredOut = false;
+
+function validateInput(_) {
+  const usernameField = $$('#formUsernameField');
+  const passwordField = $$('#formPasswordField');
+  const submitButton = $$('#formSubmitButton');
 
   if (usernameField.value.length == 0) {
-    alert('huyu username');
-    return false;
+    submitButton.disabled = true;
+    inputValidationMessage = invalidUsernameMessage;
   } else if (passwordField.value.length == 0) {
-    alert('huyu password');
-    return false;
+    submitButton.disabled = true;
+    inputValidationMessage = invalidPasswordMessage;
   } else {
-    return true;
+    submitButton.disabled = false;
   }
 }
 
-let loginForm = $$('#loginForm');
-loginForm.onsubmit = validateForm;
+$$('#formUsernameField').oninput = validateInput;
+$$('#formPasswordField').oninput = validateInput;
+
+$$('#formSubmitButtonInner').onmouseenter = () => {
+  if (userHoveredOut) {
+    $$('#invalidCredentialsMessageContainer').style.opacity = 0;
+    if ($$('#formSubmitButton').disabled) {
+      $$('#inputValidationMessage').innerHTML = inputValidationMessage;
+      $$('#inputValidationMessageContainer').style.opacity = 1;
+    } else {
+      $$('#inputValidationMessage').innerHTML = '';
+      $$('#inputValidationMessageContainer').style.opacity = 0;
+    }
+  }
+};
+
+$$('#formSubmitButtonInner').onmouseleave = () => {
+  $$('#inputValidationMessage').innerHTML = '';
+  $$('#inputValidationMessageContainer').style.opacity = 0;
+  userHoveredOut = true;
+};

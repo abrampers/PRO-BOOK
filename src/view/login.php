@@ -7,6 +7,7 @@ function render_template(bool $error = FALSE) {
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/auth.css'>
+  <link rel='stylesheet' href='src/view/static/css/login.css'>
   <script type='module' src='src/view/static/js/login.js'></script>
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
@@ -18,11 +19,16 @@ HTML
 .
   ($error ?
     <<<HTML
-    <h1>SALAH JING PASSWORDLU</h1>
+    <div id='invalidCredentialsMessageContainer' class='auth-invalid-credentials-message-container'>
+      <p id='invalidCredentialsMessage'>Incorrect username or password</p>
+    </div>
 HTML
   : '')
 .
   <<<HTML
+  <div id='inputValidationMessageContainer' class='auth-input-validation-message-container'>
+    <p id='inputValidationMessage'></p>
+  </div>
 	<div class='auth-page-container'>
 		<div class='auth-pane-container'>
       <div class='auth-pane-content'>
@@ -56,7 +62,11 @@ HTML
           </a>
         </div>
         <div class='auth-submit-container'>
-          <button id='formSubmitButton' type='submit' form='loginForm'>LOGIN</button>
+          <button id='formSubmitButton' type='submit' form='loginForm' disabled>
+            <div id='formSubmitButtonInner' class='auth-submit-inner'>
+              LOGIN
+            </div>
+          </button>
         </div>
       </div>
 		</div>

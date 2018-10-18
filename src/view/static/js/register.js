@@ -1,4 +1,4 @@
-import $$ from './lib/jQowi.js'
+import $$ from './lib/jQowi.js';
 
 const invalidNameMessage = 'Name must be a valid person name with less than 20 characters';
 const invalidUsernameMessage = 'Username must contains alphanumeric or underscore';

@@ -1,0 +1,16 @@
+.auth-invalid-credentials-message-container {
+  position: fixed;
+  width: fit-content;
+  height: 36px;
+  padding: 0px 18px;
+  top: 75px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  display: flex;
+	justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: orangered;
+  color: white;
+}

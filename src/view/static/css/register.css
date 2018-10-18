@@ -21,15 +21,6 @@
 	margin: 10px 0px 24px 0;
 }
 
-.auth-submit-inner {
-  height: 100%;
-  width: 100%;
-  transform: scale(1.08);
-  display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .auth-form-item-field-text-container {
 	flex: 9 9 90%;
   display: flex;
