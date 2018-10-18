@@ -1,5 +1,5 @@
 .auth-pane-container {
-	width: 570px;
+	width: 590px;
 	height: 700px;
 }
 
@@ -10,7 +10,7 @@
 
 .auth-input-validation-message-container {
   padding: 14px 18px;
-  transform: translateY(-22px);
+  transform: translateY(-24px);
 }
 
 .auth-title-container {
@@ -56,7 +56,7 @@ form {
 }
 
 button {
-	width: 120px;
+	width: 130px;
 }
 
 input {
