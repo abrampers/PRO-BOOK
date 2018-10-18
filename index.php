@@ -73,8 +73,7 @@ $router->post('/register', function($request) {
 
 /** GET */
 $router->get('/username', function($request) {
-  print_r($request);
-  return json_encode(validateUsername($request->username));
+  return json_encode(Api::validateUsername($request->username));
 });
 
 $router->get('/email', function($request) {
