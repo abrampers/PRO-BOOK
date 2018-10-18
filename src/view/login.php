@@ -31,14 +31,16 @@ HTML
   : '')
 .
   <<<HTML
-  <div id='inputValidationMessageContainer' class='auth-input-validation-message-container'>
-    <p id='inputValidationMessage'></p>
-  </div>
 	<div class='auth-page-container'>
 		<div class='auth-pane-container'>
       <div class='auth-pane-content'>
-        <div class='auth-title-container'>
-          <h1 class='auth-title'>LOGIN</h1>
+        <div class='auth-header-container'>
+          <div id='titleContainer' class='auth-title-container'>
+            <h1 class='auth-title'>LOGIN</h1>
+          </div>
+          <div id='inputValidationMessageContainer' class='auth-input-validation-message-container'>
+            <p id='inputValidationMessage'></p>
+          </div>
         </div>
         <form id='loginForm' action='/login' method='post'>
 

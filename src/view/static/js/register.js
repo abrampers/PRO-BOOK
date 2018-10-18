@@ -167,9 +167,11 @@ $$('#formSubmitButtonInner').onmouseenter = () => {
   if ($$('#formSubmitButton').disabled) {
     $$('#inputValidationMessage').innerHTML = inputValidationMessage;
     $$('#inputValidationMessageContainer').classList.add('is-visible');
+    $$('#titleContainer').classList.add('is-moved');
   }
 };
 
 $$('#formSubmitButtonInner').onmouseleave = () => {
   $$('#inputValidationMessageContainer').classList.remove('is-visible');
+  $$('#titleContainer').classList.remove('is-moved');
 };

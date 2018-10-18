@@ -3,7 +3,7 @@
   width: fit-content;
   height: 36px;
   padding: 0px 18px;
-  top: 75px;
+  top: 7%;
   left: 50%;
   transform: translate(-50%, 0%);
   display: flex;
@@ -11,7 +11,7 @@
   align-items: center;
   border-radius: 20px;
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: orangered;
+  background-color: red;
   color: white;
   -webkit-transition-duration: 0.25s;
   transition-duration: 0.25s;
@@ -21,7 +21,16 @@
   opacity: 0;
 }
 
+.auth-input-validation-message-container {
+  transform: translateY(-15px);
+}
+
 .auth-title-container {
-	margin-top: 30px;
-	margin-bottom: 10px;
+	-webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  transform: translateY(15px);
+}
+
+.auth-title-container.is-moved {
+	transform: translateY(-8px);
 }
