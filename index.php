@@ -2,12 +2,15 @@
 include_once 'lib/request/Request.class.php';
 include_once 'lib/router/Router.class.php';
 include_once 'lib/template_engine/Template.class.php';
+include_once 'lib/dotethes/DotEthes.class.php';
 include_once 'src/controller/middleware/TestMiddleware.middleware.php';
 include_once 'src/controller/middleware/AuthMiddleware.middleware.php';
 include_once 'src/controller/middleware/TokenValidationMiddleware.middleware.php';
 include_once 'src/controller/LoginController.php';
 include_once 'src/controller/api.php';
 $router = new Router(new Request);
+$dotEthes = new DotEthes(__DIR__);
+$dotEthes->load();
 
 $router->get('/', function($request) {
   return <<<HTML
