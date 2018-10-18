@@ -26,8 +26,10 @@ $$('#formUsernameField').oninput = validateInput;
 $$('#formPasswordField').oninput = validateInput;
 
 $$('#formSubmitButtonInner').onmouseenter = () => {
+  let invalidCredentialsMessageContainer = $$('#invalidCredentialsMessageContainer');
+  if (!invalidCredentialsMessageContainer) userHoveredOut = true;
   if (userHoveredOut) {
-    $$('#invalidCredentialsMessageContainer').style.opacity = 0;
+    if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.style.opacity = 0;
     if ($$('#formSubmitButton').disabled) {
       $$('#inputValidationMessage').innerHTML = inputValidationMessage;
       $$('#inputValidationMessageContainer').style.opacity = 1;
