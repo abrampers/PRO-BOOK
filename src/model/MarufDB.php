@@ -74,7 +74,8 @@ class MarufDB {
     $query = $this->pdo->prepare("SELECT login_timestamp FROM ActiveTokens WHERE token = ?");
     $query->execute(array($token));
     if ($query->rowCount() > 0) {
-      if (strtotime($curDate) - strtotime($query->fetch()['login_date']) < (3*60*60)) {
+      $currTimestamp = time();
+      if ($currTimestamp - $query->fetch()['login_timestamp'] < (10 * 60)) {
         return 1;
       } else {
         return $this-> deleteToken($token);

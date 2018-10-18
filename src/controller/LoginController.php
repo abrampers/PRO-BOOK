@@ -9,7 +9,7 @@ function loginController(Request $request) {
     $JKWToken = new JKWToken();
     $token = $JKWToken->generateJKWToken();
     if ($db->addToken($user_id, $token) == 1) {
-      setcookie("token", $token, time() + (3 * 60 * 60), '/');
+      setcookie("token", $token, time() + (10 * 60), '/');
       return '<h1>huyuhuyuhuyuhuyu</h1>';
     } else {
       return '<h1>Failed</h1>';
