@@ -1,7 +1,4 @@
 <?php
-include_once "lib/request/Request.class.php";
-include_once "src/model/MarufDB.class.php";
-include_once "lib/jkwtoken/JKWToken.class.php";
 function loginController(Request $request) {
   $db = new MarufDB('localhost', 'probook', 'root', '');
   $user_id = $db->checkLogin($request->username, $request->password);

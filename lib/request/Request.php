@@ -1,5 +1,4 @@
 <?php
-
 class Request implements RequestInterface {
   function __construct() {
     $this->importServerVariables();

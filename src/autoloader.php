@@ -1,42 +1,17 @@
 <?php
 spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/lib' . $className;
+  $extensions = array(".php");
+  $root = $_SERVER['DOCUMENT_ROOT'];
+  $paths = array(
+    '/lib/', '/lib/jkwtoken/', '/lib/request/', '/lib/router/', '/lib/template_engine/', '/src/', '/src/controller/', '/src/controller/middleware/', '/src/model'
+  );
+  foreach ($paths as $path) {
+    $filename = $root . $path . DIRECTORY_SEPARATOR . $className;
+    foreach ($extensions as $ext) {
+      if (is_readable($filename . $ext)) {
+        require_once $filename . $ext;
+        break;
+      }
+    }
+  }
 });
-
-spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/lib/jkwtoken' . $className;
-});
-
-spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/lib/request' . $className;
-});
-
-spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/lib/router' . $className;
-});
-
-spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/lib/template_engine' . $className;
-});
-
-spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/lib/template_engine' . $className;
-});
-
-spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/src' . $className;
-});
-
-spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/src/controller' . $className;
-});
-
-spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/src/controller/middleware' . $className;
-});
-
-spl_autoload_register(function($className) {
-  include_once $_SERVER['DOCUMENT_ROOT'] . '/src/controller/model' . $className;
-});
-
-

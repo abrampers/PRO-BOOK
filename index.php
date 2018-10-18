@@ -1,13 +1,6 @@
 <?php
-include_once 'lib/request/Request.class.php';
-include_once 'lib/router/Router.class.php';
-include_once 'lib/template_engine/Template.class.php';
-include_once 'src/controller/middleware/TestMiddleware.middleware.php';
-include_once 'src/controller/middleware/AuthMiddleware.middleware.php';
-include_once 'src/controller/middleware/TokenValidationMiddleware.middleware.php';
-include_once 'src/controller/middleware/LoginRegisterMiddleware.middleware.php';
-include_once 'src/controller/LoginController.php';
-include_once 'src/controller/api.php';
+include_once 'src/autoloader.php';
+
 $router = new Router(new Request);
 
 
@@ -79,11 +72,11 @@ $router->get('/username', function($request) {
 });
 
 $router->get('/email', function($request) {
-  return json_encode(validateEmail($request->email));
+  return json_encode(Api::validateEmail($request->email));
 });
 
 $router->get('/search', function($request) {
-  return json_encode(validateEmail($request->email));
+  return json_encode(Api::validateEmail($request->email));
 });
 
 /** POST */
