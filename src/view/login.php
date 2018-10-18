@@ -1,5 +1,10 @@
 <?php
-function render_template(bool $error = FALSE) {
+function render_template(string $serverName = null, int $serverPort = 5000, bool $error = FALSE) {
+  if (is_null($serverName)) {
+    $serverName = 'localhost';
+  }
+
+  $registerLink = 'http://' . $serverName . ':' . $serverPort . '/register';
   return <<<HTML
 
 <!DOCTYPE html>
@@ -57,7 +62,7 @@ HTML
 
         </form>
         <div class='auth-alt-container'>
-          <a href='https://www.w3schools.com/html/'>
+          <a href='$registerLink'>
             <p>Don't have an account?</p>
           </a>
         </div>

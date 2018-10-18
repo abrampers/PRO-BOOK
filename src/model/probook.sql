@@ -16,6 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `ActiveTokens`
+--
+
+DROP TABLE IF EXISTS `ActiveTokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ActiveTokens` (
+  `user_id` int(11) DEFAULT NULL,
+  `token` varchar(300) DEFAULT NULL,
+  `login_timestamp` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ActiveTokens`
+--
+
+LOCK TABLES `ActiveTokens` WRITE;
+/*!40000 ALTER TABLE `ActiveTokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ActiveTokens` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Books`
 --
 
@@ -54,7 +77,7 @@ CREATE TABLE `Orders` (
   `is_review` tinyint(1) DEFAULT NULL,
   `book_id` int(11) DEFAULT NULL,
   `amount` int(11) DEFAULT NULL,
-  `order_date` date DEFAULT NULL,
+  `order_timestamp` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -133,4 +156,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-17 13:47:26
+-- Dump completed on 2018-10-18 18:12:57
