@@ -65,17 +65,17 @@ class MarufDB {
   }
 
   public function addToken($user_id, $token) {
-    $query = $this->pdo->prepare("INSERT INTO ActiveTokens (user_id, token, login_date) VALUES (?, ?, now())");
-    $query->execute(array($user_id, $token));
+    $query = $this->pdo->prepare("INSERT INTO ActiveTokens (user_id, token, login_timestamp) VALUES (?, ?, ?)");
+    $query->execute(array($user_id, $token, time()));
     return 1;
   }
 
   public function checkToken($token) {
-    $query = $this->pdo->prepare("SELECT login_date FROM ActiveTokens WHERE token = ?");
+    $query = $this->pdo->prepare("SELECT login_timestamp FROM ActiveTokens WHERE token = ?");
     $query->execute(array($token));
     if ($query->rowCount() > 0) {
-      $curDate = date("Y-m-d");
-      if (strtotime($curDate) - strtotime($query->fetch()['login_date']) < (24*60*60)) {
+      $curTimestamp = time();
+      if ($curTimestamp - $query->fetch()['login_timestamp'] < (3*60*60)) {
         return 1;
       } else {
         return $this-> deleteToken($token);
@@ -111,9 +111,9 @@ class MarufDB {
     }
   }
 
-  public function orderBook($book_id, $user_id, $amount, $order_date) {
-    $query = $this->pdo->prepare("INSERT INTO Orders (user_id, book_id, amount, order_date, is_review) VALUES (?, ?, ?, ?)");
-    $query->execute(array($user_id, $book_id, $amount, $order_date));
+  public function orderBook($book_id, $user_id, $amount, $order_timestamp) {
+    $query = $this->pdo->prepare("INSERT INTO Orders (user_id, book_id, amount, order_timestamp, is_review) VALUES (?, ?, ?, ?)");
+    $query->execute(array($user_id, $book_id, $amount, $order_timestamp));
     $query = $this->pdo->prepare("SELECT id FROM Orders WHERE book_id = ? AND user_id = ? ORDER BY id DESC LIMIT 1");
     $query->execute(array($book_id, $user_id));
     return $query->fetch()['id'];
