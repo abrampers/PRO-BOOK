@@ -4,7 +4,6 @@ const invalidUsernameMessage = 'Username cannot be empty';
 const invalidPasswordMessage = 'Password cannot be empty';
 
 let inputValidationMessage = invalidUsernameMessage;
-let userHoveredOut = false;
 
 function validateInput(_) {
   const usernameField = $$('#formUsernameField');
@@ -26,22 +25,18 @@ $$('#formUsernameField').oninput = validateInput;
 $$('#formPasswordField').oninput = validateInput;
 
 $$('#formSubmitButtonInner').onmouseenter = () => {
-  let invalidCredentialsMessageContainer = $$('#invalidCredentialsMessageContainer');
-  if (!invalidCredentialsMessageContainer) userHoveredOut = true;
-  if (userHoveredOut) {
-    if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.style.opacity = 0;
-    if ($$('#formSubmitButton').disabled) {
-      $$('#inputValidationMessage').innerHTML = inputValidationMessage;
-      $$('#inputValidationMessageContainer').style.opacity = 1;
-    } else {
-      $$('#inputValidationMessage').innerHTML = '';
-      $$('#inputValidationMessageContainer').style.opacity = 0;
-    }
+  if ($$('#formSubmitButton').disabled) {
+    $$('#inputValidationMessage').innerHTML = inputValidationMessage;
+    $$('#inputValidationMessageContainer').classList.add('is-visible');
+    $$('#titleContainer').classList.add('is-moved');
   }
 };
 
 $$('#formSubmitButtonInner').onmouseleave = () => {
-  $$('#inputValidationMessage').innerHTML = '';
-  $$('#inputValidationMessageContainer').style.opacity = 0;
-  userHoveredOut = true;
+  $$('#inputValidationMessageContainer').classList.remove('is-visible');
+  $$('#titleContainer').classList.remove('is-moved');
 };
+
+setTimeout(() => {
+  $$('#invalidCredentialsMessageContainer').classList.add('is-hidden')
+}, 5000);

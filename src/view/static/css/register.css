@@ -8,8 +8,20 @@
 	height: 86%;
 }
 
+.auth-input-validation-message-container {
+  padding: 14px 18px;
+  transform: translateY(-22px);
+}
+
 .auth-title-container {
-	margin-top: 20px 0px 10px 0px;
+  margin-top: 20px 0px 10px 0px;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  transform: translateY(10px);
+}
+
+.auth-title-container.is-moved {
+	transform: translateY(-14px);
 }
 
 .auth-alt-container {

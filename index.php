@@ -63,6 +63,10 @@ $router->post('/login', function($request) {
   return LoginController::control($request);
 });
 
+$router->post('/register', function($request) {
+  return RegisterController::control($request);
+});
+
 /************/
 /* REST API */
 /************/

@@ -166,14 +166,12 @@ $$('#formPhoneNumberField').oninput = validateInput;
 $$('#formSubmitButtonInner').onmouseenter = () => {
   if ($$('#formSubmitButton').disabled) {
     $$('#inputValidationMessage').innerHTML = inputValidationMessage;
-    $$('#inputValidationMessageContainer').style.opacity = 1;
-  } else {
-    $$('#inputValidationMessage').innerHTML = '';
-    $$('#inputValidationMessageContainer').style.opacity = 0;
+    $$('#inputValidationMessageContainer').classList.add('is-visible');
+    $$('#titleContainer').classList.add('is-moved');
   }
 };
 
 $$('#formSubmitButtonInner').onmouseleave = () => {
-  $$('#inputValidationMessage').innerHTML = '';
-  $$('#inputValidationMessageContainer').style.opacity = 0;
+  $$('#inputValidationMessageContainer').classList.remove('is-visible');
+  $$('#titleContainer').classList.remove('is-moved');
 };
