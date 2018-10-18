@@ -120,9 +120,13 @@ class MarufDB {
   }
 
   public function addProfile($name, $username, $email, $password, $address, $phonenumber) {
-    $query = $this->pdo->prepare("INSERT INTO Users (name, username, email, password, address, phonenumber) VALUES (?, ?, ?, ?, ?, ?)");
-    $query->execute(array($name, $username, $email, md5($password), $address, $phonenumber));
-    return 1;
+    if ($this->validateUsername($username) == 1 && $this->validateEmail($email) == 1){
+      $query = $this->pdo->prepare("INSERT INTO Users (name, username, email, password, address, phonenumber) VALUES (?, ?, ?, ?, ?, ?)");
+      $query->execute(array($name, $username, $email, md5($password), $address, $phonenumber));
+      return 1;
+    } else {
+      return 0;
+    }
   }
 
   public function showProfile($user_id) {
