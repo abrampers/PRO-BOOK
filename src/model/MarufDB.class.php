@@ -75,7 +75,7 @@ class MarufDB {
     $query->execute(array($token));
     if ($query->rowCount() > 0) {
       $curTimestamp = time();
-      if ($curTimestamp - $query->fetch()['login_timestamp'] < (3*60*60)) {
+      if ($curTimestamp - $query->fetch()['login_timestamp'] < (int)$_ENV['COOKIE_EXPIRED_TIME']) {
         return 1;
       } else {
         return $this-> deleteToken($token);
