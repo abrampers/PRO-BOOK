@@ -53,7 +53,7 @@ $router->get('/profile/edit', function($request) {
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/deletecookie', function($request) {
-  $db = new MarufDB('localhost', 'probook', 'root', '');
+  $db = new MarufDB($_ENV['DB_HOST'], $_ENV['DB_NAME'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
   $db->deleteToken($request->token);
   setcookie('token', '', time() - 3600, '/');
 });
