@@ -1,10 +1,22 @@
 <?php
+<<<<<<< HEAD
 function render_template(bool $error = FALSE) {
   if (is_null($serverName)) {
     $serverName = 'localhost';
   }
 
   $registerLink = 'http://' . $serverName . ':' . $serverPort . '/register';
+||||||| merged common ancestors
+function render_template(string $serverName = null, int $serverPort = 5000, bool $error = FALSE) {
+  if (is_null($serverName)) {
+    $serverName = 'localhost';
+  }
+
+  $registerLink = 'http://' . $serverName . ':' . $serverPort . '/register';
+=======
+function render_template(bool $error = FALSE) {
+  $registerLink = 'http://' . $_ENV['SERVER_NAME'] . ':' . $_ENV['SERVER_PORT'] . '/register';
+>>>>>>> 08f9d6f4b1f4235d93b56c684658466dd29eff83
   return <<<HTML
 
 <!DOCTYPE html>
