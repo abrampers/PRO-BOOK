@@ -26,7 +26,7 @@ function render_template() {
             <p id='inputValidationMessage'></p>
           </div>
         </div>
-        <form action='' method='post' id='registerForm'>
+        <form action='/register' method='post' id='registerForm'>
 
           <div class='auth-form-item'>
             <div class='auth-form-item-label-container'>

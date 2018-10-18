@@ -7,10 +7,10 @@ class MarufDB {
   private $pdo;
 
   public function __construct($host, $dbName, $dbUser, $dbPassword) {
-    $this->host = '127.0.0.1';
+    $this->host = $host;
     $this->dbName = $dbName;
     $this->dbUser = $dbUser;
-    $this->dbPassword = '';
+    $this->dbPassword = $dbPassword;
     $this->Connect();
   }
 

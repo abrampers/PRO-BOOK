@@ -1,10 +1,7 @@
 <?php
-function render_template(string $serverName = null, int $serverPort = 5000, bool $error = FALSE) {
-  if (is_null($serverName)) {
-    $serverName = 'localhost';
-  }
+function render_template(bool $error = FALSE) {
+  $registerLink = 'http://' . $_ENV['SERVER_NAME'] . ':' . $_ENV['SERVER_PORT'] . '/register';
 
-  $registerLink = 'http://' . $serverName . ':' . $serverPort . '/register';
   return <<<HTML
 
 <!DOCTYPE html>
