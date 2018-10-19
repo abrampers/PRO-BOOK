@@ -12,10 +12,9 @@ $dotEthes->load();
 
 /** GET */
 $router->get('/', function($request) {
-  return <<<HTML
-  <h1>Main Page HUYU</h1>
-HTML;
-}, [new TokenValidationMiddleware, new AuthMiddleware]);
+  header("Location: http://{$_ENV['SERVER_NAME']}:{$_ENV['SERVER_NAME']}/browse");
+  exit();
+});
 
 $router->get('/login', function($request) {
   $template = new Template('src/view/login.php');
