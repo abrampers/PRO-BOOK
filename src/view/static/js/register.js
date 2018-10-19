@@ -12,7 +12,6 @@ const notMatchingPasswordMessage = 'Password confirmation does not match';
 const invalidAddressMessage = 'Address cannot be empty';
 const invalidPhoneNumberMessage = 'Phone number must be a number with 9 to 12 digits';
 
-let inputValidationMessage = invalidNameMessage;
 let usernameValidationMessage = invalidUsernameMessage;
 let emailValidationMessage = invalidEmailMessage;
 
@@ -42,6 +41,20 @@ function isNum(value) {
   return re.test(value);
 }
 
+function showInputValidationMessage() {
+  $$('#inputValidationMessageContainer').classList.add('is-visible');
+  $$('#titleContainer').classList.add('is-moved');
+}
+
+function hideInputValidationMessage() {
+  $$('#inputValidationMessageContainer').classList.remove('is-visible');
+  $$('#titleContainer').classList.remove('is-moved');
+}
+
+function updateInputValidationMessage(message) {
+  $$('#inputValidationMessage').innerHTML = message;
+}
+
 function validateInput(_) {
   const nameField = $$('#formNameField');
   const passwordField = $$('#formPasswordField');
@@ -52,27 +65,28 @@ function validateInput(_) {
 
   if (!isName(nameField.value) || nameField.value.length == 0 || nameField.value.length > 20) {
     submitButton.disabled = true;
-    inputValidationMessage = invalidNameMessage;
+    updateInputValidationMessage(invalidNameMessage);
   } else if (!usernameValid) {
     submitButton.disabled = true;
-    inputValidationMessage = usernameValidationMessage;
+    updateInputValidationMessage(usernameValidationMessage);
   } else if (!emailValid) {
     submitButton.disabled = true;
-    inputValidationMessage = emailValidationMessage;
+    updateInputValidationMessage(emailValidationMessage);
   } else if (passwordField.value.length < 6) {
     submitButton.disabled = true;
-    inputValidationMessage = invalidPasswordMessage;
+    updateInputValidationMessage(invalidPasswordMessage);
   } else if (confirmPasswordField.value != passwordField.value) {
     submitButton.disabled = true;
-    inputValidationMessage = notMatchingPasswordMessage;
+    updateInputValidationMessage(notMatchingPasswordMessage);
   } else if (addressField.value.length == 0) {
     submitButton.disabled = true;
-    inputValidationMessage = invalidAddressMessage;
+    updateInputValidationMessage(invalidAddressMessage);
   } else if (!isNum(phoneNumberField.value) || phoneNumberField.value.length < 9 || phoneNumberField.value.length > 12) {
     submitButton.disabled = true;
-    inputValidationMessage = invalidPhoneNumberMessage;
+    updateInputValidationMessage(invalidPhoneNumberMessage);
   } else {
     submitButton.disabled = false;
+    hideInputValidationMessage();
   }
 }
 
@@ -163,15 +177,14 @@ $$('#formConfirmPasswordField').oninput = validateInput;
 $$('#formAddressField').oninput = validateInput;
 $$('#formPhoneNumberField').oninput = validateInput;
 
+updateInputValidationMessage(invalidNameMessage);
+
 $$('#formSubmitButtonInner').onmouseenter = () => {
   if ($$('#formSubmitButton').disabled) {
-    $$('#inputValidationMessage').innerHTML = inputValidationMessage;
-    $$('#inputValidationMessageContainer').classList.add('is-visible');
-    $$('#titleContainer').classList.add('is-moved');
+    showInputValidationMessage();
   }
 };
 
 $$('#formSubmitButtonInner').onmouseleave = () => {
-  $$('#inputValidationMessageContainer').classList.remove('is-visible');
-  $$('#titleContainer').classList.remove('is-moved');
+  hideInputValidationMessage();
 };
