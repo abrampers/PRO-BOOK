@@ -3,7 +3,19 @@ import $$ from './lib/jQowi.js';
 const invalidUsernameMessage = 'Username cannot be empty';
 const invalidPasswordMessage = 'Password cannot be empty';
 
-let inputValidationMessage = invalidUsernameMessage;
+function showInputValidationMessage() {
+  $$('#inputValidationMessageContainer').classList.add('is-visible');
+  $$('#titleContainer').classList.add('is-moved');
+}
+
+function hideInputValidationMessage() {
+  $$('#inputValidationMessageContainer').classList.remove('is-visible');
+  $$('#titleContainer').classList.remove('is-moved');
+}
+
+function updateInputValidationMessage(message) {
+  $$('#inputValidationMessage').innerHTML = message;
+}
 
 function validateInput(_) {
   const usernameField = $$('#formUsernameField');
@@ -12,31 +24,32 @@ function validateInput(_) {
 
   if (usernameField.value.length == 0) {
     submitButton.disabled = true;
-    inputValidationMessage = invalidUsernameMessage;
+    updateInputValidationMessage(invalidUsernameMessage);
   } else if (passwordField.value.length == 0) {
     submitButton.disabled = true;
-    inputValidationMessage = invalidPasswordMessage;
+    updateInputValidationMessage(invalidPasswordMessage);
   } else {
     submitButton.disabled = false;
+    hideInputValidationMessage();
   }
 }
 
 $$('#formUsernameField').oninput = validateInput;
 $$('#formPasswordField').oninput = validateInput;
 
+updateInputValidationMessage(invalidUsernameMessage);
+
 $$('#formSubmitButtonInner').onmouseenter = () => {
   if ($$('#formSubmitButton').disabled) {
-    $$('#inputValidationMessage').innerHTML = inputValidationMessage;
-    $$('#inputValidationMessageContainer').classList.add('is-visible');
-    $$('#titleContainer').classList.add('is-moved');
+    showInputValidationMessage();
   }
 };
 
 $$('#formSubmitButtonInner').onmouseleave = () => {
-  $$('#inputValidationMessageContainer').classList.remove('is-visible');
-  $$('#titleContainer').classList.remove('is-moved');
+  hideInputValidationMessage();
 };
 
 setTimeout(() => {
-  $$('#invalidCredentialsMessageContainer').classList.add('is-hidden')
+  const invalidCredentialsMessageContainer = $$('#invalidCredentialsMessageContainer');
+  if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.classList.add('is-hidden')
 }, 5000);
