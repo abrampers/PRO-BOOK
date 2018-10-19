@@ -18,7 +18,8 @@ $router->get('/', function($request) {
 
 $router->get('/login', function($request) {
   $template = new Template('src/view/login.php');
-  return $template->render(False, $request->redirected);
+  $redirect = (is_null($request->redirected) ? False : $request->redirected);
+  return $template->render(False, $redirect);
 }, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
 
 $router->get('/register', function($request) {
