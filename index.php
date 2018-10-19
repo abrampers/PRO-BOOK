@@ -12,13 +12,13 @@ $dotEthes->load();
 
 /** GET */
 $router->get('/', function($request) {
-  header("Location: http://{$_ENV['SERVER_NAME']}:{$_ENV['SERVER_NAME']}/browse");
+  header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/browse");
   exit();
 });
 
 $router->get('/login', function($request) {
   $template = new Template('src/view/login.php');
-  return $template->render();
+  return $template->render(False, $request->redirected);
 }, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
 
 $router->get('/register', function($request) {

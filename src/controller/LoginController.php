@@ -8,14 +8,14 @@ class LoginController implements ControllerInterface {
       $token = $JKWToken->generateJKWToken();
       if ($db->addToken($user_id, $token) == 1) {
         setcookie("token", $token, time() + (int)$_ENV['COOKIE_EXPIRED_TIME'], '/');
-        header("Location: http://{$_ENV['SERVER_NAME']}:{$_ENV['SERVER_NAME']}/");
-  exit();
+        header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/");
+        exit();
       } else {
         return '<h1>Failed</h1>';
       }
     } else {
       $template = new Template('src/view/login.php');
-      return $template->render(True);
+      return $template->render(True, False);
     }
   }
 }

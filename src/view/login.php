@@ -1,5 +1,5 @@
 <?php
-function render_template(bool $error = FALSE) {
+function render_template(bool $error = FALSE, bool $redirected = FALSE) {
   return <<<HTML
 
 <!DOCTYPE html>
@@ -16,6 +16,14 @@ function render_template(bool $error = FALSE) {
 </head>
 <body>
 HTML
+.
+  ($redirected ?
+  <<<HTML
+  <div id='invalidCredentialsMessageContainer' class='auth-invalid-credentials-message-container'>
+    <p id='invalidCredentialsMessage'>Login dulu gan</p>
+  </div>
+HTML
+  : '')
 .
   ($error ?
     <<<HTML
