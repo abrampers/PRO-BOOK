@@ -51,5 +51,14 @@ $$('#formSubmitButtonInner').onmouseleave = () => {
 
 setTimeout(() => {
   const invalidCredentialsMessageContainer = $$('#invalidCredentialsMessageContainer');
-  if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.classList.add('is-hidden')
+  const redirectedMessageContainer = $$('#redirectedMessageContainer');
+  if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.classList.add('is-visible')
+  if (redirectedMessageContainer) redirectedMessageContainer.classList.add('is-visible')
+}, 250);
+
+setTimeout(() => {
+  const invalidCredentialsMessageContainer = $$('#invalidCredentialsMessageContainer');
+  const redirectedMessageContainer = $$('#redirectedMessageContainer');
+  if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.classList.remove('is-visible')
+  if (redirectedMessageContainer) redirectedMessageContainer.classList.remove('is-visible')
 }, 5000);

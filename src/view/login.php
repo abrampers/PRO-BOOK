@@ -19,8 +19,8 @@ HTML
 .
   ($redirected ?
   <<<HTML
-  <div id='invalidCredentialsMessageContainer' class='auth-invalid-credentials-message-container'>
-    <p id='invalidCredentialsMessage'>Login dulu gan</p>
+  <div id='redirectedMessageContainer' class='auth-redirected-message-container'>
+    <p>Please login first</p>
   </div>
 HTML
   : '')
@@ -28,7 +28,7 @@ HTML
   ($error ?
     <<<HTML
     <div id='invalidCredentialsMessageContainer' class='auth-invalid-credentials-message-container'>
-      <p id='invalidCredentialsMessage'>Incorrect username or password</p>
+      <p>Incorrect username or password</p>
     </div>
 HTML
   : '')
