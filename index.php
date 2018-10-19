@@ -28,7 +28,7 @@ $router->get('/register', function($request) {
 }, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
 
 $router->get('/browse', function($request) {
-  $template = new Template('src/view/huyu.php');
+  $template = new Template('src/view/browse.php');
   return $template->render();
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 

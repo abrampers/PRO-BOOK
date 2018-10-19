@@ -59,7 +59,7 @@ class MarufDB {
   }
 
   public function searchBook($title) {
-    $query = $this->pdo->prepare("SELECT * FROM Books WHERE title = ?");
+    $query = $this->pdo->prepare("SELECT * FROM Books WHERE title LIKE ?");
     $query->execute(array("%{$title}%"));
     return $query->fetchAll();
   }
