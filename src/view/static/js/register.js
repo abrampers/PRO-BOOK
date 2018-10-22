@@ -44,13 +44,13 @@ function isNum(value) {
 }
 
 function showInputValidationMessage() {
-  $$('#inputValidationMessageContainer').classList.add('is-visible');
-  $$('#titleContainer').classList.add('is-moved');
+  $$('#inputValidationMessageContainer').classList.add('visible');
+  $$('#titleContainer').classList.add('moved');
 }
 
 function hideInputValidationMessage() {
-  $$('#inputValidationMessageContainer').classList.remove('is-visible');
-  $$('#titleContainer').classList.remove('is-moved');
+  $$('#inputValidationMessageContainer').classList.remove('visible');
+  $$('#titleContainer').classList.remove('moved');
 }
 
 function updateInputValidationMessage(message) {
@@ -203,13 +203,13 @@ $$('#formSubmitButtonInner').onmouseleave = () => {
 setTimeout(() => {
   const usernameTakenMessageContainer = $$('#usernameTakenMessageContainer');
   const emailTakenMessageContainer = $$('#emailTakenMessageContainer');
-  if (usernameTakenMessageContainer) usernameTakenMessageContainer.classList.add('is-visible')
-  if (emailTakenMessageContainer) emailTakenMessageContainer.classList.add('is-visible')
+  if (usernameTakenMessageContainer) usernameTakenMessageContainer.classList.add('visible')
+  if (emailTakenMessageContainer) emailTakenMessageContainer.classList.add('visible')
 }, 250);
 
 setTimeout(() => {
   const usernameTakenMessageContainer = $$('#usernameTakenMessageContainer');
   const emailTakenMessageContainer = $$('#emailTakenMessageContainer');
-  if (usernameTakenMessageContainer) usernameTakenMessageContainer.classList.remove('is-visible')
-  if (emailTakenMessageContainer) emailTakenMessageContainer.classList.remove('is-visible')
+  if (usernameTakenMessageContainer) usernameTakenMessageContainer.classList.remove('visible')
+  if (emailTakenMessageContainer) emailTakenMessageContainer.classList.remove('visible')
 }, 5000);

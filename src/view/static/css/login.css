@@ -8,6 +8,6 @@
   transform: translateY(15px);
 }
 
-.auth-title-container.is-moved {
+.auth-title-container.moved {
 	transform: translateY(-8px);
 }

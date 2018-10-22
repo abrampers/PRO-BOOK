@@ -58,7 +58,7 @@
   transition-duration: 0.25s;
 }
 
-.auth-input-validation-message-container.is-visible {
+.auth-input-validation-message-container.visible {
   opacity: 1;
 }
 
@@ -82,7 +82,7 @@
   transition-duration: 0.25s;
 }
 
-.auth-error-message-container.is-visible {
+.auth-error-message-container.visible {
   opacity: 1;
 }
 
@@ -106,7 +106,7 @@
   transition-duration: 0.25s;
 }
 
-.auth-info-message-container.is-visible {
+.auth-info-message-container.visible {
   opacity: 1;
 }
 

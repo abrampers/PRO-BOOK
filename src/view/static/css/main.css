@@ -93,6 +93,7 @@
 .main-logout-button {
   height: 100%;
   width: 100%;
+  padding: 0px;
   display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -106,9 +107,9 @@
   transition-duration: 0.3s;
 }
 
-.main-logout-button:hover {
-  height: 90px;
-  width: 94px;
+.main-logout-button.hover {
+  height: 80px;
+  width: 84px;
 	background-color: red;
   color: white;
   border-radius: 45px;
@@ -116,8 +117,8 @@
 }
 
 .main-logout-button:active {
-  height: 90px;
-  width: 94px;
+  height: 80px;
+  width: 84px;
   background-color: white;
   color: red;
   border-radius: 45px;
