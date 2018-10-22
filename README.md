@@ -1,6 +1,8 @@
 # Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web
 
-NOTE: Konvensi nama file sesuai nama kelas
+NOTE:
+- Konvensi nama file sesuai nama kelas
+- Parameter GET harus SNAKE CASE
 
 ## Development Prerequisites
 

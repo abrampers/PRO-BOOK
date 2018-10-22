@@ -199,3 +199,17 @@ $$('#formSubmitButtonInner').onmouseleave = () => {
   hideInputValidationMessage();
   submitButtonHovered = false;
 };
+
+setTimeout(() => {
+  const usernameTakenMessageContainer = $$('#usernameTakenMessageContainer');
+  const emailTakenMessageContainer = $$('#emailTakenMessageContainer');
+  if (usernameTakenMessageContainer) usernameTakenMessageContainer.classList.add('is-visible')
+  if (emailTakenMessageContainer) emailTakenMessageContainer.classList.add('is-visible')
+}, 250);
+
+setTimeout(() => {
+  const usernameTakenMessageContainer = $$('#usernameTakenMessageContainer');
+  const emailTakenMessageContainer = $$('#emailTakenMessageContainer');
+  if (usernameTakenMessageContainer) usernameTakenMessageContainer.classList.remove('is-visible')
+  if (emailTakenMessageContainer) emailTakenMessageContainer.classList.remove('is-visible')
+}, 5000);

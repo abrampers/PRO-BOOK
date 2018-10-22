@@ -24,9 +24,9 @@ $router->get('/login', function($request) {
 
 $router->get('/register', function($request) {
   $template = new Template('src/view/register.php');
-  $usernameValid = (is_null($request->usernameValid) ? True : False);
-  $emailValid = (is_null($request->emailValid) ? True : False);
-  return $template->render($usernameValid, $emailValid);
+  $invalidUsername = (is_null($request->invalidUsername) ? False : $request->invalidUsername);
+  $invalidEmail = (is_null($request->invalidEmail) ? False : $request->invalidEmail);
+  return $template->render($invalidUsername, $invalidEmail);
 }, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
 
 $router->get('/browse', function($request) {

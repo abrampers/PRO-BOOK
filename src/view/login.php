@@ -19,7 +19,7 @@ HTML
 .
   ($redirected ?
   <<<HTML
-  <div id='redirectedMessageContainer' class='auth-redirected-message-container'>
+  <div id='redirectedMessageContainer' class='auth-info-message-container'>
     <p>Please login first</p>
   </div>
 HTML
@@ -27,7 +27,7 @@ HTML
 .
   ($error ?
     <<<HTML
-    <div id='invalidCredentialsMessageContainer' class='auth-invalid-credentials-message-container'>
+    <div id='invalidCredentialsMessageContainer' class='auth-error-message-container'>
       <p>Incorrect username or password</p>
     </div>
 HTML

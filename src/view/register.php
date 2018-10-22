@@ -1,5 +1,5 @@
 <?php
-function render_template(bool $usernameValid = TRUE, bool $emailValid = TRUE) {
+function render_template(bool $invalidUsername = TRUE, bool $invalidEmail = TRUE) {
   return <<<HTML
 
 <!DOCTYPE html>
@@ -17,18 +17,26 @@ function render_template(bool $usernameValid = TRUE, bool $emailValid = TRUE) {
 <body>
 HTML
 .
-  (!$usernameValid ?
+($invalidUsername && $invalidEmail ?
     <<<HTML
-    <div id='invalidCredentialsMessageContainer' class='auth-invalid-credentials-message-container'>
-      <p>Username taken</p>
+    <div id='usernameTakenMessageContainer' class='auth-error-message-container'>
+      <p>Username and email already taken</p>
     </div>
 HTML
   : '')
 .
-(!$emailValid ?
+($invalidUsername && !$invalidEmail ?
     <<<HTML
-    <div id='invalidCredentialsMessageContainer' class='auth-invalid-credentials-message-container'>
-      <p>Email taken</p>
+    <div id='emailTakenMessageContainer' class='auth-error-message-container'>
+      <p>Username already taken</p>
+    </div>
+HTML
+  : '')
+.
+($invalidEmail && !$invalidUsername ?
+    <<<HTML
+    <div id='emailTakenMessageContainer' class='auth-error-message-container'>
+      <p>Email already taken</p>
     </div>
 HTML
   : '')
