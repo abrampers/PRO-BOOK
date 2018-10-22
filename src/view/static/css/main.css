@@ -1,6 +1,5 @@
 .main-page-container {
 	width: 100%;
-	height: 100%;
   display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -8,6 +7,7 @@
 }
 
 .main-header-container {
+  position: fixed;
 	width: 100%;
 	height: 176px;
   display: flex;
@@ -151,6 +151,11 @@
 .tab-mid {
   border-left: 2px solid lightgray;
   border-right: 2px solid lightgray;
+}
+
+.main-content-container {
+  width: 100%;
+  margin-top: 176px;
 }
 
 h2 {
