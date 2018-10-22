@@ -30,7 +30,7 @@ function render_template(bool $error = FALSE) {
             <h3>Hi, Cebong!</h3>
           </div>
           <div id="logoutButtonContainer" class='main-logout-button-container'>
-            <form id='logoutForm' action='/deletecookie' method='get'></form>
+            <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
               <h4>Logout</h4>
             </button>
