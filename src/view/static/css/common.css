@@ -11,6 +11,14 @@ h1 {
 	margin-bottom: 14px;
 }
 
+h3 {
+  height: 74px;
+	font-family: 'Chathura', sans-serif;
+	font-weight: 600;
+	font-size: 3rem;
+	margin: 0px;
+}
+
 h4 {
 	font-family: 'Chathura', sans-serif;
 	font-weight: 600;

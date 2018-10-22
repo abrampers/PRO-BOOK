@@ -18,11 +18,32 @@ function render_template(bool $error = FALSE) {
     <div class='main-header-container'>
       <div class='main-header-top-container'>
         <div class='main-title-container'>
-          <h1 class='main-title'>PRO-BOOK</h1>
+          <div class='main-title-zstack'>
+            <h1 class='main-title-background'>PRO-BOOK</h1>
+          </div>
+          <div class='main-title-zstack'>
+            <h1 class='main-title'><span class='main-title-first'>PRO</span>-BOOK</h1>
+          </div>
+        </div>
+        <div class='main-misc-container'>
+          <div class='main-greeting-container'>
+            <h3>Hi, Cebong!</h3>
+          </div>
+          <div class='main-logout-button-container'>
+            <h4>Logout</h4>
+          </div>
         </div>
       </div>
       <div class='main-header-bottom-container'>
-        jjjsdf
+        <div class='main-menu-tab'>
+          Browse
+        </div>
+        <div class='main-menu-tab'>
+          History
+        </div>
+        <div class='main-menu-tab'>
+          Profile
+        </div>
       </div>
     </div>
 	</div>
