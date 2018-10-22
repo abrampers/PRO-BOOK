@@ -1,5 +1,5 @@
 <?php
-function render_template() {
+function render_template(bool $usernameValid = TRUE, bool $emailValid = TRUE) {
   return <<<HTML
 
 <!DOCTYPE html>
@@ -15,6 +15,25 @@ function render_template() {
   <title>Register</title>
 </head>
 <body>
+HTML
+.
+  (!$usernameValid ?
+    <<<HTML
+    <div id='invalidCredentialsMessageContainer' class='auth-invalid-credentials-message-container'>
+      <p>Username taken</p>
+    </div>
+HTML
+  : '')
+.
+(!$emailValid ?
+    <<<HTML
+    <div id='invalidCredentialsMessageContainer' class='auth-invalid-credentials-message-container'>
+      <p>Email taken</p>
+    </div>
+HTML
+  : '')
+.
+  <<<HTML
 	<div class='auth-page-container'>
 		<div class='auth-pane-container'>
       <div class='auth-pane-content'>

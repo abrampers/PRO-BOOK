@@ -24,7 +24,9 @@ $router->get('/login', function($request) {
 
 $router->get('/register', function($request) {
   $template = new Template('src/view/register.php');
-  return $template->render();
+  $usernameValid = (is_null($request->usernameValid) ? True : False);
+  $emailValid = (is_null($request->emailValid) ? True : False);
+  return $template->render($usernameValid, $emailValid);
 }, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
 
 $router->get('/browse', function($request) {
@@ -53,7 +55,7 @@ $router->get('/profile/edit', function($request) {
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/deletecookie', function($request) {
-  $db = new MarufDB($_ENV['DB_HOST'], $_ENV['DB_NAME'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
+  $db = new MarufDB();
   $db->deleteToken($request->token);
   setcookie('token', '', time() - 3600, '/');
 });
@@ -65,7 +67,8 @@ $router->post('/login', function($request) {
 
 $router->post('/register', function($request) {
   return RegisterController::control($request);
-});
+},
+[new VerifyRegisterMiddleware]);
 
 /************/
 /* REST API */
@@ -85,3 +88,14 @@ $router->get('/search', function($request) {
 });
 
 /** POST */
+
+
+
+
+
+
+
+
+$router->get('/huyu', function($request) {
+  echo $request->httpUserAgent;
+});

@@ -6,11 +6,11 @@ class MarufDB {
   private $dbPassword;
   private $pdo;
 
-  public function __construct($host, $dbName, $dbUser, $dbPassword) {
-    $this->host = $host;
-    $this->dbName = $dbName;
-    $this->dbUser = $dbUser;
-    $this->dbPassword = $dbPassword;
+  public function __construct() {
+    $this->host = $_ENV['DB_HOST'];
+    $this->dbName = $_ENV['DB_NAME'];
+    $this->dbUser = $_ENV['DB_USERNAME'];
+    $this->dbPassword = $_ENV['DB_PASSWORD'];
     $this->Connect();
   }
 
