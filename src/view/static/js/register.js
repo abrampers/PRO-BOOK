@@ -21,6 +21,8 @@ let emailValid = false;
 let usernameValidationRequest;
 let emailValidationRequest;
 
+let submitButtonHovered = false;
+
 function isName(value) {
   const re = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
   return re.test(value);
@@ -66,24 +68,31 @@ function validateInput(_) {
   if (!isName(nameField.value) || nameField.value.length == 0 || nameField.value.length > 20) {
     submitButton.disabled = true;
     updateInputValidationMessage(invalidNameMessage);
+    if (submitButtonHovered) showInputValidationMessage();
   } else if (!usernameValid) {
     submitButton.disabled = true;
     updateInputValidationMessage(usernameValidationMessage);
+    if (submitButtonHovered) showInputValidationMessage();
   } else if (!emailValid) {
     submitButton.disabled = true;
     updateInputValidationMessage(emailValidationMessage);
+    if (submitButtonHovered) showInputValidationMessage();
   } else if (passwordField.value.length < 6) {
     submitButton.disabled = true;
     updateInputValidationMessage(invalidPasswordMessage);
+    if (submitButtonHovered) showInputValidationMessage();
   } else if (confirmPasswordField.value != passwordField.value) {
     submitButton.disabled = true;
     updateInputValidationMessage(notMatchingPasswordMessage);
+    if (submitButtonHovered) showInputValidationMessage();
   } else if (addressField.value.length == 0) {
     submitButton.disabled = true;
     updateInputValidationMessage(invalidAddressMessage);
+    if (submitButtonHovered) showInputValidationMessage();
   } else if (!isNum(phoneNumberField.value) || phoneNumberField.value.length < 9 || phoneNumberField.value.length > 12) {
     submitButton.disabled = true;
     updateInputValidationMessage(invalidPhoneNumberMessage);
+    if (submitButtonHovered) showInputValidationMessage();
   } else {
     submitButton.disabled = false;
     hideInputValidationMessage();
@@ -183,8 +192,10 @@ $$('#formSubmitButtonInner').onmouseenter = () => {
   if ($$('#formSubmitButton').disabled) {
     showInputValidationMessage();
   }
+  submitButtonHovered = true;
 };
 
 $$('#formSubmitButtonInner').onmouseleave = () => {
   hideInputValidationMessage();
+  submitButtonHovered = false;
 };

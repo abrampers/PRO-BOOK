@@ -36,13 +36,13 @@ function render_template(bool $error = FALSE) {
       </div>
       <div class='main-header-bottom-container'>
         <div class='main-menu-tab'>
-          Browse
+          <h2>Browse</h2>
+        </div>
+        <div class='main-menu-tab tab-mid'>
+          <h2>History</h2>
         </div>
         <div class='main-menu-tab'>
-          History
-        </div>
-        <div class='main-menu-tab'>
-          Profile
+          <h2>Profile</h2>
         </div>
       </div>
     </div>

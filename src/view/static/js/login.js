@@ -3,6 +3,8 @@ import $$ from './lib/jQowi.js';
 const invalidUsernameMessage = 'Username cannot be empty';
 const invalidPasswordMessage = 'Password cannot be empty';
 
+let submitButtonHovered = false;
+
 function showInputValidationMessage() {
   $$('#inputValidationMessageContainer').classList.add('is-visible');
   $$('#titleContainer').classList.add('is-moved');
@@ -25,9 +27,11 @@ function validateInput(_) {
   if (usernameField.value.length == 0) {
     submitButton.disabled = true;
     updateInputValidationMessage(invalidUsernameMessage);
+    if (submitButtonHovered) showInputValidationMessage();
   } else if (passwordField.value.length == 0) {
     submitButton.disabled = true;
     updateInputValidationMessage(invalidPasswordMessage);
+    if (submitButtonHovered) showInputValidationMessage();
   } else {
     submitButton.disabled = false;
     hideInputValidationMessage();
@@ -43,10 +47,12 @@ $$('#formSubmitButtonInner').onmouseenter = () => {
   if ($$('#formSubmitButton').disabled) {
     showInputValidationMessage();
   }
+  submitButtonHovered = true;
 };
 
 $$('#formSubmitButtonInner').onmouseleave = () => {
   hideInputValidationMessage();
+  submitButtonHovered = false;
 };
 
 setTimeout(() => {
