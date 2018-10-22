@@ -1,13 +1,13 @@
 <?php
 class VerifyRegisterMiddleware implements MiddlewareInterface {
   private $db;
-  private $usernameValid;
-  private $emailValid;
+  private $usernameInvalid;
+  private $emailInvalid;
 
   public function __construct() {
     $this->db = new MarufDB();
-    $this->usernameValid = False;
-    $this->emailValid = False;
+    $this->usernameInvalid = 0;
+    $this->emailInvalid = 0;
   }
 
   private function isName($value) {
@@ -15,13 +15,13 @@ class VerifyRegisterMiddleware implements MiddlewareInterface {
   }
 
   private function isUsername($value) {
-    $this->usernameValid = (bool) $this->db->validateUsername($value);
-    return preg_match('/^[a-zA-Z0-9_]+$/', $value) && $this->usernameValid;
+    $this->usernameInvalid = ! (int) $this->db->validateUsername($value);
+    return preg_match('/^[a-zA-Z0-9_]+$/', $value) && !$this->usernameInvalid;
   }
 
   private function isEmail($value) {
-    $this->emailValid = (bool) $this->db->validateEmail($value);
-    return preg_match('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $value) && $this->emailValid;
+    $this->emailInvalid = ! (int) $this->db->validateEmail($value);
+    return preg_match('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $value) && !$this->emailInvalid;
   }
 
   private function isNum($value) {
@@ -43,8 +43,7 @@ class VerifyRegisterMiddleware implements MiddlewareInterface {
     if ($this->validate($request->name, $request->username, $request->email, $request->password, $request->address, $request->phonenumber)) {
       return True;
     } else {
-      print_r(is_null($this->usernameValid));
-      header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/register?invalid_username=0&invalid_email=0");
+      header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/register?invalid_username={$this->usernameInvalid}&invalid_email={$this->emailInvalid}");
       return False;
     }
   }
