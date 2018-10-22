@@ -7,3 +7,12 @@ $$('#logoutButtonContainer').onmouseenter = () => {
 $$('#logoutButtonContainer').onmouseleave = () => {
   $$('#logoutButton').classList.remove('hover');
 };
+
+$$('.main-menu-tab').forEach((element) => {
+  element.onmouseenter = () => {
+    element.classList.add('hover');
+  };
+  element.onmouseleave = () => {
+    element.classList.remove('hover');
+  };
+});

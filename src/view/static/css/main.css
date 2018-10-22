@@ -139,10 +139,19 @@
 .main-menu-tab {
   width: 100%;
   height: 100%;
-  background-color: #25a3ec;
+  flex: 6;
   display: flex;
 	justify-content: center;
   align-items: center;
+  background-color: #25a3ec;
+  cursor: pointer;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.main-menu-tab.hover {
+  flex: 7;
+  background-color: orangered;
 }
 
 .tab-selected {
