@@ -30,13 +30,8 @@ function render_template(bool $error = FALSE) {
             <h3>Hi, Cebong!</h3>
           </div>
           <div class='main-logout-button-container'>
-            <button>
+            <button class='main-logout-button'>
               <h4>Logout</h4>
-            </button>
-            <button id='formSubmitButton' type='submit' form='loginForm' disabled>
-              <div id='formSubmitButtonInner' class='auth-submit-inner'>
-                LOGIN
-              </div>
             </button>
           </div>
         </div>
