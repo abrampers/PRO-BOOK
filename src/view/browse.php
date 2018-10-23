@@ -61,11 +61,11 @@ function render_template(bool $error = FALSE) {
         <div class='browse-title-container'>
           <h1 id='browseTitle' class='browse-title'>Search Books</h1>
         </div>
-        <form id='browseForm' class='browse-form' action='/browse' method='post'>
-          <input id='queryField' type='text' name='query' placeholder='Input search terms...'>
+        <form id='browseForm' class='browse-form' action='/result' method='GET'>
+          <input id='queryField' type='text' name='title' placeholder='Input search terms...'>
         </form>
         <div class='browse-submit-container'>
-          <button id='formSubmitButton' type='submit' form='browseForm' disabled>
+          <button id='formSubmitButton' type='submit' form='browseForm'>
             <div id='formSubmitButtonInner' class='browse-submit-inner'>
               SEARCH
             </div>

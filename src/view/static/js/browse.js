@@ -6,7 +6,7 @@ $$('#queryField').onmouseenter = () => {
   $$('#browseTitle').classList.add('focus');
 };
 
-$$('#queryField').onmouseexit = () => {
+$$('#queryField').onmouseleave = () => {
   if (!formOnFocus) $$('#browseTitle').classList.remove('focus');
 };
 
