@@ -61,7 +61,7 @@ function render_template(bool $error = FALSE) {
         <div class='browse-title-container'>
           <h1 id='browseTitle' class='browse-title'>Search Books</h1>
         </div>
-        <form id='browseForm' class='browse-form' action='/result' method='GET'>
+        <form id='browseForm' class='browse-form' action='/books' method='GET'>
           <input id='queryField' type='text' name='title' placeholder='Input search terms...'>
         </form>
         <div class='browse-submit-container'>

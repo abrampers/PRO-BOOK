@@ -70,7 +70,7 @@ class MarufDB {
   }
 
   public function searchBook($title) {
-    $query = $this->pdo->prepare("SELECT * FROM Books WHERE title LIKE ?");
+    $query = $this->pdo->prepare("SELECT * FROM Books WHERE LOWER(title) LIKE LOWER(?)");
     $query->execute(array("%{$title}%"));
     return $query->fetchAll();
   }

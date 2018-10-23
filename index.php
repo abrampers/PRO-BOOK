@@ -33,7 +33,7 @@ $router->get('/browse', function($request) {
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/books', function($request) {
-  return BrowseResultGetController::control($request);
+  return BooksGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/history', function($request) {
@@ -86,10 +86,6 @@ $router->get('/username', function($request) {
 });
 
 $router->get('/email', function($request) {
-  return json_encode(Api::validateEmail($request->email));
-});
-
-$router->get('/search', function($request) {
   return json_encode(Api::validateEmail($request->email));
 });
 
