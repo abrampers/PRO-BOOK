@@ -105,10 +105,10 @@ DROP TABLE IF EXISTS `Reviews`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Reviews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
   `rating` float DEFAULT NULL,
   `comment` varchar(500) DEFAULT NULL,
   `book_id` int(11) DEFAULT NULL,
+  `username` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -161,4 +161,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-23 20:33:01
+-- Dump completed on 2018-10-23 20:46:15

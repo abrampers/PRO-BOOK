@@ -156,16 +156,16 @@ class MarufDB {
     return $query->fetchAll();
   }
 
-  public function getBookDetail($book_id){
+  public function getBookDetail($book_id) {
     $query = $this->pdo->prepare("SELECT * FROM Books WHERE book_id = ?");
     $query->execute(array($book_id));
     return $query->fetch();
   }
 
-  public function addReview($user_id, $book_id, $review, $comment){
+  public function addReview($username, $book_id, $review, $comment) {
     try {
-      $query = $this->pdo->prepare("INSERT INTO Reviews (user_id, book_id, review, comment) VALUES (?, ?, ?, ?)");
-      $query->execute(array($user_id, $book_id, $review, $comment));
+      $query = $this->pdo->prepare("INSERT INTO Reviews (username, book_id, review, comment) VALUES (?, ?, ?, ?)");
+      $query->execute(array($username, $book_id, $review, $comment));
       $query = $this->pdo->prepare("SELECT * FROM Books WHERE id = ?");
       $query->execute(array($book_id));
       $result = $query->fetch();
@@ -177,5 +177,11 @@ class MarufDB {
     } catch (PDOException $e) {
       return 0;
     }
+  }
+
+  public function getReviews($book_id) {
+    $query = $this->pdo->prepare("SELECT * FROM Reviews WHERE book_id = ?");
+    $query->execute(array($book_id));
+    return $query->fetchAll();
   }
 }
