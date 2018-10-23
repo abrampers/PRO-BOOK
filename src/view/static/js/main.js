@@ -11,7 +11,7 @@ $$('#titleContainer').onmouseleave = () => {
 };
 
 $$('#titleContainer').onclick = () => {
-  window.location = '';
+  window.location = '/';
 };
 
 $$('#logoutButtonContainer').onmouseenter = () => {
@@ -34,13 +34,13 @@ $$('.main-menu-tab').forEach((element) => {
 });
 
 $$('#browseTab').onclick = () => {
-  window.location = 'browse';
+  window.location = '/browse';
 };
 
 $$('#historyTab').onclick = () => {
-  window.location = 'history';
+  window.location = '/history';
 };
 
 $$('#profileTab').onclick = () => {
-  window.location = 'profile';
+  window.location = '/profile';
 };

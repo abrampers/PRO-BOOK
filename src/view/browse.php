@@ -7,6 +7,7 @@ function render_template(bool $error = FALSE) {
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
+  <link rel='stylesheet' href='src/view/static/css/browse.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
   <script type='module' src='src/view/static/js/browse.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
@@ -56,39 +57,21 @@ function render_template(bool $error = FALSE) {
       </div>
     </div>
     <div class='main-content-container'>
-      <p>huyuuuuuuuu 7777</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
-      <p>huyuuuuuuuu</p>
+      <div class='browse-content-container'>
+        <div class='browse-title-container'>
+          <h1 id='browseTitle' class='browse-title'>Search Books</h1>
+        </div>
+        <form id='browseForm' class='browse-form' action='/browse' method='post'>
+          <input id='queryField' type='text' name='query' placeholder='Input search terms...'>
+        </form>
+        <div class='browse-submit-container'>
+          <button id='formSubmitButton' type='submit' form='browseForm' disabled>
+            <div id='formSubmitButtonInner' class='browse-submit-inner'>
+              SEARCH
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
 	</div>
 </body>

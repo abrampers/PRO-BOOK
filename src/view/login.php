@@ -52,7 +52,7 @@ HTML
               <h4>Username</h4>
             </div>
             <div class='auth-form-item-field-container'>
-              <input id='formUsernameField' type='text' name='username' autofocus>
+              <input id='formUsernameField' type='text' name='username'>
             </div>
           </div>
 
