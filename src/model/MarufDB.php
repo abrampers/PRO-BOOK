@@ -29,7 +29,7 @@ class MarufDB {
     if ($query->rowCount() < 1) {
       return -1;
     } else {
-      return $query->fetch()['id'];
+      return $query->fetch()['user_id'];
     }
   }
 
@@ -147,7 +147,7 @@ class MarufDB {
 
   public function showHistory($user_id) {
     $query = $this->pdo->prepare("SELECT * FROM Orders JOIN Books ON Orders.book_id = Books.id WHERE user_id = ?");
-    $query->execute($user_id);
+    $query->execute(array($user_id));
     return $query->fetchAll();
   }
 

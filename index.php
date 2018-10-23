@@ -42,7 +42,7 @@ $router->get('/browse', function($request) {
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/history', function($request) {
-  $template = new Template('src/view/huyu.php');
+  $template = new Template('src/view/history.php');
   return $template->render();
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
