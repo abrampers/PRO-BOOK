@@ -1,5 +1,5 @@
 <?php
-class BrowseResultGetController implements ControllerInterface {
+class BooksResultGetController implements ControllerInterface {
   public static function control(Request $request) {
     $db = new MarufDB();
     $books = $db->searchBook($request->title);
