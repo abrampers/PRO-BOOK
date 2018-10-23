@@ -1,5 +1,25 @@
 <?php
-function render_template(string $username) {
+function render_template(string $username, $book, $reviews) {
+  $listOfReviews = '';
+
+  foreach($reviews as $review) {
+    $str = <<<HTML
+
+    <div class='book-review-image-content-container'>
+      <img src=''>
+    </div>
+    <div class='book-review-content-container'>
+      <p class='book-review-content-username'>{$review['username']}</p>
+      <p class='book-review-content'>{$review['comment']}</p>
+    </div>
+    <div class='book-review-rating-content'>
+      <img src='' alt='Star Image'>
+      <p class='book-review-rating'>{$review['rating']}</p>
+    </div>
+
+HTML;
+  }
+
   return <<<HTML
 
 <!DOCTYPE html>
@@ -57,19 +77,39 @@ function render_template(string $username) {
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='browse-content-container'>
-        <div class='browse-title-container'>
-          <h1 id='browseTitle' class='browse-title'>Search Books</h1>
+      <div class='book-detail-container'>
+        <div class='book-detail-content-container'>
+          <p class='book-detail-title'>{$book['title']}</p>
+          <p class='book-detail-author'>{$book['author']}</p>
+          <p class='bool-detail-synopsis'>{$book['synopsis']}</p>
         </div>
-        <form id='browseForm' class='browse-form' action='/search' method='GET'>
-          <input id='queryField' type='text' name='title' placeholder='Input search terms...'>
-        </form>
-        <div class='browse-submit-container'>
-          <button id='formSubmitButton' type='submit' form='browseForm'>
-            <div id='formSubmitButtonInner' class='browse-submit-inner'>
-              SEARCH
+        <div class='book-detail-image-container'>
+          <img src=''>
+          <div class='book-detail-review-container'>
+            <div class='book-detail-review-star-container'>
+              huyu buat bintang gimane caranya
             </div>
-          </button>
+            <p class='book-detail-review'>{$book['rating']} / 5.0</p>
+          </div>
+        </div>
+      </div>
+      <div class='book-order-container'>
+        <p class='book-order-title'>Order</p>
+        <select name='orderQuantity' id='quantity'>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+          <option value='4'>4</option>
+          <option value='5'>5</option>
+          <option value='6'>6</option>
+          <option value='7'>7</option>
+        </select>
+        <div class='book-order-button'></div>
+      </div>
+      <div class='book-review-container'>
+        <p class='book-review-title'>Reviews</p>
+        <div class='book-review-content-container'>
+          {$listOfReviews}
         </div>
       </div>
     </div>

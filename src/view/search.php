@@ -1,5 +1,36 @@
 <?php
-function render_template(string $username) {
+function render_template(string $username, $books) {
+  $listOfBooks = '';
+
+  foreach($books as $book) {
+    $book_id = $book['id'];
+
+    $str = <<<HTML
+
+    <div class='search-book-detail-container'>
+      <div class='search-book-detail-image-container'>
+        <img src=''>
+      </div>
+      <div class='search-book-detail-content-container'>
+        <p class='book-title'>{$book['title']}</p>
+        <p class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['votes']} vote(s))</p>
+        <p class='book-description'>{$book['synopsis']}</p>
+      </div>
+    </div>
+    <div class='search-detail-button-container'>
+      <form id='bookDetail' action='/book' method='get'>
+        <input hidden name='id' value={$book_id}>
+      </form>
+      <button form='bookDetail' type='submit'>
+        <p class='search-detail-button-title'>Detail</p>
+      </button>
+    </div>
+
+HTML;
+
+    $listOfBooks = $listOfBooks . $str;
+  }
+
   return <<<HTML
 
 <!DOCTYPE html>
@@ -57,20 +88,12 @@ function render_template(string $username) {
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='browse-content-container'>
-        <div class='browse-title-container'>
-          <h1 id='browseTitle' class='browse-title'>Search Books</h1>
-        </div>
-        <form id='browseForm' class='browse-form' action='/search' method='GET'>
-          <input id='queryField' type='text' name='title' placeholder='Input search terms...'>
-        </form>
-        <div class='browse-submit-container'>
-          <button id='formSubmitButton' type='submit' form='browseForm'>
-            <div id='formSubmitButtonInner' class='browse-submit-inner'>
-              SEARCH
-            </div>
-          </button>
-        </div>
+      <div class='search-content-title-container'>
+        <p class='search-result-title'>Search Result</p>
+        <p class='search-result-number'>Found {$numOfResults} result(s)</p>
+      </div>
+      <div class='search-content-container'>
+        {$listOfBooks}
       </div>
     </div>
 	</div>

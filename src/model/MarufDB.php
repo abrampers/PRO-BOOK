@@ -157,7 +157,7 @@ class MarufDB {
   }
 
   public function getBookDetail($book_id) {
-    $query = $this->pdo->prepare("SELECT * FROM Books WHERE book_id = ?");
+    $query = $this->pdo->prepare("SELECT * FROM Books WHERE id = ?");
     $query->execute(array($book_id));
     return $query->fetch();
   }
