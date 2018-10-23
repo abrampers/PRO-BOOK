@@ -63,25 +63,45 @@ function render_template($orders) {
 HTML;
 foreach($orders as $order) {
   $order_date = date("j F Y", $order['order_timestamp']);
-  $review_text = $order['is_review'] == 1 ? "Anda sudah memberikan review" : "Belum Review";
+  $review_text = $order['is_review'] == 1 ? "Anda sudah memberikan review" : "Belum direview";
   $img_name = "src/view/static/img/".$order['book_id'].".jpg";
   $order_template = <<<HTML
       <div class='history-order-container'>
         <img src={$img_name}/>
-        <div class='history-order-1-content'>
-          <div class='history-order-title-container'>
-            <div class='order-title'>{$order['title']}</div>
+        <div class='history-book-container'>
+          <div class='history-book-title-container'>
+            <div class='history-book-title-content'>
+              {$order['title']}
+            </div>
           </div>
-          <p>Jumlah : {$order['amount']}</p>
-          <p>{$review_text}</p>
+          <div class='history-book-detail-container'>
+            <div class='history-book-detail-content'>Jumlah : {$order['amount']}</div>
+            <div class='history-book-detail-content'>{$review_text}</div>
+          </div>
         </div>
-        <div class='history-order-2-content'>
-          <div class='order-2'>{$order_date}</div>
-          <div class='order-2'>Nomor Order: #{$order['id']}</div>
+        <div class='history-order-detail-container'>
+          <div class='history-order-date-content'>{$order_date}</div>
+          <div class='history-order-number-content'>Nomor Order: #{$order['id']}</div>
+HTML;
+  if ($order['is_review'] == 1) {
+    $review_template = <<<HTML
         </div>
       </div>
 HTML;
-  $template = $template.$order_template;
+  } else {
+    $review_template = <<<HTML
+          <div class='review-button-container'>
+            <button id='reviewButton' type='submit'>
+              <div id='reviewButtonInner' class='review-button-inner'>
+                REVIEW
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+HTML;
+  }
+  $template = $template.$order_template.$review_template;
 };
 
 $template = $template.<<<HTML
