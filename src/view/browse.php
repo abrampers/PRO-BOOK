@@ -8,9 +8,11 @@ function render_template(bool $error = FALSE) {
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <script type='module' src='src/view/static/js/browse.js'></script>
+  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=Kite+One" rel="stylesheet">
   <title>Browse</title>
 </head>
 <body>
@@ -32,19 +34,19 @@ function render_template(bool $error = FALSE) {
           <div id="logoutButtonContainer" class='main-logout-button-container'>
             <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
-              <h4>Logout</h4>
+              <div id="logoutButtonIcon" class='main-logout-button-icon'>
             </button>
           </div>
         </div>
       </div>
       <div class='main-header-bottom-container'>
-        <div class='main-menu-tab tab-selected'>
+        <div id='browseTab' class='main-menu-tab tab-selected'>
           <h2>Browse</h2>
         </div>
-        <div class='main-menu-tab tab-mid'>
+        <div id='historyTab' class='main-menu-tab tab-mid'>
           <h2>History</h2>
         </div>
-        <div class='main-menu-tab'>
+        <div id='profileTab' class='main-menu-tab'>
           <h2>Profile</h2>
         </div>
       </div>

@@ -5,24 +5,24 @@ body {
 }
 
 h1 {
-	font-family: 'Bungee Shade', cursive;
+	font-family: 'Bungee Shade', sans-serif;
 	font-size: 3.5rem;
 	margin-top: 14px;
 	margin-bottom: 14px;
 }
 
 h2 {
-	font-family: 'Chathura', sans-serif;
-	font-weight: 600;
-	font-size: 3.3rem;
+	font-family: 'Bungee', sans-serif;
+	font-weight: 200;
+	font-size: 1.5rem;
 	margin: 0px;
 }
 
 h3 {
   height: 74px;
-	font-family: 'Chathura', sans-serif;
+	font-family: 'Kite One', sans-serif;
 	font-weight: 600;
-	font-size: 3rem;
+	font-size: 1.3rem;
 	margin: 0px;
 }
 
