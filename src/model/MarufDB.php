@@ -158,7 +158,7 @@ class MarufDB {
 
   public function showHistory($user_id) {
     $query = $this->pdo->prepare("SELECT * FROM Orders JOIN Books ON Orders.book_id = Books.id WHERE user_id = ?");
-    $query->execute($user_id);
+    $query->execute(array($user_id));
     return $query->fetchAll();
   }
 

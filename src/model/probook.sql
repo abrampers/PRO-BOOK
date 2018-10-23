@@ -35,6 +35,7 @@ CREATE TABLE `ActiveTokens` (
 
 LOCK TABLES `ActiveTokens` WRITE;
 /*!40000 ALTER TABLE `ActiveTokens` DISABLE KEYS */;
+INSERT INTO `ActiveTokens` VALUES (3,'6bac7403524fac85272e9b93b17c290f',1539885074),(3,'027996d5212489d8ba51946020ff0632',1539885107),(3,'7329a41622a4b6ee7339b9c0d8627dfe',1540211593),(3,'b1c210b621b0eb19c95897ea807ee6d3',1540284177),(3,'e246131327306f2eb4196336a2f21706',1540285956),(3,'6b996061cc9685adf27019bf39b560e5',1540287196);
 /*!40000 ALTER TABLE `ActiveTokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,7 +53,7 @@ CREATE TABLE `Books` (
   `synopsis` varchar(300) DEFAULT NULL,
   `pathcover` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,6 +62,7 @@ CREATE TABLE `Books` (
 
 LOCK TABLES `Books` WRITE;
 /*!40000 ALTER TABLE `Books` DISABLE KEYS */;
+INSERT INTO `Books` VALUES (1,'The Communist Manifesto','Karl Marx','The Communist Manifesto is divided into a preamble and four sections, the last of these a short conclusion.',NULL),(2,'The Cold War: A New History','John Lewis Gaddis','The dean of Cold War historians (The New York Times) now presents the definitive account of the global confrontation that dominated the last half of the twentieth century.',NULL);
 /*!40000 ALTER TABLE `Books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +81,7 @@ CREATE TABLE `Orders` (
   `amount` int(11) DEFAULT NULL,
   `order_timestamp` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,6 +90,7 @@ CREATE TABLE `Orders` (
 
 LOCK TABLES `Orders` WRITE;
 /*!40000 ALTER TABLE `Orders` DISABLE KEYS */;
+INSERT INTO `Orders` VALUES (1,3,0,1,1,1540284177);
 /*!40000 ALTER TABLE `Orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +137,7 @@ CREATE TABLE `Users` (
   `phonenumber` varchar(255) DEFAULT NULL,
   `pathpp` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +146,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'Koko widodo','cebong','cebongarmy@kokowi.com','bowobangsat','istana presiden 100','08136969669',NULL),(2,'Erick Thohir','sayacebong','asu@gmail.com','64ca1296793ddd885bb6ceed0a9aa70e','san siro','123456789',NULL);
+INSERT INTO `Users` VALUES (1,'Koko widodo','cebong','cebongarmy@kokowi.com','bowobangsat','istana presiden 100','08136969669',NULL),(2,'Erick Thohir','sayacebong','asu@gmail.com','64ca1296793ddd885bb6ceed0a9aa70e','san siro','123456789',NULL),(3,'Meki Kuda','skidipapap','kemem@gmail.com','cc0f8df45236d57a0ea3eb700a97b07b','Thailand Banci 120','081999999',NULL);
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -156,4 +159,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-18 18:12:57
+-- Dump completed on 2018-10-23 18:16:41
