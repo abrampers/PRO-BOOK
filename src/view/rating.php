@@ -1,5 +1,7 @@
 <?php
-function render_template($orders) {
+function render_template($book, $username, $user_id) {
+  $img_name = "src/view/static/img/".$book['id'].".jpg";
+  $book_id = $book['id'];
   $template = <<<HTML
 
 <!DOCTYPE html>
@@ -7,7 +9,7 @@ function render_template($orders) {
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
-  <link rel='stylesheet' href='src/view/static/css/history.css'>
+  <link rel='stylesheet' href='src/view/static/css/rating.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
   <script type='module' src='src/view/static/js/history.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
@@ -57,63 +59,38 @@ function render_template($orders) {
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='history-title-container'>
-        <h1 class='history-title'>HISTORY</h1>
-      </div>
-HTML;
-foreach($orders as $order) {
-  $order_date = date("j F Y", $order['order_timestamp']);
-  $review_link = "/rating?id=".$order['book_id'];
-  $book_id = $order['id'];
-  // print_r($review_link);
-  $review_text = $order['is_review'] == 1 ? "You have already given review" : "Haven't reviewed yet";
-  $img_name = "src/view/static/img/".$order['book_id'].".jpg";
-  $order_template = <<<HTML
-      <div class='history-content-container'>
-        <div class='history-order-container'>
-          <div class='history-book-image-container'>
-            <img src={$img_name}/>
-          </div>
-          <div class='history-book-container'>
-            <div class='history-book-title-container'>
-              <div class='history-book-title-content'>
-                {$order['title']}
-              </div>
-            </div>
-            <div class='history-book-detail-container'>
-              <div class='history-book-detail-content'>Amount : {$order['amount']}</div>
-              <div class='history-book-detail-content'>{$review_text}</div>
-            </div>
-          </div>
-          <div class='history-order-detail-container'>
-            <div class='history-order-date-content'>{$order_date}</div>
-            <div class='history-order-number-content'>Order Number : #{$order['id']}</div>
-HTML;
-  if ($order['is_review'] == 1) {
-    $review_template = <<<HTML
-          </div>
+      <div>
+        <div>
+          {$book['title']}
+          {$book['author']}
+        </div>
+        <div>
+          <img src={$img_name}/>
         </div>
       </div>
-HTML;
-  } else {
-    $review_template = <<<HTML
-            <div class='review-button-container'>
-              <form id='formRating' action='/rating' method='get'><input hidden name="id" value={$book_id}></form>
-              <button id='reviewButton' type='submit' form='formRating'>
-                <div id='reviewButtonInner' class='review-button-inner'>
-                  REVIEW
-                </div>
-              </button>
+      <form id='browseForm' class='browse-form' action='/rating' method='POST'>
+        <div>
+          Add Rating
+          <input hidden name='rating' value=5>
+        </div>
+        <div>
+          Add Comment
+          <input id='queryField' type='text' name='comment' placeholder='Input your comment'>
+          <input hidden name='username' value={$username}>
+          <input hidden name='user_id' value={$user_id}>
+          <input hidden name='book_id' value={$book_id}>
+        </div>
+      </form>
+      <div>
+        <button>Back</button>
+        <div class='browse-submit-container'>
+          <button id='formSubmitButton' type='submit' form='browseForm'>
+            <div id='formSubmitButtonInner' class='browse-submit-inner'>
+              SUBMIT
             </div>
-          </div>
+          </button>
         </div>
       </div>
-HTML;
-  }
-  $template = $template.$order_template.$review_template;
-};
-
-$template = $template.<<<HTML
     </div>
 	</div>
 </body>

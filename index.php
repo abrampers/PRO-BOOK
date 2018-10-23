@@ -36,6 +36,10 @@ $router->get('/books', function($request) {
   return BooksGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
+$router->get('/rating', function($request) {
+  return RatingGetController::control($request);
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
 $router->get('/history', function($request) {
   return HistoryGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
@@ -75,6 +79,10 @@ $router->post('/login', function($request) {
 $router->post('/register', function($request) {
   return RegisterPostController::control($request);
 }, [new VerifyRegisterMiddleware]);
+
+$router->post('/rating', function($request) {
+  return RatingPostController::control($request);
+});
 
 /************/
 /* REST API */

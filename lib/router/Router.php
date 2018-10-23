@@ -81,13 +81,13 @@ class Router {
 
   private function importGetVariables() {
     foreach($_GET as $key => $value) {
-      $this->request->{Router::toCamelCase($key)} = $value;
+      $this->request->{$key} = $value;
     }
   }
 
   private function importPostVariable() {
     foreach($_POST as $key => $value) {
-      $this->request->{Router::toCamelCase($key)} = $value;
+      $this->request->{$key} = $value;
     }
   }
 
