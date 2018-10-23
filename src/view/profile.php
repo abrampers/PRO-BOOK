@@ -64,7 +64,7 @@ function render_template(string $name, string $username, string $email, string $
           <div class='profile-main-image-container'>
             <img class='profile-picture' src='src/view/static/img/jokowi.jpg' alt='Profile Picture' height='200' width='200'>
           </div>
-          <p class='profile-main-name'>{$name}</p>
+          <h2 class='profile-main-name'>{$name}</h2>
         </div>
         <div class='profile-main-right-container'>
           <div class='profile-main-button-container'>
@@ -77,39 +77,41 @@ function render_template(string $name, string $username, string $email, string $
       </div>
 
       <div class='profile-detail-container'>
-        <p class='profile-detail-title'>My Profile</p>
+        <div class='profile-detail-title-container'>
+          <h2 class='profile-detail-title'>My Profile</h2>
+        </div>
         <div class='profile-detail-content-container'>
           <div class='profile-detail-content-row-container'>
-            <div class='profile-detail-content-row-title-container'>
-              <img src='' alt='Username icon'>
-              <p class='profile-detail-content-row-title'>Username</p>
+            <div class='profile-detail-content-row-label-container'>
+              <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_username.svg' alt='Username icon'>
+              <p class='profile-detail-content-row-label'>Username</p>
             </div>
             <div class='profile-detail-content-row-content-container'>
               <p class='profile-detail-content-row-content'>{$username}</p>
             </div>
           </div>
           <div class='profile-detail-content-row-container'>
-            <div class='profile-detail-content-row-title-container'>
-              <img src='' alt='Email icon'>
-              <p class='profile-detail-content-row-title'>Email</p>
+            <div class='profile-detail-content-row-label-container'>
+              <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_email.svg' alt='Email icon'>
+              <p class='profile-detail-content-row-label'>Email</p>
             </div>
             <div class='profile-detail-content-row-content-container'>
               <p class='profile-detail-content-row-content'>{$email}</p>
             </div>
           </div>
           <div class='profile-detail-content-row-container'>
-            <div class='profile-detail-content-row-title-container'>
-              <img src='' alt='Address icon'>
-              <p class='profile-detail-content-row-title'>Address</p>
+            <div class='profile-detail-content-row-label-container'>
+              <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_address.svg' alt='Address icon'>
+              <p class='profile-detail-content-row-label'>Address</p>
             </div>
             <div class='profile-detail-content-row-content-container'>
               <p class='profile-detail-content-row-content'>{$address}</p>
             </div>
           </div>
           <div class='profile-detail-content-row-container'>
-            <div class='profile-detail-content-row-title-container'>
-              <img src='' alt='Phone Number icon'>
-              <p class='profile-detail-content-row-title'>Phone Number</p>
+            <div class='profile-detail-content-row-label-container'>
+              <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_phone.svg' alt='Phone Number icon'>
+              <p class='profile-detail-content-row-label'>Phone Number</p>
             </div>
             <div class='profile-detail-content-row-content-container'>
               <p class='profile-detail-content-row-content'>{$phoneNumber}</p>
