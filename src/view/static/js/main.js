@@ -11,7 +11,7 @@ $$('#titleContainer').onmouseleave = () => {
 };
 
 $$('#titleContainer').onclick = () => {
-  window.location = '';
+  window.location = '/';
 };
 
 $$('#logoutButtonContainer').onmouseenter = () => {
