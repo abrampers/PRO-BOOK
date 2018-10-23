@@ -1,5 +1,5 @@
 <?php
-class LoginController implements ControllerInterface {
+class LoginPostController implements ControllerInterface {
   public static function control(Request $request) {
     $db = new MarufDB();
     $user_id = $db->checkLogin($request->username, $request->password);

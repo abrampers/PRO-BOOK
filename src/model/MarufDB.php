@@ -29,7 +29,18 @@ class MarufDB {
     if ($query->rowCount() < 1) {
       return -1;
     } else {
-      return $query->fetch()['id'];
+      return $query->fetch()['user_id'];
+    }
+  }
+
+  public function getUser($token) {
+    $user_id = $this->getUserId($token);
+    if ($user_id == -1) {
+      return "";
+    } else {
+      $query = $this->pdo->prepare("SELECT * FROM Users WHERE id = ?");
+      $query->execute(array($user_id));
+      return $query->fetch();
     }
   }
 
@@ -38,9 +49,9 @@ class MarufDB {
     if ($user_id == -1) {
       return "";
     } else {
-      $query = $this->pdo->prepare("SELECT name FROM Users WHERE id = ?");
-      $query->execute($array($user_id));
-      return $query->fetch()['name'];
+      $query = $this->pdo->prepare("SELECT username FROM Users WHERE id = ?");
+      $query->execute(array($user_id));
+      return $query->fetch()['username'];
     }
   }
 

@@ -1,5 +1,5 @@
 <?php
-function render_template(bool $error = FALSE) {
+function render_template(string $name, string $username, string $email, string $address, string $phoneNumber) {
   return <<<HTML
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ function render_template(bool $error = FALSE) {
 </head>
 <body>
 	<div class='main-page-container'>
-    <div class='main-header-container'>
+  <div class='main-header-container'>
       <div class='main-header-top-container'>
         <div class='main-title-container'>
           <div class='main-title-zstack'>
@@ -32,19 +32,19 @@ function render_template(bool $error = FALSE) {
           <div id="logoutButtonContainer" class='main-logout-button-container'>
             <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
-              <h4>Logout</h4>
+              <div id="logoutButtonIcon" class='main-logout-button-icon'>
             </button>
           </div>
         </div>
       </div>
       <div class='main-header-bottom-container'>
-        <div class='main-menu-tab tab-selected'>
+        <div id='browseTab' class='main-menu-tab tab-selected'>
           <h2>Browse</h2>
         </div>
-        <div class='main-menu-tab tab-mid'>
+        <div id='historyTab' class='main-menu-tab tab-mid'>
           <h2>History</h2>
         </div>
-        <div class='main-menu-tab'>
+        <div id='profileTab' class='main-menu-tab'>
           <h2>Profile</h2>
         </div>
       </div>
@@ -57,8 +57,12 @@ function render_template(bool $error = FALSE) {
           <p class='profile-main-name'>{$name}</p>
         </div>
         <div class='profile-main-right-container'>
-          <form id='editProfileForm' action='/profile/edit' method='get'></form>
-          <button type='submit' form='editProfileForm'></button>
+          <div class='profile-main-button-container'>
+            <form id='editProfileForm' action='/profile/edit' method='get'></form>
+            <button type='submit' form='editProfileForm'>
+              <img src='' alt='Edit Icon'/>
+            </button>
+          </div>
         </div>
       </div>
       <div class='profile-detail-container'>
