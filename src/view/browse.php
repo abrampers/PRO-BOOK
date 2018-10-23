@@ -7,6 +7,7 @@ function render_template(bool $error = FALSE) {
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
+  <script type='module' src='src/view/static/js/main.js'></script>
   <script type='module' src='src/view/static/js/browse.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
@@ -19,19 +20,22 @@ function render_template(bool $error = FALSE) {
 	<div class='main-page-container'>
     <div class='main-header-container'>
       <div class='main-header-top-container'>
-        <div class='main-title-container'>
+        <div id='titleContainer' class='main-title-container'>
           <div class='main-title-zstack'>
-            <h1 class='main-title-background'>PRO-BOOK</h1>
+            <h1 id='titleShadow' class='main-title-shadow'>PRO-BOOK</h1>
           </div>
           <div class='main-title-zstack'>
-            <h1 class='main-title'><span class='main-title-first'>PRO</span>-BOOK</h1>
+            <h1 id='titleBackground' class='main-title-background'>PRO-BOOK</h1>
+          </div>
+          <div class='main-title-zstack'>
+            <h1 id='titleText' class='main-title-text'><span class='main-title-text-first'>PRO</span>-BOOK</h1>
           </div>
         </div>
         <div class='main-misc-container'>
           <div class='main-greeting-container'>
             <h3>Hi, Cebong!</h3>
           </div>
-          <div id="logoutButtonContainer" class='main-logout-button-container'>
+          <div id='logoutButtonContainer' class='main-logout-button-container'>
             <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
               <div id="logoutButtonIcon" class='main-logout-button-icon'>

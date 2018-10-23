@@ -37,10 +37,22 @@
 	justify-content: flex-start;
   align-items: center;
   border-radius: 0px 34px 34px 0px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 
 .main-title-zstack {
   position: absolute;
+}
+
+.main-title-shadow {
+  margin: 10px 0px 14px 0px;
+  font-size: 4rem;
+  color: black;
+  -webkit-text-stroke: 12px black;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
 .main-title-background {
@@ -48,15 +60,27 @@
   font-size: 4rem;
   color: white;
   -webkit-text-stroke: 12px white;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
-.main-title {
+.main-title-text {
   margin: 10px 0px 14px 0px;
   font-size: 4rem;
   color: black;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 
-.main-title-first {
+.main-title-background.hover {
+  transform: translate(5px, -5px);
+}
+
+.main-title-text.hover {
+  transform: translate(5px, -5px);
+}
+
+.main-title-text-first {
   color: #f27d0c;
 }
 
@@ -126,8 +150,8 @@
 }
 
 .main-logout-button-icon {
-  height: 60px;
-  width: 60px;
+  height: 54px;
+  width: 54px;
   margin-left: 6px;
   background-color: white;
   -webkit-mask: url(../img/icon_logout.svg) no-repeat center;
@@ -182,19 +206,14 @@
 
 .main-content-container {
   width: 100%;
-  margin-top: 176px;
-}
-
-h1 {
-  text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.07);
+  margin-top: 162px;
 }
 
 h2 {
   color: white;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 h3 {
   margin-top: 85px;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
 }
