@@ -140,12 +140,6 @@ class MarufDB {
     }
   }
 
-  public function showProfile($user_id) {
-    $query = $this->pdo->prepare("SELECT * FROM Users WHERE id = ?");
-    $query->execute(array($user_id));
-    return $query->fetch();
-  }
-
   public function editProfile($pathpp, $name, $address, $phonenumber, $user_id) {
     try {
       $query = $this->pdo->prepare("UPDATE Users SET pathpp = ?, name = ?, address = ?, phonenumber = ? WHERE id = ?");
@@ -156,13 +150,13 @@ class MarufDB {
     }
   }
 
-  public function showHistory($user_id) {
+  public function getHistory($user_id) {
     $query = $this->pdo->prepare("SELECT * FROM Orders JOIN Books ON Orders.book_id = Books.id WHERE user_id = ?");
     $query->execute(array($user_id));
     return $query->fetchAll();
   }
 
-  public function showBookDetail($book_id){
+  public function getBookDetail($book_id){
     $query = $this->pdo->prepare("SELECT * FROM Books WHERE book_id = ?");
     $query->execute(array($book_id));
     return $query->fetch();
