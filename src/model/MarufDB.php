@@ -33,14 +33,25 @@ class MarufDB {
     }
   }
 
+  public function getUser($token) {
+    $user_id = $this->getUserId($token);
+    if ($user_id == -1) {
+      return "";
+    } else {
+      $query = $this->pdo->prepare("SELECT * FROM Users WHERE id = ?");
+      $query->execute(array($user_id));
+      return $query->fetch();
+    }
+  }
+
   public function getUsername($token) {
     $user_id = $this->getUserId($token);
     if ($user_id == -1) {
       return "";
     } else {
-      $query = $this->pdo->prepare("SELECT name FROM Users WHERE id = ?");
-      $query->execute($array($user_id));
-      return $query->fetch()['name'];
+      $query = $this->pdo->prepare("SELECT username FROM Users WHERE id = ?");
+      $query->execute(array($user_id));
+      return $query->fetch()['username'];
     }
   }
 

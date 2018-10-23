@@ -17,28 +17,19 @@ $router->get('/', function($request) {
 });
 
 $router->get('/login', function($request) {
-  $template = new Template('src/view/login.php');
-  $redirect = (is_null($request->redirected) ? False : $request->redirected);
-  return $template->render(False, $redirect);
+  return LoginGetController::control($request);
 }, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
 
 $router->get('/register', function($request) {
-  $template = new Template('src/view/register.php');
-  $invalidUsername = (is_null($request->invalidUsername) ? False : $request->invalidUsername);
-  $invalidEmail = (is_null($request->invalidEmail) ? False : $request->invalidEmail);
-  return $template->render($invalidUsername, $invalidEmail);
+  return RegisterGetController::control($request);
 }, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
 
 $router->get('/logout', function($request) {
-  $db = new MarufDB();
-  $db->deleteToken($request->token);
-  setcookie('token', '', time() - 3600, '/');
-  header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/login");
+  return LogoutGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/browse', function($request) {
-  $template = new Template('src/view/browse.php');
-  return $template->render();
+  return BrowseGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/history', function($request) {
@@ -52,8 +43,7 @@ $router->get('/history/review', function($request) {
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/profile', function($request) {
-  $template = new Template('src/view/huyu.php');
-  return $template->render();
+  return ProfileGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/profile/edit', function($request) {
@@ -67,15 +57,21 @@ $router->get('/deletecookie', function($request) {
   setcookie('token', '', time() - 3600, '/');
 });
 
+
+$router->get('/hu', function($request) {
+  $db = new MarufDB;
+  $user = $db->getUser($_COOKIE['token']);
+  print_r($user);
+});
+
 /** POST */
 $router->post('/login', function($request) {
-  return LoginController::control($request);
+  return LoginPostController::control($request);
 });
 
 $router->post('/register', function($request) {
-  return RegisterController::control($request);
-},
-[new VerifyRegisterMiddleware]);
+  return RegisterPostController::control($request);
+}, [new VerifyRegisterMiddleware]);
 
 /************/
 /* REST API */
