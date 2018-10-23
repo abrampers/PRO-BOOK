@@ -67,7 +67,9 @@ foreach($orders as $order) {
   $img_name = "src/view/static/img/".$order['book_id'].".jpg";
   $order_template = <<<HTML
       <div class='history-order-container'>
-        <img src={$img_name}/>
+        <div class='history-book-image-container'>
+          <img src={$img_name}/>
+        </div>
         <div class='history-book-container'>
           <div class='history-book-title-container'>
             <div class='history-book-title-content'>
