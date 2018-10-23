@@ -32,8 +32,12 @@ $router->get('/browse', function($request) {
   return BrowseGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
-$router->get('/books', function($request) {
-  return BooksGetController::control($request);
+$router->get('/search', function($request) {
+  return SearchGetController::control($request);
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
+$router->get('/book', function($request) {
+  return BookGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/rating', function($request) {

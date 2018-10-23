@@ -12,17 +12,18 @@ h1 {
 }
 
 h2 {
-	font-family: 'Bungee', sans-serif;
-	font-weight: 200;
-	font-size: 1.5rem;
+  line-height: 96px;
+  font-family: 'Chathura', sans-serif;
+	font-weight: 400;
+	font-size: 6rem;
 	margin: 0px;
 }
 
 h3 {
-  height: 74px;
-	font-family: 'Kite One', sans-serif;
-	font-weight: 600;
-	font-size: 1.3rem;
+  line-height: 80px;
+	font-family: 'Bungee', sans-serif;
+	font-weight: 200;
+	font-size: 1.5rem;
 	margin: 0px;
 }
 
@@ -33,9 +34,17 @@ h4 {
 	margin: 0px;
 }
 
+h5 {
+  line-height: 60px;
+	font-family: 'Kite One', sans-serif;
+	font-weight: 600;
+	font-size: 1.3rem;
+	margin: 0px;
+}
+
 p {
 	font-family: 'Chathura', sans-serif;
 	font-weight: 400;
-	font-size: 1.8rem;
+	font-size: 2rem;
 	margin: 0px;
 }
