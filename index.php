@@ -32,6 +32,10 @@ $router->get('/browse', function($request) {
   return BrowseGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
+$router->get('/browseresult', function($request) {
+  return BrowseResultGetController::control($request);
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
 $router->get('/history', function($request) {
   $template = new Template('src/view/history.php');
   return $template->render();

@@ -4,4 +4,5 @@ class BrowseGetController implements ControllerInterface {
     $template = new Template('src/view/browse.php');
     return $template->render();
   }
+
 }
