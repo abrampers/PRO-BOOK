@@ -1,5 +1,5 @@
 <?php
-function render_template(bool $error = FALSE) {
+function render_template($orders) {
   $template = <<<HTML
 
 <!DOCTYPE html>
@@ -7,6 +7,7 @@ function render_template(bool $error = FALSE) {
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
+  <link rel='stylesheet' href='src/view/static/css/history.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
   <script type='module' src='src/view/static/js/history.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
@@ -56,24 +57,28 @@ function render_template(bool $error = FALSE) {
       </div>
     </div>
     <div class='main-content-container'>
-      <div>
+      <div class='history-title-container'>
         <h1>History</h1>
       </div>
 HTML;
-
-$db = new MarufDB();
-$user_id = $db->getUserId($_COOKIE['token']);
-$history = $db->showHistory($user_id);
-foreach($history as $order) {
+foreach($orders as $order) {
   $order_date = date("j F Y", $order['order_timestamp']);
   $review_text = $order['is_review'] == 1 ? "Anda sudah memberikan review" : "Belum Review";
+  $img_name = "src/view/static/img/".$order['book_id'].".jpg";
   $order_template = <<<HTML
-      <div>
-        <p>{$order['title']}</p>
-        <p>Jumlah : {$order['amount']}</p>
-        <p>{$review_text}</p>
-        <p>{$order_date}</p>
-        <p>Nomor Order: #{$order['id']}</p>
+      <div class='history-order-container'>
+        <img src={$img_name}/>
+        <div class='history-order-1-content'>
+          <div class='history-order-title-container'>
+            <div class='order-title'>{$order['title']}</div>
+          </div>
+          <p>Jumlah : {$order['amount']}</p>
+          <p>{$review_text}</p>
+        </div>
+        <div class='history-order-2-content'>
+          <div class='order-2'>{$order_date}</div>
+          <div class='order-2'>Nomor Order: #{$order['id']}</div>
+        </div>
       </div>
 HTML;
   $template = $template.$order_template;
