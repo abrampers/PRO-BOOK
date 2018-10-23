@@ -58,7 +58,7 @@ function render_template($orders) {
     </div>
     <div class='main-content-container'>
       <div class='history-title-container'>
-        <h1>History</h1>
+        <h1 class='history-title'>HISTORY</h1>
       </div>
 HTML;
 foreach($orders as $order) {
@@ -66,38 +66,41 @@ foreach($orders as $order) {
   $review_text = $order['is_review'] == 1 ? "Anda sudah memberikan review" : "Belum direview";
   $img_name = "src/view/static/img/".$order['book_id'].".jpg";
   $order_template = <<<HTML
-      <div class='history-order-container'>
-        <div class='history-book-image-container'>
-          <img src={$img_name}/>
-        </div>
-        <div class='history-book-container'>
-          <div class='history-book-title-container'>
-            <div class='history-book-title-content'>
-              {$order['title']}
+      <div class='history-content-container'>
+        <div class='history-order-container'>
+          <div class='history-book-image-container'>
+            <img src={$img_name}/>
+          </div>
+          <div class='history-book-container'>
+            <div class='history-book-title-container'>
+              <div class='history-book-title-content'>
+                {$order['title']}
+              </div>
+            </div>
+            <div class='history-book-detail-container'>
+              <div class='history-book-detail-content'>Jumlah : {$order['amount']}</div>
+              <div class='history-book-detail-content'>{$review_text}</div>
             </div>
           </div>
-          <div class='history-book-detail-container'>
-            <div class='history-book-detail-content'>Jumlah : {$order['amount']}</div>
-            <div class='history-book-detail-content'>{$review_text}</div>
-          </div>
-        </div>
-        <div class='history-order-detail-container'>
-          <div class='history-order-date-content'>{$order_date}</div>
-          <div class='history-order-number-content'>Nomor Order: #{$order['id']}</div>
+          <div class='history-order-detail-container'>
+            <div class='history-order-date-content'>{$order_date}</div>
+            <div class='history-order-number-content'>Nomor Order: #{$order['id']}</div>
 HTML;
   if ($order['is_review'] == 1) {
     $review_template = <<<HTML
+          </div>
         </div>
       </div>
 HTML;
   } else {
     $review_template = <<<HTML
-          <div class='review-button-container'>
-            <button id='reviewButton' type='submit'>
-              <div id='reviewButtonInner' class='review-button-inner'>
-                REVIEW
-              </div>
-            </button>
+            <div class='review-button-container'>
+              <button id='reviewButton' type='submit'>
+                <div id='reviewButtonInner' class='review-button-inner'>
+                  REVIEW
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>

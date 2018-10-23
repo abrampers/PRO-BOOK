@@ -70,7 +70,7 @@ class MarufDB {
   }
 
   public function searchBook($title) {
-    $query = $this->pdo->prepare("SELECT * FROM Books WHERE title LIKE ?");
+    $query = $this->pdo->prepare("SELECT * FROM Books WHERE LOWER(title) LIKE LOWER(?)");
     $query->execute(array("%{$title}%"));
     return $query->fetchAll();
   }
@@ -140,12 +140,6 @@ class MarufDB {
     }
   }
 
-  public function showProfile($user_id) {
-    $query = $this->pdo->prepare("SELECT * FROM Users WHERE id = ?");
-    $query->execute(array($user_id));
-    return $query->fetch();
-  }
-
   public function editProfile($pathpp, $name, $address, $phonenumber, $user_id) {
     try {
       $query = $this->pdo->prepare("UPDATE Users SET pathpp = ?, name = ?, address = ?, phonenumber = ? WHERE id = ?");
@@ -156,25 +150,38 @@ class MarufDB {
     }
   }
 
-  public function showHistory($user_id) {
+  public function getHistory($user_id) {
     $query = $this->pdo->prepare("SELECT * FROM Orders JOIN Books ON Orders.book_id = Books.id WHERE user_id = ?");
     $query->execute(array($user_id));
     return $query->fetchAll();
   }
 
-  public function showBookDetail($book_id){
-    $query = $this->pdo->prepare("SELECT * FROM Books WHERE book_id = ?");
+  public function getBookDetail($book_id) {
+    $query = $this->pdo->prepare("SELECT * FROM Books WHERE id = ?");
     $query->execute(array($book_id));
     return $query->fetch();
   }
 
-  public function addReview($user_id, $book_id, $review, $comment){
+  public function addReview($username, $book_id, $review, $comment) {
     try {
-      $query = $this->pdo->prepare("INSERT INTO Reviews (user_id, book_id, review, comment) VALUES (?, ?, ?, ?)");
-      $query->execute(array($user_id, $book_id, $review, $comment));
+      $query = $this->pdo->prepare("INSERT INTO Reviews (username, book_id, review, comment) VALUES (?, ?, ?, ?)");
+      $query->execute(array($username, $book_id, $review, $comment));
+      $query = $this->pdo->prepare("SELECT * FROM Books WHERE id = ?");
+      $query->execute(array($book_id));
+      $result = $query->fetch();
+      $currVote = $result['vote'] + 1;
+      $currReview = ($result['rating'] * $result['vote'] + $review) / $currVote;
+      $query = $this->pdo->prepare("UPDATE Books SET rating = ?, vote = ? WHERE id = ?");
+      $query->execute(array($currReview, $currVote, $book_id));
       return 1;
     } catch (PDOException $e) {
       return 0;
     }
+  }
+
+  public function getReviews($book_id) {
+    $query = $this->pdo->prepare("SELECT * FROM Reviews WHERE book_id = ?");
+    $query->execute(array($book_id));
+    return $query->fetchAll();
   }
 }

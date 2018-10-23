@@ -1,5 +1,36 @@
 <?php
-function render_template(string $username) {
+function render_template(string $username, $books) {
+  $listOfBooks = '';
+
+  foreach($books as $book) {
+    $book_id = $book['id'];
+
+    $str = <<<HTML
+
+    <div class='search-book-detail-container'>
+      <div class='search-book-detail-image-container'>
+        <img src=''>
+      </div>
+      <div class='search-book-detail-content-container'>
+        <p class='book-title'>{$book['title']}</p>
+        <p class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['votes']} vote(s))</p>
+        <p class='book-description'>{$book['synopsis']}</p>
+      </div>
+    </div>
+    <div class='search-detail-button-container'>
+      <form id='bookDetail' action='/book' method='get'>
+        <input hidden name='id' value={$book_id}>
+      </form>
+      <button form='bookDetail' type='submit'>
+        <p class='search-detail-button-title'>Detail</p>
+      </button>
+    </div>
+
+HTML;
+
+    $listOfBooks = $listOfBooks . $str;
+  }
+
   return <<<HTML
 
 <!DOCTYPE html>
@@ -34,43 +65,35 @@ function render_template(string $username) {
         </div>
         <div class='main-misc-container'>
           <div class='main-greeting-container'>
-            <h5>Hi, {$username}!</h5>
+            <h3>Hi, {$username}!</h3>
           </div>
           <div id='logoutButtonContainer' class='main-logout-button-container'>
             <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
-              <div id="logoutButtonIcon" class='main-logout-button-icon'></div>
+              <div id="logoutButtonIcon" class='main-logout-button-icon'>
             </button>
           </div>
         </div>
       </div>
       <div class='main-header-bottom-container'>
         <div id='browseTab' class='main-menu-tab tab-selected'>
-          <h3>Browse</h3>
+          <h2>Browse</h2>
         </div>
         <div id='historyTab' class='main-menu-tab tab-mid'>
-          <h3>History</h3>
+          <h2>History</h2>
         </div>
         <div id='profileTab' class='main-menu-tab'>
-          <h3>Profile</h3>
+          <h2>Profile</h2>
         </div>
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='browse-content-container'>
-        <div class='browse-title-container'>
-          <h1 id='browseTitle' class='browse-title'>Search Books</h1>
-        </div>
-        <form id='browseForm' class='browse-form' action='/search' method='GET'>
-          <input id='queryField' type='text' name='title' placeholder='Input search terms...'>
-        </form>
-        <div class='browse-submit-container'>
-          <button id='formSubmitButton' type='submit' form='browseForm'>
-            <div id='formSubmitButtonInner' class='browse-submit-inner'>
-              SEARCH
-            </div>
-          </button>
-        </div>
+      <div class='search-content-title-container'>
+        <p class='search-result-title'>Search Result</p>
+        <p class='search-result-number'>Found {$numOfResults} result(s)</p>
+      </div>
+      <div class='search-content-container'>
+        {$listOfBooks}
       </div>
     </div>
 	</div>
