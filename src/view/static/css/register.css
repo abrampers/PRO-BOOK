@@ -20,7 +20,7 @@
   transform: translateY(10px);
 }
 
-.auth-title-container.is-moved {
+.auth-title-container.moved {
 	transform: translateY(-14px);
 }
 

@@ -6,13 +6,13 @@ const invalidPasswordMessage = 'Password cannot be empty';
 let submitButtonHovered = false;
 
 function showInputValidationMessage() {
-  $$('#inputValidationMessageContainer').classList.add('is-visible');
-  $$('#titleContainer').classList.add('is-moved');
+  $$('#inputValidationMessageContainer').classList.add('visible');
+  $$('#titleContainer').classList.add('moved');
 }
 
 function hideInputValidationMessage() {
-  $$('#inputValidationMessageContainer').classList.remove('is-visible');
-  $$('#titleContainer').classList.remove('is-moved');
+  $$('#inputValidationMessageContainer').classList.remove('visible');
+  $$('#titleContainer').classList.remove('moved');
 }
 
 function updateInputValidationMessage(message) {
@@ -58,13 +58,13 @@ $$('#formSubmitButtonInner').onmouseleave = () => {
 setTimeout(() => {
   const invalidCredentialsMessageContainer = $$('#invalidCredentialsMessageContainer');
   const redirectedMessageContainer = $$('#redirectedMessageContainer');
-  if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.classList.add('is-visible')
-  if (redirectedMessageContainer) redirectedMessageContainer.classList.add('is-visible')
+  if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.classList.add('visible');
+  if (redirectedMessageContainer) redirectedMessageContainer.classList.add('visible');
 }, 250);
 
 setTimeout(() => {
   const invalidCredentialsMessageContainer = $$('#invalidCredentialsMessageContainer');
   const redirectedMessageContainer = $$('#redirectedMessageContainer');
-  if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.classList.remove('is-visible')
-  if (redirectedMessageContainer) redirectedMessageContainer.classList.remove('is-visible')
+  if (invalidCredentialsMessageContainer) invalidCredentialsMessageContainer.classList.remove('visible');
+  if (redirectedMessageContainer) redirectedMessageContainer.classList.remove('visible');
 }, 5000);

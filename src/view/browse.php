@@ -29,8 +29,9 @@ function render_template(bool $error = FALSE) {
           <div class='main-greeting-container'>
             <h3>Hi, Cebong!</h3>
           </div>
-          <div class='main-logout-button-container'>
-            <button class='main-logout-button'>
+          <div id="logoutButtonContainer" class='main-logout-button-container'>
+            <form id='logoutForm' action='/logout' method='get'></form>
+            <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
               <h4>Logout</h4>
             </button>
           </div>

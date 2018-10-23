@@ -29,6 +29,13 @@ $router->get('/register', function($request) {
   return $template->render($invalidUsername, $invalidEmail);
 }, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
 
+$router->get('/logout', function($request) {
+  $db = new MarufDB();
+  $db->deleteToken($request->token);
+  setcookie('token', '', time() - 3600, '/');
+  header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/login");
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
 $router->get('/browse', function($request) {
   $template = new Template('src/view/browse.php');
   return $template->render();
