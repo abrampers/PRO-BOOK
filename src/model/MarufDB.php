@@ -172,6 +172,13 @@ class MarufDB {
     try {
       $query = $this->pdo->prepare("INSERT INTO Reviews (user_id, book_id, review, comment) VALUES (?, ?, ?, ?)");
       $query->execute(array($user_id, $book_id, $review, $comment));
+      $query = $this->pdo->prepare("SELECT * FROM Books WHERE id = ?");
+      $query->execute(array($book_id));
+      $result = $query->fetch();
+      $currVote = $result['vote'] + 1;
+      $currReview = ($result['rating'] * $result['vote'] + $review) / $currVote;
+      $query = $this->pdo->prepare("UPDATE Books SET rating = ?, vote = ? WHERE id = ?");
+      $query->execute(array($currReview, $currVote, $book_id));
       return 1;
     } catch (PDOException $e) {
       return 0;
