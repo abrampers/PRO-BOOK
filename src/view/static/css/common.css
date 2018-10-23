@@ -11,18 +11,11 @@ h1 {
 	margin-bottom: 14px;
 }
 
-h2 {
+h3 {
+  line-height: 80px;
 	font-family: 'Bungee', sans-serif;
 	font-weight: 200;
 	font-size: 1.5rem;
-	margin: 0px;
-}
-
-h3 {
-  height: 74px;
-	font-family: 'Kite One', sans-serif;
-	font-weight: 600;
-	font-size: 1.3rem;
 	margin: 0px;
 }
 
@@ -30,6 +23,14 @@ h4 {
 	font-family: 'Chathura', sans-serif;
 	font-weight: 600;
 	font-size: 2.4rem;
+	margin: 0px;
+}
+
+h5 {
+  line-height: 60px;
+	font-family: 'Kite One', sans-serif;
+	font-weight: 600;
+	font-size: 1.3rem;
 	margin: 0px;
 }
 
