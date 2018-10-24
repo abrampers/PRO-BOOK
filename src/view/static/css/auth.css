@@ -9,7 +9,7 @@
 
 .auth-pane-container {
 	width: 420px;
-	height: 510px;
+	height: 520px;
 	background-color: #54c0ff;
 	border-radius: 20px;
 	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -117,7 +117,7 @@
 
 .auth-alt-container {
 	width: 75%;
-	margin-top: 8px;
+	margin-bottom: 12px;
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
@@ -137,7 +137,8 @@
 }
 
 form {
-	width: 80%;
+  width: 80%;
+  margin-bottom: 20px;
   display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -167,7 +168,7 @@ form {
 
 h1 {
 	background-color: white;
-	border-radius: 4px;
+  border-radius: 4px;
 }
 
 button {
@@ -217,7 +218,8 @@ button:hover[disabled] {
 }
 
 p {
-	font-weight: 600;
+  font-weight: 600;
+  font-size: 1.8rem;
 }
 
 a {

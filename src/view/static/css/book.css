@@ -1,0 +1,98 @@
+.main-content-container {
+  display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+  align-items: center;
+  background-color: #ededed;
+	background-image: url('../img/bg_auth.jpg');
+  background-blend-mode: screen;
+  background-size: contain;
+}
+
+.book-content-container {
+  width: 80%;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+	justify-content: flex-start;
+  align-items: center;
+}
+
+.book-detail-container {
+  width: 100%;
+  display: flex;
+	flex-direction: row;
+	justify-content: center;
+  align-items: flex-start;
+}
+
+.book-detail-left-container {
+  flex: 2;
+  display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.book-detail-title {
+  margin-top: 46px;
+  color: orangered;
+  font-size: 4rem;
+  text-shadow: -3px 3px 0px black;
+}
+
+.book-detail-author {
+  margin-bottom: 8px;
+  line-height: 80px;
+  font-size: 4rem;
+}
+
+.book-detail-synopsis {
+  margin: 46px 0px 20px 0px;
+  color: orangered;
+  font-size: 4rem;
+  text-shadow: -3px 3px 0px black;
+}
+
+.book-detail-right-container {
+  height: 580px;
+  padding-top: 40px;
+  flex: 1;
+  display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.book-detail-right-content-container {
+  height: 100%;
+  width: 250px;
+  flex: 1;
+  display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+  align-items: center;
+}
+
+.book-detail-image-container {
+  height: 400px;
+  width: 280px;
+  display: flex;
+	justify-content: center;
+  align-items: center;
+}
+
+.book-detail-image {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.08), 0 3px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.book-detail-stars-container {
+  margin-top: 25px;
+}
+
+.book-detail-rating-container {
+  margin-top: 5px;
+}
