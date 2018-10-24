@@ -10,12 +10,12 @@ function render_template(string $username, $books) {
 
     $str = <<<HTML
 
-<div class='search-book-detail-container'>
-  <div class='search-book-detail-content-container'>
-    <div class='search-book-detail-image-container'>
-      <img class='search-book-detail-image' src={$imagePath}/>
+<div class='search-book-container'>
+  <div class='search-book-content-container'>
+    <div class='search-book-image-container'>
+      <img class='search-book-image' src={$imagePath}/>
     </div>
-    <div class='search-book-detail-text-container'>
+    <div class='search-book-text-container'>
       <h4 class='book-title'>{$book['title']}</h4>
       <h4 class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['votes']} vote(s))</h4>
       <p class='book-description'>{$book['synopsis']}</p>

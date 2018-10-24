@@ -53,7 +53,7 @@
   align-items: center;
 }
 
-.search-book-detail-container {
+.search-book-container {
   width: 100%;
   margin-bottom: 26px;
   padding: 34px 24px 24px 32px;
@@ -66,7 +66,7 @@
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.08), 0 3px 20px 0 rgba(0, 0, 0, 0.08);
 }
 
-.search-book-detail-content-container {
+.search-book-content-container {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -74,7 +74,7 @@
   align-items: center;
 }
 
-.search-book-detail-image-container {
+.search-book-image-container {
   height: 200px;
   width: 140px;
   margin-right: 30px;
@@ -85,12 +85,12 @@
   align-items: center;
 }
 
-.search-book-detail-image {
+.search-book-image {
   max-width:100%;
   max-height:100%;
 }
 
-.search-book-detail-text-container {
+.search-book-text-container {
   flex: 1;
 }
 

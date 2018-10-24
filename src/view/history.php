@@ -11,12 +11,12 @@ function render_template(string $username, $orders) {
 
     $str = <<<HTML
 
-<div class='history-order-detail-container'>
-  <div class='history-order-detail-content-container'>
-    <div class='history-order-detail-image-container'>
-      <img class='history-order-detail-image' src={$imagePath}/>
+<div class='history-order-container'>
+  <div class='history-order-content-container'>
+    <div class='history-order-image-container'>
+      <img class='history-order-image' src={$imagePath}/>
     </div>
-    <div class='history-order-detail-text-container'>
+    <div class='history-order-text-container'>
 
       <h4 class='order-title'>{$order['title']}</h4>
       <p class='order-amount'>Amount: {$order['amount']}</p>
@@ -67,7 +67,6 @@ HTML;
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <link rel='stylesheet' href='src/view/static/css/history.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
-  <script type='module' src='src/view/static/js/history.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
