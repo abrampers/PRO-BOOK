@@ -8,6 +8,20 @@ function render_template(string $id, string $name, string $username, string $ema
     $path = 'src/model/profile/avatar_default.jpg';
   }
 
+  $printed = !is_null($response);
+  if ($printed) {
+    $printed = $printed && !$printed['success'];
+  }
+
+  $str = '';
+  if ($printed) {
+    $str = <<<HTML
+    <div id='errorMessageContainer' class='auth-error-message-container'>
+      <p>{$response['error'][0]}</p>
+    </div>
+HTML;
+  }
+
   return <<<HTML
 
 <!DOCTYPE html>
@@ -26,6 +40,11 @@ function render_template(string $id, string $name, string $username, string $ema
   <title>{$username} - Edit Profile</title>
 </head>
 <body>
+HTML
+.
+$str
+.
+  <<<HTML
 	<div class='main-page-container'>
     <div class='main-header-container'>
       <div class='main-header-top-container'>
