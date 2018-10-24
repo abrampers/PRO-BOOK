@@ -48,9 +48,8 @@ $router->get('/history', function($request) {
   return HistoryGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
-$router->get('/history/review', function($request) {
-  $template = new Template('src/view/huyu.php');
-  return $template->render();
+$router->get('/review', function($request) {
+  return ReviewGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/profile', function($request) {

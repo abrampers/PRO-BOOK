@@ -1,31 +1,32 @@
 <?php
 function render_template(string $username, $books) {
-  $listOfBooks = '';
+  $booksHTML = '';
   $numOfResults = 0;
+  $bookId = 0;
 
-  foreach($books as $book) {
+  foreach($books as $key => $book) {
     $bookId = $book['id'];
     $imagePath = "src/view/static/img/".$bookId.".jpg";
     $numOfResults += 1;
 
-    $str = <<<HTML
+    $bookHTML = <<<HTML
 
-<div class='search-book-detail-container'>
-  <div class='search-book-detail-content-container'>
-    <div class='search-book-detail-image-container'>
-      <img class='search-book-detail-image' src={$imagePath}/>
+<div class='search-book-container'>
+  <div class='search-book-content-container'>
+    <div class='search-book-image-container'>
+      <img class='search-book-image' src={$imagePath}/>
     </div>
-    <div class='search-book-detail-text-container'>
+    <div class='search-book-text-container'>
       <h4 class='book-title'>{$book['title']}</h4>
       <h4 class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['votes']} vote(s))</h4>
       <p class='book-description'>{$book['synopsis']}</p>
     </div>
   </div>
   <div class='search-detail-button-container'>
-    <form id='bookDetail' action='/book' method='get'>
-      <input hidden name='id' value={$book_id}>
+    <form id='bookDetail-{$key}' action='/book' method='get'>
+      <input hidden name='id' value={$bookId}>
     </form>
-    <button class='search-detail-button' type='submit' form='bookDetail'>
+    <button class='search-detail-button' type='submit' form='bookDetail-{$key}'>
       <div class='search-detail-button-inner'>
         DETAIL
       </div>
@@ -34,7 +35,7 @@ function render_template(string $username, $books) {
 </div>
 
 HTML;
-    $listOfBooks = $listOfBooks . $str;
+    $booksHTML = $booksHTML . $bookHTML;
   }
 
   $numOfResultsText = "";
@@ -108,7 +109,7 @@ HTML;
           </div>
         </div>
         <div class='search-result-container'>
-          {$listOfBooks}
+          {$booksHTML}
         </div>
       </div>
     </div>
