@@ -29,6 +29,7 @@ HTML;
   }
 
   foreach($reviews as $review) {
+    print_r($review['user_id']);
     $profileImagePath = "src/model/profile/".$review['user_id'].".jpg";
     if(!file_exists($profileImagePath)) {
       $profileImagePath = 'src/model/profile/avatar_default.jpg';

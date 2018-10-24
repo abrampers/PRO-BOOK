@@ -18,7 +18,7 @@ function render_template(string $username, $books, $searchTitle) {
     </div>
     <div class='search-book-text-container'>
       <h4 class='book-title'>{$book['title']}</h4>
-      <h4 class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['votes']} vote(s))</h4>
+      <h4 class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['vote']} vote(s))</h4>
       <p class='book-description'>{$book['synopsis']}</p>
     </div>
   </div>

@@ -40,10 +40,6 @@ $router->get('/book', function($request) {
   return BookGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
-// $router->get('/rating', function($request) {
-//   return RatingGetController::control($request);
-// }, [new TokenValidationMiddleware, new AuthMiddleware]);
-
 $router->get('/history', function($request) {
   return HistoryGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
@@ -82,12 +78,12 @@ $router->post('/register', function($request) {
   return RegisterPostController::control($request);
 }, [new VerifyRegisterMiddleware]);
 
-$router->post('/rating', function($request) {
-  return RatingPostController::control($request);
-});
-
 $router->post('/edit', function($request) {
   return EditPostController::control($request);
+});
+
+$router->post('/review', function($request) {
+  return ReviewPostController::control($request);
 });
 
 // $router->post('/edit', function($request) {
