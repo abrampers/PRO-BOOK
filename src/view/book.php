@@ -1,11 +1,39 @@
 <?php
 function render_template(string $username, $book, $reviews) {
-  $reviewsHTML = '';
+  $reviewsHTML = "";
   $bookId = $book['id'];
   $bookImagePath = "src/model/books/".$bookId.".jpg";
 
+  $rating = round($book['rating'], 1);
+  $intRating = round($rating, 0, PHP_ROUND_HALF_UP);
+
+  $ratingText = "" . $rating;
+  if (($rating * 10) % 10 == 0) {
+    $ratingText = $ratingText . ".0";
+  }
+
+  $starsHTML = "";
+  for ($x = 0; $x < $intRating; $x++) {
+    $starsHTML = $starsHTML . <<<HTML
+
+<div class="book-detail-star-icon"></div>
+
+HTML;
+  }
+  for ($x = 0; $x < 5 - $intRating; $x++) {
+    $starsHTML = $starsHTML . <<<HTML
+
+<div class="book-detail-star-icon star-icon-empty"></div>
+
+HTML;
+  }
+
   foreach($reviews as $review) {
-    $profileImagePath = "src/model/profile/7.jpg";
+    $profileImagePath = "src/model/profile/".$review['user_id'].".jpg";
+    if(!file_exists($profileImagePath)) {
+      $profileImagePath = 'src/model/profile/avatar_default.jpg';
+    }
+
     $reviewHTML = <<<HTML
 
 <div class='book-review-item-container'>
@@ -19,9 +47,9 @@ function render_template(string $username, $book, $reviews) {
     <p class='book-review-item-text'>{$review['comment']}</p>
   </div>
   <div class='book-review-item-right-container'>
-    <div class='book-review-rating-content'>
-      <img src='' alt='Star Image'>
-      <p class='book-review-rating'>{$review['rating']}.0 / 5.0</p>
+    <div class='book-review-item-rating-container'>
+      <div class='book-review-item-rating-icon'></div>
+      <p class='book-review-item-rating-text'>{$review['rating']}.0 / 5.0</p>
     </div>
   </div>
 </div>
@@ -88,33 +116,26 @@ HTML;
     </div>
     <div class='main-content-container'>
       <div class='book-content-container'>
-
         <div class='book-detail-container'>
-
           <div class='book-detail-left-container'>
             <h3 class='book-detail-title'>{$book['title']}</h3>
             <h4 class='book-detail-author'>{$book['author']}</h4>
             <p class='book-detail-synopsis'>{$book['synopsis']}</p>
           </div>
-
           <div class='book-detail-right-container'>
             <div class='book-detail-right-content-container'>
               <div class='book-detail-image-container'>
                 <img class='book-detail-image' src='{$bookImagePath}'>
               </div>
               <div class='book-detail-stars-container'>
-                <div class='book-detail-review-stars'>
-                  huyu buat bintang gimane caranya
-                </div>
+                {$starsHTML}
               </div>
               <div class='book-detail-rating-container'>
-                <h4 class='book-detail-rating'>{$book['rating']} / 5.0</h4>
+                <h4 class='book-detail-rating'>{$ratingText} / 5.0</h4>
               </div>
             </div>
           </div>
-
         </div>
-
         <div class='book-order-container'>
           <div class='book-order-title-container'>
             <h3 class='book-order-title'>Order</h3>

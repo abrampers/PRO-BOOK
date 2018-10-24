@@ -93,11 +93,30 @@
 }
 
 .book-detail-stars-container {
-  margin-top: 30px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+	justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.book-detail-star-icon {
+  height: 34px;
+  width: 34px;
+  margin: 0px 4px;
+  background-color: orange;
+  -webkit-mask: url(../img/icon_star_full.svg) no-repeat center;
+  mask: url(../img/icon_star_full.svg) no-repeat center;
+}
+
+.star-icon-empty {
+  -webkit-mask: url(../img/icon_star_empty.svg) no-repeat center;
+  mask: url(../img/icon_star_empty.svg) no-repeat center;
 }
 
 .book-detail-rating-container {
-  margin-top: 10px;
+  margin-top: 4px;
 }
 
 .book-order-container {
@@ -239,8 +258,31 @@
   display: flex;
   flex-direction: column;
 	justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
+
+.book-review-item-rating-container {
+  margin-right: 28px;
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+  align-items: center;
+}
+
+.book-review-item-rating-icon {
+  height: 40px;
+  width: 40px;
+  margin-top: 14px;
+  background-color: orange;
+  -webkit-mask: url(../img/icon_star_full.svg) no-repeat center;
+  mask: url(../img/icon_star_full.svg) no-repeat center;
+}
+
+.book-review-item-rating-text {
+  height: 40px;
+  margin-top: 10px;
+}
+
 
 select {
   height: 40px;
