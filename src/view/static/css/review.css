@@ -240,7 +240,8 @@ button {
 	width: 106px;
   height: 50px;
   padding: 0px;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0px;
 	border-radius: 4px;
 	background-color: #54c0ff;
 	outline: none;
