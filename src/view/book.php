@@ -27,9 +27,7 @@ HTML;
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
-  <link rel='stylesheet' href='src/view/static/css/browse.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
-  <script type='module' src='src/view/static/js/browse.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
@@ -54,25 +52,25 @@ HTML;
         </div>
         <div class='main-misc-container'>
           <div class='main-greeting-container'>
-            <h3>Hi, {$username}!</h3>
+            <h5>Hi, {$username}!</h5>
           </div>
           <div id='logoutButtonContainer' class='main-logout-button-container'>
             <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
-              <div id="logoutButtonIcon" class='main-logout-button-icon'>
+              <div id="logoutButtonIcon" class='main-logout-button-icon'></div>
             </button>
           </div>
         </div>
       </div>
       <div class='main-header-bottom-container'>
         <div id='browseTab' class='main-menu-tab tab-selected'>
-          <h2>Browse</h2>
+          <h3>Browse</h3>
         </div>
         <div id='historyTab' class='main-menu-tab tab-mid'>
-          <h2>History</h2>
+          <h3>History</h3>
         </div>
         <div id='profileTab' class='main-menu-tab'>
-          <h2>Profile</h2>
+          <h3>Profile</h3>
         </div>
       </div>
     </div>

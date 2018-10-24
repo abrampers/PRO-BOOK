@@ -5,8 +5,8 @@
 .main-content-container {
   height: 100%;
   display: flex;
-	flex-direction: row;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: flex-start;
   align-items: center;
   background-color: #ededed;
 	background-image: url('../img/bg_auth.jpg');
@@ -19,13 +19,13 @@
   display: flex;
   margin-bottom: 80px;
   flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
   align-items: center;
 }
 
 .browse-title-container {
   width: 100%;
-  margin: 60px 0px 20px 0px;
+  margin: 30px 0px 40px 0px;
 }
 
 .browse-title {
@@ -41,7 +41,7 @@
 
 .browse-form {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .browse-submit-container {
@@ -54,7 +54,6 @@
 .browse-submit-inner {
   height: 100%;
   width: 100%;
-  transform: scale(1.08);
   display: flex;
 	justify-content: center;
 	align-items: center;
@@ -71,7 +70,7 @@ button {
 	cursor: pointer;
 	font-family: 'Chathura', sans-serif;
 	font-weight: 600;
-	font-size: 3rem;
+	font-size: 3.3rem;
 	color: white;
 	text-align: center;
 	text-decoration: none;

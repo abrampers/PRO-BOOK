@@ -1,34 +1,48 @@
 <?php
 function render_template(string $username, $books) {
   $listOfBooks = '';
+  $numOfResults = 0;
 
   foreach($books as $book) {
     $book_id = $book['id'];
+    $img_name = "src/view/static/img/".$book_id.".jpg";
+    $numOfResults += 1;
 
     $str = <<<HTML
 
     <div class='search-book-detail-container'>
-      <div class='search-book-detail-image-container'>
-        <img src=''>
-      </div>
       <div class='search-book-detail-content-container'>
-        <p class='book-title'>{$book['title']}</p>
-        <p class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['votes']} vote(s))</p>
-        <p class='book-description'>{$book['synopsis']}</p>
+        <div class='search-book-detail-image-container'>
+          <img class='search-book-detail-image' src={$img_name}/>
+        </div>
+        <div class='search-book-detail-text-container'>
+          <h4 class='book-title'>{$book['title']}</h4>
+          <h4 class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['votes']} vote(s))</h4>
+          <p class='book-description'>{$book['synopsis']}</p>
+        </div>
       </div>
-    </div>
-    <div class='search-detail-button-container'>
-      <form id='bookDetail' action='/book' method='get'>
-        <input hidden name='id' value={$book_id}>
-      </form>
-      <button form='bookDetail' type='submit'>
-        <p class='search-detail-button-title'>Detail</p>
-      </button>
+      <div class='search-detail-button-container'>
+        <form id='bookDetail' action='/book' method='get'>
+          <input hidden name='id' value={$book_id}>
+        </form>
+        <button class='search-detail-button' type='submit' form='bookDetail'>
+          <div class='search-detail-button-inner'>
+            DETAIL
+          </div>
+        </button>
+      </div>
     </div>
 
 HTML;
 
     $listOfBooks = $listOfBooks . $str;
+  }
+
+  $numOfResultsStr = "";
+  if ($numOfResults > 1) {
+    $numOfResultsStr = $numOfResultsStr . $numOfResults . " results";
+  } else {
+    $numOfResultsStr = $numOfResultsStr . $numOfResults . " result";
   }
 
   return <<<HTML
@@ -38,9 +52,8 @@ HTML;
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
-  <link rel='stylesheet' href='src/view/static/css/browse.css'>
+  <link rel='stylesheet' href='src/view/static/css/search.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
-  <script type='module' src='src/view/static/js/browse.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
@@ -65,35 +78,39 @@ HTML;
         </div>
         <div class='main-misc-container'>
           <div class='main-greeting-container'>
-            <h3>Hi, {$username}!</h3>
+            <h5>Hi, {$username}!</h5>
           </div>
           <div id='logoutButtonContainer' class='main-logout-button-container'>
             <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
-              <div id="logoutButtonIcon" class='main-logout-button-icon'>
+              <div id="logoutButtonIcon" class='main-logout-button-icon'></div>
             </button>
           </div>
         </div>
       </div>
       <div class='main-header-bottom-container'>
         <div id='browseTab' class='main-menu-tab tab-selected'>
-          <h2>Browse</h2>
+          <h3>Browse</h3>
         </div>
         <div id='historyTab' class='main-menu-tab tab-mid'>
-          <h2>History</h2>
+          <h3>History</h3>
         </div>
         <div id='profileTab' class='main-menu-tab'>
-          <h2>Profile</h2>
+          <h3>Profile</h3>
         </div>
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='search-content-title-container'>
-        <p class='search-result-title'>Search Result</p>
-        <p class='search-result-number'>Found {$numOfResults} result(s)</p>
-      </div>
       <div class='search-content-container'>
-        {$listOfBooks}
+        <div class='search-title-container'>
+          <h1 class='search-title'>Search Result</h1>
+          <div class='search-result-count-container'>
+            <h4 class='search-result-count'>Found {$numOfResultsStr}</h4>
+          </div>
+        </div>
+        <div class='search-result-container'>
+          {$listOfBooks}
+        </div>
       </div>
     </div>
 	</div>
