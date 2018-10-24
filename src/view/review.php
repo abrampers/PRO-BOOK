@@ -1,6 +1,6 @@
 <?php
 function render_template(string $username, $book, $user_id) {
-  $img_name = "src/model/book/".$book['id'].".jpg";
+  $img_name = "src/model/books/".$book['id'].".jpg";
   $book_id = $book['id'];
   $template = <<<HTML
 
