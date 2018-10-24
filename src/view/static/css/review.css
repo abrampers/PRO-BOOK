@@ -77,7 +77,7 @@
 .review-form-container {
   width: 100%;
   display: flex;
-  margin-bottom: 80px;
+  margin: 20px 0px 80px 0px;
 	flex-direction: column;
 	justify-content: center;
   align-items: flex-start;
@@ -98,7 +98,16 @@
 }
 
 .review-rating-stars-container {
-  margin: 16px 0px 10px 6px;
+  width: 100%;
+  margin: 20px 0px 16px 6px;
+  display: flex;
+	flex-direction: row;
+	justify-content: center;
+  align-items: center;
+}
+
+.review-rating-stars {
+  width: 340px;
   display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -107,9 +116,9 @@
 }
 
 .review-star {
-  height: 34px;
-  width: 34px;
-  margin: 0px 6px;
+  height: 44px;
+  width: 44px;
+  margin: 0px 10px;
   background-color: orange;
   -webkit-mask: url(../img/icon_star_empty.svg) no-repeat center;
   mask: url(../img/icon_star_empty.svg) no-repeat center;

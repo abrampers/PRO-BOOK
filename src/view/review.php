@@ -76,11 +76,13 @@ function render_template(string $username, $book, $user_id) {
             <h3 class='review-rating-title'>Add Rating</h3>
             <input id='ratingField' type='number' name='rating' hidden>
             <div class='review-rating-stars-container'>
-              <div id='1' class='review-star'></div>
-              <div id='2' class='review-star'></div>
-              <div id='3' class='review-star'></div>
-              <div id='4' class='review-star'></div>
-              <div id='5' class='review-star'></div>
+              <div class='review-rating-stars'>
+                <div id='1' class='review-star'></div>
+                <div id='2' class='review-star'></div>
+                <div id='3' class='review-star'></div>
+                <div id='4' class='review-star'></div>
+                <div id='5' class='review-star'></div>
+              </div>
             </div>
           </div>
           <div class='review-comment-container'>
