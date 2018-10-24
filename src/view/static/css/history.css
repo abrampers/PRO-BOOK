@@ -143,6 +143,21 @@
 	align-items: center;
 }
 
+.history-empty-message-container {
+  height: 210px;
+  padding-top: 94px;
+  display: flex;
+  flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.history-empty-message {
+  color: black;
+  font-size: 2rem;
+  text-align: center;
+}
+
 button {
 	width: 106px;
   height: 50px;

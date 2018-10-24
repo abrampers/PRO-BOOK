@@ -128,9 +128,11 @@
 }
 
 .search-not-found-message-container {
-  height: 310px;
+  height: 210px;
+  padding-top: 94px;
   display: flex;
-	justify-content: center;
+  flex-direction: column;
+	justify-content: flex-start;
 	align-items: center;
 }
 

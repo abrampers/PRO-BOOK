@@ -50,6 +50,16 @@ HTML;
     $ordersHTML = $ordersHTML . $orderHTML;
   }
 
+  if (empty($orders)) {
+    $ordersHTML = <<<HTML
+
+<div class='history-empty-message-container'>
+  <h3 class='history-empty-message'><i>You haven't purchased any books!</i></h3>
+</div>
+
+HTML;
+  }
+
   return <<<HTML
 
 <!DOCTYPE html>
