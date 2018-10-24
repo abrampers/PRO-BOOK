@@ -63,7 +63,10 @@ function render_template($orders) {
 HTML;
 foreach($orders as $order) {
   $order_date = date("j F Y", $order['order_timestamp']);
-  $review_text = $order['is_review'] == 1 ? "Anda sudah memberikan review" : "Belum direview";
+  $review_link = "/rating?id=".$order['book_id'];
+  $book_id = $order['id'];
+  // print_r($review_link);
+  $review_text = $order['is_review'] == 1 ? "You have already given review" : "Haven't reviewed yet";
   $img_name = "src/view/static/img/".$order['book_id'].".jpg";
   $order_template = <<<HTML
       <div class='history-content-container'>
@@ -78,13 +81,13 @@ foreach($orders as $order) {
               </div>
             </div>
             <div class='history-book-detail-container'>
-              <div class='history-book-detail-content'>Jumlah : {$order['amount']}</div>
+              <div class='history-book-detail-content'>Amount : {$order['amount']}</div>
               <div class='history-book-detail-content'>{$review_text}</div>
             </div>
           </div>
           <div class='history-order-detail-container'>
             <div class='history-order-date-content'>{$order_date}</div>
-            <div class='history-order-number-content'>Nomor Order: #{$order['id']}</div>
+            <div class='history-order-number-content'>Order Number : #{$order['id']}</div>
 HTML;
   if ($order['is_review'] == 1) {
     $review_template = <<<HTML
@@ -95,7 +98,8 @@ HTML;
   } else {
     $review_template = <<<HTML
             <div class='review-button-container'>
-              <button id='reviewButton' type='submit'>
+              <form id='formRating' action='/rating' method='get'><input hidden name="id" value={$book_id}></form>
+              <button id='reviewButton' type='submit' form='formRating'>
                 <div id='reviewButtonInner' class='review-button-inner'>
                   REVIEW
                 </div>

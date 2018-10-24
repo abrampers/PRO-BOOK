@@ -1,15 +1,17 @@
 <?php
-function render_template(string $username) {
-  return <<<HTML
+function render_template($book, $username, $user_id) {
+  $img_name = "src/view/static/img/".$book['id'].".jpg";
+  $book_id = $book['id'];
+  $template = <<<HTML
 
 <!DOCTYPE html>
 <html>
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
-  <link rel='stylesheet' href='src/view/static/css/browse.css'>
+  <link rel='stylesheet' href='src/view/static/css/rating.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
-  <script type='module' src='src/view/static/js/browse.js'></script>
+  <script type='module' src='src/view/static/js/history.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
@@ -34,40 +36,57 @@ function render_template(string $username) {
         </div>
         <div class='main-misc-container'>
           <div class='main-greeting-container'>
-            <h5>Hi, {$username}!</h5>
+            <h3>Hi, Cebong!</h3>
           </div>
           <div id='logoutButtonContainer' class='main-logout-button-container'>
             <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
-              <div id="logoutButtonIcon" class='main-logout-button-icon'></div>
+              <div id="logoutButtonIcon" class='main-logout-button-icon'>
             </button>
           </div>
         </div>
       </div>
       <div class='main-header-bottom-container'>
-        <div id='browseTab' class='main-menu-tab tab-selected'>
-          <h3>Browse</h3>
+        <div id='browseTab' class='main-menu-tab'>
+          <h2>Browse</h2>
         </div>
-        <div id='historyTab' class='main-menu-tab tab-mid'>
-          <h3>History</h3>
+        <div id='historyTab' class='main-menu-tab tab-mid tab-selected'>
+          <h2>History</h2>
         </div>
         <div id='profileTab' class='main-menu-tab'>
-          <h3>Profile</h3>
+          <h2>Profile</h2>
         </div>
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='browse-content-container'>
-        <div class='browse-title-container'>
-          <h1 id='browseTitle' class='browse-title'>Search Books</h1>
+      <div>
+        <div>
+          {$book['title']}
+          {$book['author']}
         </div>
-        <form id='browseForm' class='browse-form' action='/search' method='GET'>
-          <input id='queryField' type='text' name='title' placeholder='Input search terms...'>
-        </form>
+        <div>
+          <img src={$img_name}/>
+        </div>
+      </div>
+      <form id='browseForm' class='browse-form' action='/rating' method='POST'>
+        <div>
+          Add Rating
+          <input hidden name='rating' value=5>
+        </div>
+        <div>
+          Add Comment
+          <input id='queryField' type='text' name='comment' placeholder='Input your comment'>
+          <input hidden name='username' value={$username}>
+          <input hidden name='user_id' value={$user_id}>
+          <input hidden name='book_id' value={$book_id}>
+        </div>
+      </form>
+      <div>
+        <button>Back</button>
         <div class='browse-submit-container'>
           <button id='formSubmitButton' type='submit' form='browseForm'>
             <div id='formSubmitButtonInner' class='browse-submit-inner'>
-              SEARCH
+              SUBMIT
             </div>
           </button>
         </div>
@@ -76,6 +95,7 @@ function render_template(string $username) {
 	</div>
 </body>
 </html>
-
 HTML;
+
+return $template;
 }

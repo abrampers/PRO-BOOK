@@ -162,17 +162,20 @@ class MarufDB {
     return $query->fetch();
   }
 
-  public function addReview($username, $book_id, $review, $comment) {
+  public function addReview($user_id, $username, $book_id, $rating, $comment) {
     try {
-      $query = $this->pdo->prepare("INSERT INTO Reviews (username, book_id, review, comment) VALUES (?, ?, ?, ?)");
-      $query->execute(array($username, $book_id, $review, $comment));
+      $query = $this->pdo->prepare("INSERT INTO Reviews (username, book_id, rating, comment) VALUES (?, ?, ?, ?)");
+      $query->execute(array($username, $book_id, $rating, $comment));
       $query = $this->pdo->prepare("SELECT * FROM Books WHERE id = ?");
       $query->execute(array($book_id));
       $result = $query->fetch();
       $currVote = $result['vote'] + 1;
-      $currReview = ($result['rating'] * $result['vote'] + $review) / $currVote;
+      $currRating = ($result['rating'] * $result['vote'] + $rating) / $currVote;
       $query = $this->pdo->prepare("UPDATE Books SET rating = ?, vote = ? WHERE id = ?");
-      $query->execute(array($currReview, $currVote, $book_id));
+      $query->execute(array($currRating, $currVote, $book_id));
+      print_r($user_id);
+      $query = $this->pdo->prepare("UPDATE Orders SET is_review = 1 WHERE user_id = ?");
+      $query->execute(array($user_id));
       return 1;
     } catch (PDOException $e) {
       return 0;
