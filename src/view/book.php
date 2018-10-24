@@ -4,7 +4,7 @@ function render_template(string $username, $book, $reviews) {
   $book_id = $book['id'];
 
   foreach($reviews as $review) {
-    $str = <<<HTML
+    $listOfReviews = <<<HTML
 
     <div class='book-review-image-content-container'>
       <img src=''>
@@ -28,8 +28,8 @@ HTML;
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
+  <link rel='stylesheet' href='src/view/static/css/book.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
-  <script type='module' src='src/view/static/js/book.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
@@ -77,12 +77,15 @@ HTML;
       </div>
     </div>
     <div class='main-content-container'>
+
       <div class='book-detail-container'>
+
         <div class='book-detail-content-container'>
-          <p class='book-detail-title'>{$book['title']}</p>
+          <h3 class='book-detail-title'>{$book['title']}</h3>
           <p class='book-detail-author'>{$book['author']}</p>
           <p class='bool-detail-synopsis'>{$book['synopsis']}</p>
         </div>
+
         <div class='book-detail-image-container'>
           <img src=''>
           <div class='book-detail-review-container'>
@@ -92,7 +95,9 @@ HTML;
             <p class='book-detail-review'>{$book['rating']} / 5.0</p>
           </div>
         </div>
+
       </div>
+
       <div class='book-order-container'>
         <p class='book-order-title'>Order</p>
         <select id='orderQuantitySelector' name='orderQuantity' id='quantity'>
@@ -117,6 +122,7 @@ HTML;
           {$listOfReviews}
         </div>
       </div>
+
     </div>
 	</div>
 </body>

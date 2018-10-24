@@ -5,13 +5,16 @@
 
 .main-header-container {
   position: static;
+  z-index: 1;
 	height: 120px;
   flex: 0;
-  flex-basis: 120px;
+  flex-basis: 160px;
+  background-color: #54c0ff;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .main-title-container {
-	justify-content: center;
+  justify-content: center;
 }
 
 .main-misc-container {
