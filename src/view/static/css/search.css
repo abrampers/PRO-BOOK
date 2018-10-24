@@ -127,6 +127,19 @@
 	align-items: center;
 }
 
+.search-not-found-message-container {
+  height: 310px;
+  display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.search-not-found-message {
+  color: black;
+  font-size: 2rem;
+  text-align: center;
+}
+
 button {
 	width: 106px;
   height: 50px;

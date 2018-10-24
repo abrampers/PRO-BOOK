@@ -5,6 +5,6 @@ class SearchGetController implements ControllerInterface {
     $books = $db->searchBook($request->title);
     $template = new Template('src/view/search.php');
     $username = $db->getUsername($_COOKIE['token']);
-    return $template->render($username, $books);
+    return $template->render($username, $books, $request->title);
   }
 }
