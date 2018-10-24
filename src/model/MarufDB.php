@@ -182,7 +182,7 @@ class MarufDB {
   }
 
   public function getReviews($book_id) {
-    $query = $this->pdo->prepare("SELECT * FROM Reviews WHERE book_id = ?");
+    $query = $this->pdo->prepare("SELECT * FROM Reviews WHERE book_id = ? ORDER BY id DESC");
     $query->execute(array($book_id));
     return $query->fetchAll();
   }

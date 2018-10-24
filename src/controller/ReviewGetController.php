@@ -7,6 +7,7 @@ class ReviewGetController implements ControllerInterface {
     $user_id = $db->getUserId($token);
     $username = $db->getUsername($token);
     $template = new Template('src/view/review.php');
+    print_r($user_id);
     return $template->render($username, $book, $user_id);
   }
 }
