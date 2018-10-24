@@ -9,7 +9,6 @@ function render_template(string $username) {
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <link rel='stylesheet' href='src/view/static/css/browse.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
-  <script type='module' src='src/view/static/js/browse.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
@@ -59,14 +58,14 @@ function render_template(string $username) {
     <div class='main-content-container'>
       <div class='browse-content-container'>
         <div class='browse-title-container'>
-          <h1 id='browseTitle' class='browse-title'>Search Books</h1>
+          <h1 class='browse-title'>Search Books</h1>
         </div>
         <form id='browseForm' class='browse-form' action='/search' method='GET'>
-          <input id='queryField' type='text' name='title' placeholder='Input search terms...'>
+          <input type='text' name='title' placeholder='Input search terms...' autofocus>
         </form>
         <div class='browse-submit-container'>
-          <button id='formSubmitButton' type='submit' form='browseForm'>
-            <div id='formSubmitButtonInner' class='browse-submit-inner'>
+          <button type='submit' form='browseForm'>
+            <div class='browse-submit-inner'>
               SEARCH
             </div>
           </button>

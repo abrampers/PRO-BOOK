@@ -30,13 +30,9 @@
 
 .browse-title {
   font-size: 4.6rem;
-  color: orangered;
+  color: black;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-}
-
-.browse-title.focus {
-  color: black;
 }
 
 .browse-form {

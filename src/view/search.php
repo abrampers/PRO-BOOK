@@ -4,45 +4,44 @@ function render_template(string $username, $books) {
   $numOfResults = 0;
 
   foreach($books as $book) {
-    $book_id = $book['id'];
-    $img_name = "src/view/static/img/".$book_id.".jpg";
+    $bookId = $book['id'];
+    $imagePath = "src/view/static/img/".$bookId.".jpg";
     $numOfResults += 1;
 
     $str = <<<HTML
 
-    <div class='search-book-detail-container'>
-      <div class='search-book-detail-content-container'>
-        <div class='search-book-detail-image-container'>
-          <img class='search-book-detail-image' src={$img_name}/>
-        </div>
-        <div class='search-book-detail-text-container'>
-          <h4 class='book-title'>{$book['title']}</h4>
-          <h4 class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['votes']} vote(s))</h4>
-          <p class='book-description'>{$book['synopsis']}</p>
-        </div>
-      </div>
-      <div class='search-detail-button-container'>
-        <form id='bookDetail' action='/book' method='get'>
-          <input hidden name='id' value={$book_id}>
-        </form>
-        <button class='search-detail-button' type='submit' form='bookDetail'>
-          <div class='search-detail-button-inner'>
-            DETAIL
-          </div>
-        </button>
-      </div>
+<div class='search-book-detail-container'>
+  <div class='search-book-detail-content-container'>
+    <div class='search-book-detail-image-container'>
+      <img class='search-book-detail-image' src={$imagePath}/>
     </div>
+    <div class='search-book-detail-text-container'>
+      <h4 class='book-title'>{$book['title']}</h4>
+      <h4 class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['votes']} vote(s))</h4>
+      <p class='book-description'>{$book['synopsis']}</p>
+    </div>
+  </div>
+  <div class='search-detail-button-container'>
+    <form id='bookDetail' action='/book' method='get'>
+      <input hidden name='id' value={$book_id}>
+    </form>
+    <button class='search-detail-button' type='submit' form='bookDetail'>
+      <div class='search-detail-button-inner'>
+        DETAIL
+      </div>
+    </button>
+  </div>
+</div>
 
 HTML;
-
     $listOfBooks = $listOfBooks . $str;
   }
 
-  $numOfResultsStr = "";
+  $numOfResultsText = "";
   if ($numOfResults > 1) {
-    $numOfResultsStr = $numOfResultsStr . $numOfResults . " results";
+    $numOfResultsText = $numOfResultsText . $numOfResults . " results";
   } else {
-    $numOfResultsStr = $numOfResultsStr . $numOfResults . " result";
+    $numOfResultsText = $numOfResultsText . $numOfResults . " result";
   }
 
   return <<<HTML
@@ -105,7 +104,7 @@ HTML;
         <div class='search-title-container'>
           <h1 class='search-title'>Search Result</h1>
           <div class='search-result-count-container'>
-            <h4 class='search-result-count'>Found {$numOfResultsStr}</h4>
+            <h4 class='search-result-count'>Found {$numOfResultsText}</h4>
           </div>
         </div>
         <div class='search-result-container'>
