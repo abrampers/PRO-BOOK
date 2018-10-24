@@ -90,6 +90,10 @@ $router->post('/edit', function($request) {
   return EditPostController::control($request);
 });
 
+// $router->post('/edit', function($request) {
+//   return EditPostController::control($request);
+// });
+
 /************/
 /* REST API */
 /************/
