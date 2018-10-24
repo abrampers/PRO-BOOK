@@ -48,11 +48,11 @@ HTML;
 HTML;
   }
 
-  $numOfResultsText = "";
+  $numOfResultsText = "Found <u>";
   if ($numOfResults > 1) {
-    $numOfResultsText = $numOfResultsText . $numOfResults . " results";
+    $numOfResultsText = $numOfResultsText . $numOfResults . "</u> results";
   } else {
-    $numOfResultsText = $numOfResultsText . $numOfResults . " result";
+    $numOfResultsText = $numOfResultsText . $numOfResults . "</u> result";
   }
 
   return <<<HTML
@@ -115,7 +115,7 @@ HTML;
         <div class='search-title-container'>
           <h1 class='search-title'>Search Result</h1>
           <div class='search-result-count-container'>
-            <h4 class='search-result-count'>Found {$numOfResultsText}</h4>
+            <h4 class='search-result-count'>{$numOfResultsText}</h4>
           </div>
         </div>
         <div class='search-result-container'>

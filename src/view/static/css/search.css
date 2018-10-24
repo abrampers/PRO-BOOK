@@ -86,16 +86,18 @@
 }
 
 .search-book-image {
-  max-width:100%;
-  max-height:100%;
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.08), 0 3px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
 .search-book-text-container {
-  height: 100%;
   flex: 1;
+  align-self: stretch;
   display: flex;
   flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
   align-items: flex-start;
 }
 
@@ -111,6 +113,7 @@
 
 .book-description {
   line-height: 30px;
+  margin-bottom: 12px;
 }
 
 .search-detail-button-container {
