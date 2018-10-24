@@ -28,7 +28,7 @@ function render_template(string $username, $books, $searchTitle) {
     </form>
     <button class='search-detail-button' type='submit' form='bookDetail-{$key}'>
       <div class='search-detail-button-inner'>
-        DETAIL
+        DETAILS
       </div>
     </button>
   </div>

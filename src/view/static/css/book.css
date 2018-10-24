@@ -78,8 +78,8 @@
 }
 
 .book-detail-image-container {
-  height: 350px;
-  width: 245px;
+  height: 400px;
+  width: 280px;
   display: flex;
 	justify-content: center;
   align-items: center;
@@ -126,6 +126,7 @@
 	flex-direction: column;
 	justify-content: center;
   align-items: flex-start;
+  transform: translateY(-50px);
 }
 
 .book-order-title-container {
@@ -172,6 +173,7 @@
 	flex-direction: column;
 	justify-content: center;
   align-items: flex-start;
+  transform: translateY(-50px);
 }
 
 .book-review-title-container {
