@@ -1,5 +1,5 @@
 <?php
-function render_template(string $username, $books) {
+function render_template(string $username, $books, $searchTitle) {
   $booksHTML = '';
   $numOfResults = 0;
   $bookId = 0;
@@ -36,6 +36,16 @@ function render_template(string $username, $books) {
 
 HTML;
     $booksHTML = $booksHTML . $bookHTML;
+  }
+
+  if (empty($books)) {
+    $booksHTML = <<<HTML
+
+<div class='search-not-found-message-container'>
+  <h3 class='search-not-found-message'><i>Oops, we didn't find anything that matches '{$searchTitle}'!</i></h3>
+</div>
+
+HTML;
   }
 
   $numOfResultsText = "";
