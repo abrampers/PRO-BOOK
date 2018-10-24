@@ -31,6 +31,7 @@ HTML;
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <link rel='stylesheet' href='src/view/static/css/book.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
+  <script type='module' src='src/view/static/js/book.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
@@ -85,7 +86,7 @@ HTML;
           <div class='book-detail-left-container'>
             <h3 class='book-detail-title'>{$book['title']}</h3>
             <h4 class='book-detail-author'>{$book['author']}</h4>
-            <p class='bool-detail-synopsis'>{$book['synopsis']}</p>
+            <p class='book-detail-synopsis'>{$book['synopsis']}</p>
           </div>
 
           <div class='book-detail-right-container'>
@@ -107,25 +108,35 @@ HTML;
         </div>
 
         <div class='book-order-container'>
-          <p class='book-order-title'>Order</p>
-          <select id='orderQuantitySelector' name='orderQuantity' id='quantity'>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6'>6</option>
-            <option value='7'>7</option>
-          </select>
+          <div class='book-order-title-container'>
+            <h3 class='book-order-title'>Order</h3>
+          </div>
+          <div class='book-order-dropdown-container'>
+            <h4 class='book-order-dropdown-label'>Amount: </h4>
+            <select id='orderQuantitySelector' name='orderQuantity'>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+              <option value='6'>6</option>
+              <option value='7'>7</option>
+            </select>
+          </div>
           <div class='book-order-button-container'>
-            <input hidden id='bookIdInput' name='id' value={$book_id}>
-            <button id='orderButton'>
-              <p class='search-detail-button-title'>Order</p>
+            <input hidden id='bookIdField' value={$bookId}>
+            <button id='orderButton' class='book-order-button'>
+              <div class='book-order-button-inner'>
+                ORDER
+              </div>
             </button>
           </div>
         </div>
+
         <div class='book-review-container'>
-          <p class='book-review-title'>Reviews</p>
+          <div class='book-review-title-container'>
+            <h3 class='book-review-title'>Review</h3>
+          </div>
           <div class='book-review-content-container'>
             {$listOfReviews}
           </div>

@@ -5,10 +5,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ededed;
-	background-image: url('../img/bg_auth.jpg');
-  background-blend-mode: screen;
-  background-size: 50% 65%;
+  background: white;
+  background-image:
+    radial-gradient(#ededed 10%, transparent 0),
+    radial-gradient(#ededed 10%, transparent 0);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
 }
 
 .profile-main-container {
@@ -157,6 +159,7 @@
 .profile-detail-content-row-container {
   width: 100%;
   display: flex;
+  margin-bottom: 24px;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
