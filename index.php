@@ -40,9 +40,9 @@ $router->get('/book', function($request) {
   return BookGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
-$router->get('/rating', function($request) {
-  return RatingGetController::control($request);
-}, [new TokenValidationMiddleware, new AuthMiddleware]);
+// $router->get('/rating', function($request) {
+//   return RatingGetController::control($request);
+// }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/history', function($request) {
   return HistoryGetController::control($request);
