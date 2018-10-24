@@ -68,12 +68,14 @@ class Router {
 
   private function invalidMethodHandler() {
     $template = new Template('src/view/error.php');
-    return $template->render(405, 'You\'re not allowed to do that!');
+    echo $template->render(405, 'You\'re not allowed to do that!');
+    exit();
   }
 
   private function defaultRequestHandler() {
     $template = new Template('src/view/error.php');
-    return $template->render(404, 'Didn\'t find anything here!');
+    echo $template->render(404, 'Didn\'t find anything here!');
+    exit();
   }
 
   private function matchRoute(string $uri, string $requestMethod) {
