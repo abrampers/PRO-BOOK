@@ -58,6 +58,14 @@ HTML;
     $reviewsHTML = $reviewsHTML . $reviewHTML;
   }
 
+  if (empty($reviews)) {
+    $reviewsHTML = <<<HTML
+
+<h3 class='book-review-empty-message'>No reviews yet!</h3>
+
+HTML;
+  }
+
   return <<<HTML
 
 <!DOCTYPE html>
@@ -72,7 +80,7 @@ HTML;
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css?family=Kite+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
   <title>Browse</title>
 </head>
 <body>

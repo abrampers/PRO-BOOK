@@ -155,7 +155,7 @@
 }
 
 .history-empty-message {
-  color: black;
+  color: gray;
   font-size: 2rem;
   text-align: center;
 }

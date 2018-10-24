@@ -249,6 +249,10 @@
   margin-bottom: 8px;
 }
 
+.book-review-empty-message {
+  color: gray;
+}
+
 .book-review-item-right-container {
   flex: 0;
 }

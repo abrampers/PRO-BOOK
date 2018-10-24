@@ -11,11 +11,12 @@ function render_template(string $username, $book, $user_id) {
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <link rel='stylesheet' href='src/view/static/css/review.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
+  <script type='module' src='src/view/static/js/review.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css?family=Kite+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
   <title>History</title>
 </head>
 <body>
@@ -70,14 +71,23 @@ function render_template(string $username, $book, $user_id) {
             </div>
           </div>
         </div>
-        <form id='reviewForm' class='review-form-container' action='/rating' method='POST'>
+        <form id='reviewForm' class='review-form-container' action='/review' method='POST'>
           <div class='review-rating-container'>
             <h3 class='review-rating-title'>Add Rating</h3>
-            <input name='rating' value=5>
+            <input id='ratingField' type='number' name='rating' hidden>
+            <div class='review-rating-stars-container'>
+              <div class='review-rating-stars'>
+                <div id='1' class='review-star'></div>
+                <div id='2' class='review-star'></div>
+                <div id='3' class='review-star'></div>
+                <div id='4' class='review-star'></div>
+                <div id='5' class='review-star'></div>
+              </div>
+            </div>
           </div>
           <div class='review-comment-container'>
             <h3 class='review-comment-title'>Add Comment</h3>
-            <textarea class='review-textbox-input' id='queryField' type='text' name='comment' placeholder='Input your comment...' autofocus></textarea>
+            <textarea class='review-textbox-input' type='text' name='comment' placeholder='Input your comment...'></textarea>
             <input hidden name='username' value={$username}>
             <input hidden name='user_id' value={$user_id}>
             <input hidden name='book_id' value={$book_id}>
@@ -85,14 +95,14 @@ function render_template(string $username, $book, $user_id) {
           <div class='review-button-container'>
             <div class='review-back-container'>
               <a href='/history'>
-                <button class='review-back-button'>BACK</button>
+                <button class='review-back-button'>
+                  BACK
+                </button>
               </a>
             </div>
             <div class='review-submit-container'>
               <button type='submit' form='reviewForm'>
-                <div class='review-submit-button-inner'>
-                  SUBMIT
-                </div>
+                SUBMIT
               </button>
             </div>
           </div>
