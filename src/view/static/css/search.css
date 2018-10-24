@@ -128,8 +128,8 @@
 }
 
 .search-not-found-message-container {
-  height: 210px;
-  padding-top: 94px;
+  height: 220px;
+  padding-top: 84px;
   display: flex;
   flex-direction: column;
 	justify-content: flex-start;
