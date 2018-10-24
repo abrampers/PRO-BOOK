@@ -17,6 +17,7 @@ function render_template(string $id, string $name, string $username, string $ema
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <link rel='stylesheet' href='src/view/static/css/edit.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
+  <script type='module' src='src/view/static/js/edit.js'></script>
   <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
@@ -69,57 +70,66 @@ function render_template(string $id, string $name, string $username, string $ema
         <div class='edit-detail-title-container'>
           <h2 class='edit-detail-title'>Edit Profile</h2>
         </div>
-        <form id='editForm' action='/edit' method='post' enctype='multipart/form-data'>
-          <div class='edit-detail-picture-container'>
-            <div class='profile-main-image-container'>
-              <img class='profile-picture' src={$path} alt='Profile Picture' height='200' width='200'>
-            </div>
-            <input type="file" name="fileToUpload" id="fileToUpload">
-          </div>
-          <input hidden name='user_id' value='{$id}'>
-          <div class='edit-detail-content-container'>
-            <div class='edit-detail-content-row-container'>
-              <div class='edit-detail-content-row-label-container'>
-                <img class='edit-detail-content-row-label-icon' src='src/view/static/img/icon_username.svg' alt='Username icon'>
-                <p class='edit-detail-content-row-label'>Name</p>
+        <div class='margin'>
+          <form id='editForm' class='edit-form' action='/edit' method='post' enctype='multipart/form-data'>
+            <input hidden name='user_id' value='{$id}'>
+            <div class='edit-detail-content-container'>
+              <div class='edit-detail-picture-container'>
+                <div class='profile-main-image-container'>
+                  <img class='profile-picture' src={$path} alt='Profile Picture' height='200' width='200'>
+                </div>
+                <div class='edit-detail-file-upload-content-container'>
+                  <h4>Update profile picture</h4>
+                  <input class='edit-detail-file-input' type="file" name="fileToUpload" id="fileToUpload">
+                  <div class='edit-detail-file-upload-container'>
+                    <input id='fileNameTextArea' class='edit-detail-file-input-name' type="textarea">
+                    <input type="button" id="browseButton" value="BROWSE...">
+                  </div>
+                </div>
               </div>
-              <div class='edit-detail-content-row-content-container'>
-                <input class='edit-detail-content-row-content' type='text' name='name' value='{$name}'>
+              <div id='nameRowContainer' class='edit-detail-content-row-container'>
+                <div class='edit-detail-content-row-label-container'>
+                  <img class='edit-detail-content-row-label-icon' src='src/view/static/img/icon_username.svg' alt='Username icon'>
+                  <h4>Name</h4>
+                </div>
+                <div class='edit-detail-content-row-content-container'>
+                  <input class='edit-detail-content-row-content' type='textarea' name='name' value='{$name}'>
+                </div>
               </div>
-            </div>
-            <div class='edit-detail-content-row-container'>
-              <div class='edit-detail-content-row-label-container'>
-                <img class='edit-detail-content-row-label-icon' src='src/view/static/img/icon_address.svg' alt='Address icon'>
-                <p class='edit-detail-content-row-label'>Address</p>
+              <div class='edit-detail-content-row-container'>
+                <div class='edit-detail-content-row-label-container'>
+                  <img class='edit-detail-content-row-label-icon' src='src/view/static/img/icon_address.svg' alt='Address icon'>
+                  <h4>Address</h4>
+                </div>
+                <div class='edit-detail-content-row-content-container'>
+                  <input class='edit-detail-content-row-content' type='textarea' name='address' value='{$address}'>
+                </div>
               </div>
-              <div class='edit-detail-content-row-content-container'>
-                <input class='edit-detail-content-row-content' type='textarea' name='address' value='{$address}'>
+              <div class='edit-detail-content-row-container'>
+                <div class='edit-detail-content-row-label-container'>
+                  <img class='edit-detail-content-row-label-icon' src='src/view/static/img/icon_phone.svg' alt='Phone Number icon'>
+                  <h4>Phone Number</h4>
+                </div>
+                <div class='edit-detail-content-row-content-container'>
+                  <input class='edit-detail-content-row-content' type='textarea' name='phone_number' value='{$phoneNumber}'>
+                </div>
               </div>
-            </div>
-            <div class='edit-detail-content-row-container'>
-              <div class='edit-detail-content-row-label-container'>
-                <img class='edit-detail-content-row-label-icon' src='src/view/static/img/icon_phone.svg' alt='Phone Number icon'>
-                <p class='edit-detail-content-row-label'>Phone Number</p>
+            </form>
+            <div class='edit-button-container'>
+              <div>
+                <form action='/profile'>
+                <button class='edit-back-button' type='submit'>
+                  BACK
+                </button>
+                </form>
+                <a href='/profile'>
+                </a>
               </div>
-              <div class='edit-detail-content-row-content-container'>
-                <input class='edit-detail-content-row-content' type='textarea' name='phone_number' value='{$phoneNumber}'>
+              <div>
+                <button id='submitButton' form='editForm' type='submit'>
+                  SUBMIT
+                </button>
               </div>
-            </div>
-          </form>
-          <div class='edit-button-container'>
-            <div>
-              <form action='/profile'>
-              <button id='huyu' type='submit'>
-                BACK
-              </button>
-              </form>
-              <a href='/profile'>
-              </a>
-            </div>
-            <div>
-              <button id='submitButton' form='editForm' type='submit'>
-                SUBMIT
-              </button>
             </div>
           </div>
         </div>
