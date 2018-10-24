@@ -95,11 +95,11 @@ $router->post('/rating', function($request) {
 /** GET */
 $router->get('/username', function($request) {
   return json_encode(Api::validateUsername($request->username));
-}, [new TokenValidationMiddleware, new ApiAuthMiddleware]);
+});
 
 $router->get('/email', function($request) {
   return json_encode(Api::validateEmail($request->email));
-}, [new TokenValidationMiddleware, new ApiAuthMiddleware]);
+});
 
 /** POST */
 $router->post('/order', function($request) {
