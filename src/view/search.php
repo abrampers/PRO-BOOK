@@ -5,6 +5,7 @@ function render_template(string $username, $books) {
 
   foreach($books as $book) {
     $book_id = $book['id'];
+    var_dump($book_id);
     $img_name = "src/view/static/img/".$book_id.".jpg";
     $numOfResults += 1;
 

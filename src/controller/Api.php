@@ -12,7 +12,7 @@ class Api {
 
   public static function order(Request $request) {
     $db = new MarufDB();
-    $bookId = $request->bookId;
+    $bookId = $request->book_id;
     $userId = $db->getUserId($_COOKIE['token']);
     $quantity = $request->quantity;
     return array('orderNumber' => $db->orderBook($bookId, $userId, $quantity, time()));
