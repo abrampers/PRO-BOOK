@@ -164,8 +164,8 @@ class MarufDB {
 
   public function addReview($user_id, $username, $book_id, $rating, $comment) {
     try {
-      $query = $this->pdo->prepare("INSERT INTO Reviews (username, book_id, rating, comment) VALUES (?, ?, ?, ?)");
-      $query->execute(array($username, $book_id, $rating, $comment));
+      $query = $this->pdo->prepare("INSERT INTO Reviews (username, book_id, rating, comment, user_id) VALUES (?, ?, ?, ?, ?)");
+      $query->execute(array($username, $book_id, $rating, $comment, $user_id));
       $query = $this->pdo->prepare("SELECT * FROM Books WHERE id = ?");
       $query->execute(array($book_id));
       $result = $query->fetch();
