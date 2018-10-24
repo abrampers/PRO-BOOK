@@ -1,5 +1,12 @@
 <?php
-function render_template(string $name, string $username, string $email, string $address, string $phoneNumber) {
+function render_template(string $userId, string $name, string $username, string $email, string $address, string $phoneNumber) {
+  $path = 'src/model/profile/';
+  if(file_exists($path . $userId .'.jpg')) {
+    $path = $path . $userId . '.jpg';
+  } else {
+    $path = 'src/model/profile/avatar_default.jpg';
+  }
+
   return <<<HTML
 
 <!DOCTYPE html>
@@ -62,7 +69,7 @@ function render_template(string $name, string $username, string $email, string $
         <div class='profile-main-left-container'></div>
         <div class='profile-main-center-container'>
           <div class='profile-main-image-container'>
-            <img class='profile-picture' src='src/view/static/img/jokowi.jpg' alt='Profile Picture' height='200' width='200'>
+            <img class='profile-picture' src={$path} alt='Profile Picture' height='200' width='200'>
           </div>
           <h2 class='profile-main-name'>{$name}</h2>
         </div>

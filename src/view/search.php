@@ -6,7 +6,7 @@ function render_template(string $username, $books, $searchTitle) {
 
   foreach($books as $key => $book) {
     $bookId = $book['id'];
-    $imagePath = "src/view/static/img/".$bookId.".jpg";
+    $imagePath = "src/model/book/".$bookId.".jpg";
     $numOfResults += 1;
 
     $bookHTML = <<<HTML
