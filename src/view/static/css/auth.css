@@ -23,10 +23,12 @@
 	width: 96%;
 	height: 84%;
 	box-sizing: border-box;
-	background-color: #ededed;
-	background-image: url('../img/bg_auth.jpg');
-	background-blend-mode: screen;
-	background-size: 100% 100%;
+	background: white;
+  background-image:
+    radial-gradient(#ededed 10%, transparent 0),
+    radial-gradient(#ededed 10%, transparent 0);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
 	border-radius: 16px;
   display: flex;
 	flex-direction: column;
