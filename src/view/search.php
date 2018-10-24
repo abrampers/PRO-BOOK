@@ -1,6 +1,6 @@
 <?php
 function render_template(string $username, $books) {
-  $listOfBooks = '';
+  $booksHTML = '';
   $numOfResults = 0;
 
   foreach($books as $book) {
@@ -8,7 +8,7 @@ function render_template(string $username, $books) {
     $imagePath = "src/view/static/img/".$bookId.".jpg";
     $numOfResults += 1;
 
-    $str = <<<HTML
+    $bookHTML = <<<HTML
 
 <div class='search-book-container'>
   <div class='search-book-content-container'>
@@ -34,7 +34,7 @@ function render_template(string $username, $books) {
 </div>
 
 HTML;
-    $listOfBooks = $listOfBooks . $str;
+    $booksHTML = $booksHTML . $bookHTML;
   }
 
   $numOfResultsText = "";
@@ -108,7 +108,7 @@ HTML;
           </div>
         </div>
         <div class='search-result-container'>
-          {$listOfBooks}
+          {$booksHTML}
         </div>
       </div>
     </div>

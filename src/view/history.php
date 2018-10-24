@@ -1,61 +1,53 @@
 <?php
 function render_template(string $username, $orders) {
-  $listOfOrders = '';
+  $ordersHTML = '';
 
-  foreach($orders as $order) {
+  foreach($orders as $key => $order) {
     $orderDate = date("j F Y", $order['order_timestamp']);
-    $reviewLink = "/rating?id=".$order['book_id'];
-    $bookId = $order['id'];
+    $orderId = $order['id'];
     $reviewStatusText = $order['is_review'] == 1 ? "You have already reviewed this purchase." : "You haven't reviewed this purchase yet.";
     $imagePath = "src/view/static/img/".$order['book_id'].".jpg";
 
-    $str = <<<HTML
+    $reviewButtonHTML = $order['is_review'] == 1 ? '' : <<<HTML
+
+<div class='history-review-button-container'>
+  <form id='reviewOrder-{$key}' action='/review' method='get'>
+    <input hidden name='id' value={$orderId}>
+  </form>
+  <button class='history-review-button' type='submit' form='reviewOrder-{$key}'>
+    <div class='history-review-button-inner'>
+      REVIEW
+    </div>
+  </button>
+</div>
+
+HTML;
+
+    $orderHTML = <<<HTML
 
 <div class='history-order-container'>
   <div class='history-order-content-container'>
     <div class='history-order-image-container'>
       <img class='history-order-image' src={$imagePath}/>
     </div>
-    <div class='history-order-text-container'>
-
+    <div class='history-order-left-container'>
       <h4 class='order-title'>{$order['title']}</h4>
       <p class='order-amount'>Amount: {$order['amount']}</p>
       <p class='order-review-status'>{$reviewStatusText}</p>
-      <p class='order-date'>{$orderDate}</p>
-      <p class='order-number'>Order Number: #{$order['id']}</p>
-
+    </div>
+    <div class='history-order-right-container'>
+      <div class='history-order-right-text-container'>
+        <h4 class='order-date'>{$orderDate}</h4>
+        <h4 class='order-number'>Order Number: #{$order['id']}</h4>
+      </div>
+      {$reviewButtonHTML}
     </div>
   </div>
 </div>
 
 HTML;
-//     if ($order['is_review'] == 1) {
-//       $review_template = <<<HTML
 
-//     </div>
-//   </div>
-// </div>
-
-// HTML;
-//     } else {
-//       $review_template = <<<HTML
-
-//       <div class='review-button-container'>
-//         <form id='formRating' action='/rating' method='get'><input hidden name="id" value={$book_id}></form>
-//         <button id='reviewButton' type='submit' form='formRating'>
-//           <div id='reviewButtonInner' class='review-button-inner'>
-//             REVIEW
-//           </div>
-//         </button>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-
-// HTML;
-//     }
-
-    $listOfOrders = $listOfOrders . $str;
+    $ordersHTML = $ordersHTML . $orderHTML;
   }
 
   return <<<HTML
@@ -118,8 +110,8 @@ HTML;
         <div class='history-title-container'>
           <h1 class='history-title'>History</h1>
         </div>
-        <div class='history-content-container'>
-          {$listOfOrders}
+        <div class='history-list-container'>
+          {$ordersHTML}
         </div>
       </div>
     </div>
