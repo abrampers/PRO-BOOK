@@ -1,25 +1,33 @@
 <?php
 function render_template(string $username, $book, $reviews) {
-  $listOfReviews = '';
+  $reviewsHTML = '';
   $bookId = $book['id'];
   $bookImagePath = "src/model/books/".$bookId.".jpg";
 
   foreach($reviews as $review) {
-    $listOfReviews = <<<HTML
+    $profileImagePath = "src/model/profile/7.jpg";
+    $reviewHTML = <<<HTML
 
-    <div class='book-review-image-content-container'>
-      <img src=''>
+<div class='book-review-item-container'>
+  <div class='book-review-item-left-container'>
+    <div class='book-review-item-profile_image-container'>
+      <img class='book-review-item-profile_image' src='{$profileImagePath}'>
     </div>
-    <div class='book-review-content-container'>
-      <p class='book-review-content-username'>{$review['username']}</p>
-      <p class='book-review-content'>{$review['comment']}</p>
-    </div>
+  </div>
+  <div class='book-review-item-center-container'>
+    <h4 class='book-review-item-username'>@{$review['username']}</h4>
+    <p class='book-review-item-text'>{$review['comment']}</p>
+  </div>
+  <div class='book-review-item-right-container'>
     <div class='book-review-rating-content'>
       <img src='' alt='Star Image'>
-      <p class='book-review-rating'>{$review['rating']}</p>
+      <p class='book-review-rating'>{$review['rating']}.0 / 5.0</p>
     </div>
+  </div>
+</div>
 
 HTML;
+    $reviewsHTML = $reviewsHTML . $reviewHTML;
   }
 
   return <<<HTML
@@ -138,7 +146,7 @@ HTML;
             <h3 class='book-review-title'>Review</h3>
           </div>
           <div class='book-review-content-container'>
-            {$listOfReviews}
+            {$reviewsHTML}
           </div>
         </div>
 
