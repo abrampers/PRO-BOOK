@@ -28,13 +28,15 @@ class EditPostController implements ControllerInterface {
           echo "File is an image - " . $check["mime"] . ".";
           $uploadOk = 1;
         } else {
-          $response['error'][] = 'File is not an image.';
+          $response['success'] = False;
+          $response['error'][] = 'File must be an image';
           $uploadOk = 0;
         }
       }
 
       if($imageFileType != "jpg" ) {
-        $response['error'][] = 'Sorry, only JPG files are allowed.';
+        $response['success'] = False;
+        $response['error'][] = 'Image file must be in JPG format';
         $uploadOk = 0;
       }
 
@@ -51,25 +53,25 @@ class EditPostController implements ControllerInterface {
     }
 
     $result = 0;
-    if (!(EditPostController::isName($request->name) && strlen($request->name) > 0 && strlen($request->name) <= 20)) {
-      $response['success'] = False;
-      $response['error'][] = 'Name invalid.';
-    } else if (strlen($request->address) == 0) {
-      $response['success'] = False;
-      $response['error'][] = 'Address invalid.';
-    } else if (!(EditPostController::isNum($request->phoneNumber) && strlen($request->phoneNumber) >= 9 && strlen($request->phoneNumber) <= 12)) {
-      $response['success'] = False;
-      $response['error'][] = 'Phone number invalid.';
-    } else {
-      $response['success'] = True;
-      $result = $db->editProfile(null, $request->name, $request->address, $request->phoneNumber, $request->userId);
+    if ($response['success'] && $uploadOk) {
+      if (!(EditPostController::isName($request->name) && strlen($request->name) > 0 && strlen($request->name) <= 20)) {
+        $response['success'] = False;
+        $response['error'][] = 'Name must be a valid person name with less than 20 characters';
+      } else if (strlen($request->address) == 0) {
+        $response['success'] = False;
+        $response['error'][] = 'Address cannot be empty';
+      } else if (!(EditPostController::isNum($request->phoneNumber) && strlen($request->phoneNumber) >= 9 && strlen($request->phoneNumber) <= 12)) {
+        $response['success'] = False;
+        $response['error'][] = 'Phone number must be a number with 9 to 12 digits';
+      } else {
+        $response['success'] = True;
+        $result = $db->editProfile(null, $request->name, $request->address, $request->phoneNumber, $request->userId);
+      }
     }
-    if ($result) {
-      $response = json_encode($response);
-    } else {
+
+    if (!$result) {
       $response['success'] = False;
-      $response['error'][] = 'Internal error.';
-      $response = json_encode($response);
+      $response['error'][] = 'Internal error';
     }
 
     $template = new Template('src/view/edit.php');
