@@ -10,6 +10,7 @@ $$('#orderButton').onclick = () => {
     },
     callback: (response) => {
       response = JSON.parse(response);
+      console.log(response);
       if (response.orderNumber != undefined) {
         alert('Purchase succesful! Order number: ' + response.orderNumber);
       } else {

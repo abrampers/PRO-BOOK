@@ -9,7 +9,10 @@ class Router {
 
   function __construct(RequestInterface $req) {
     $this->request = $req;
-    $_POST = json_decode(file_get_contents('php://input'), true);
+    $json = json_decode(file_get_contents('php://input'), true);
+    foreach($json as $key => $value) {
+      $_POST[$key] = $value;
+    }
   }
 
   function get(string $route, Closure $callback, $middlewares = null) {

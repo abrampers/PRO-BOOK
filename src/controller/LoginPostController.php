@@ -2,6 +2,7 @@
 class LoginPostController implements ControllerInterface {
   public static function control(Request $request) {
     $db = new MarufDB();
+    print_r($request->username);
     $user_id = $db->checkLogin($request->username, $request->password);
     if($user_id != -1) {
       $JKWToken = new JKWToken();

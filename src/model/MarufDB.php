@@ -123,7 +123,7 @@ class MarufDB {
   }
 
   public function orderBook($book_id, $user_id, $amount, $order_timestamp) {
-    $query = $this->pdo->prepare("INSERT INTO Orders (user_id, book_id, amount, order_timestamp, is_review) VALUES (?, ?, ?, ?)");
+    $query = $this->pdo->prepare("INSERT INTO Orders (user_id, book_id, amount, order_timestamp, is_review) VALUES (?, ?, ?, ?, 0)");
     $query->execute(array($user_id, $book_id, $amount, $order_timestamp));
     $query = $this->pdo->prepare("SELECT id FROM Orders WHERE book_id = ? AND user_id = ? ORDER BY id DESC LIMIT 1");
     $query->execute(array($book_id, $user_id));
@@ -173,7 +173,6 @@ class MarufDB {
       $currRating = ($result['rating'] * $result['vote'] + $rating) / $currVote;
       $query = $this->pdo->prepare("UPDATE Books SET rating = ?, vote = ? WHERE id = ?");
       $query->execute(array($currRating, $currVote, $book_id));
-      print_r($user_id);
       $query = $this->pdo->prepare("UPDATE Orders SET is_review = 1 WHERE user_id = ?");
       $query->execute(array($user_id));
       return 1;
