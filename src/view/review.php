@@ -58,37 +58,45 @@ function render_template(string $username, $book, $user_id) {
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='review-main-book-container'>
-        <div class='review-main-book-detail-container'>
-          <div class='review-main-book-title-content'>{$book['title']}</div>
-          <div class='review-main-book-author-content'>{$book['author']}</div>
-        </div>
-        <div class='review-main-book-image-container'>
-          <img src={$img_name}/>
-        </div>
-      </div>
-      <form id='browseForm' class='browse-form' action='/rating' method='POST'>
-        <div>
-          Add Rating
-          <input hidden name='rating' value=5>
-        </div>
-        <div>
-          Add Comment
-          <input id='queryField' type='text' name='comment' placeholder='Input your comment'>
-          <input hidden name='username' value={$username}>
-          <input hidden name='user_id' value={$user_id}>
-          <input hidden name='book_id' value={$book_id}>
-        </div>
-      </form>
-      <div>
-        <button>Back</button>
-        <div class='browse-submit-container'>
-          <button id='formSubmitButton' type='submit' form='browseForm'>
-            <div id='formSubmitButtonInner' class='browse-submit-inner'>
-              SUBMIT
+      <div class='review-content-container'>
+        <div class='review-book-container'>
+          <div class='review-book-left-container'>
+            <h3 class='review-book-title'>{$book['title']}</h3>
+            <h4 class='review-book-author'>{$book['author']}</h4>
+          </div>
+          <div class='review-book-right-container'>
+            <div class='review-book-image-container'>
+              <img class='review-book-image' src={$img_name}/>
             </div>
-          </button>
+          </div>
         </div>
+        <form id='reviewForm' class='review-form-container' action='/rating' method='POST'>
+          <div class='review-rating-container'>
+            <h3 class='review-rating-title'>Add Rating</h3>
+            <input name='rating' value=5>
+          </div>
+          <div class='review-comment-container'>
+            <h3 class='review-comment-title'>Add Comment</h3>
+            <textarea class='review-textbox-input' id='queryField' type='text' name='comment' placeholder='Input your comment...' autofocus></textarea>
+            <input hidden name='username' value={$username}>
+            <input hidden name='user_id' value={$user_id}>
+            <input hidden name='book_id' value={$book_id}>
+          </div>
+          <div class='review-button-container'>
+            <div class='review-back-container'>
+              <a href='/history'>
+                <button class='review-back-button'>BACK</button>
+              </a>
+            </div>
+            <div class='review-submit-container'>
+              <button type='submit' form='reviewForm'>
+                <div class='review-submit-button-inner'>
+                  SUBMIT
+                </div>
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
 	</div>
