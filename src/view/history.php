@@ -38,7 +38,7 @@ HTML;
     <div class='history-order-right-container'>
       <div class='history-order-right-text-container'>
         <h4 class='order-date'>{$orderDate}</h4>
-        <h4 class='order-number'>Order Number: #{$order['id']}</h4>
+        <h4 class='order-number'>Order Number: #{$order[0]}</h4>
       </div>
       {$reviewButtonHTML}
     </div>
