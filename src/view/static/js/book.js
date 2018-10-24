@@ -5,7 +5,7 @@ $$('#orderButton').onclick = () => {
     method: 'POST',
     url: '/order',
     data: {
-      'book_id': parseInt($$('#bookIdInput').value, 10),
+      'book_id': parseInt($$('#bookIdField').value, 10),
       'quantity': parseInt($$('#orderQuantitySelector').value, 10)
     },
     callback: (response) => {
