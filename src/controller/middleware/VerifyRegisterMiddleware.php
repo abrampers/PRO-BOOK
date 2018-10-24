@@ -6,8 +6,8 @@ class VerifyRegisterMiddleware implements MiddlewareInterface {
 
   public function __construct() {
     $this->db = new MarufDB();
-    $this->usernameInvalid = 0;
-    $this->emailInvalid = 0;
+    $this->usernameInvalid = False;
+    $this->emailInvalid = False;
   }
 
   private function isName($value) {
@@ -15,12 +15,12 @@ class VerifyRegisterMiddleware implements MiddlewareInterface {
   }
 
   private function isUsername($value) {
-    $this->usernameInvalid = ! (int) $this->db->validateUsername($value);
+    $this->usernameInvalid = ! (bool) $this->db->validateUsername($value);
     return preg_match('/^[a-zA-Z0-9_]+$/', $value) && !$this->usernameInvalid;
   }
 
   private function isEmail($value) {
-    $this->emailInvalid = ! (int) $this->db->validateEmail($value);
+    $this->emailInvalid = ! (bool) $this->db->validateEmail($value);
     return preg_match('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $value) && !$this->emailInvalid;
   }
 
@@ -40,10 +40,12 @@ class VerifyRegisterMiddleware implements MiddlewareInterface {
   }
 
   public function run(Request $request) {
-    if ($this->validate($request->name, $request->username, $request->email, $request->password, $request->address, $request->phonenumber)) {
+    if ($this->validate($request->name, $request->username, $request->email, $request->password, $request->address, $request->phoneNumber)) {
       return True;
     } else {
-      header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/register?invalid_username={$this->usernameInvalid}&invalid_email={$this->emailInvalid}");
+      $usernameInvalid = (int) $this->usernameInvalid;
+      $emailInvalid = (int) $this->emailInvalid;
+      header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/register?invalid_username={$usernameInvalid}&invalid_email={$emailInvalid}");
       return False;
     }
   }

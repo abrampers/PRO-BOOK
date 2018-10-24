@@ -2,8 +2,9 @@
 function render_template(string $username, $books) {
   $booksHTML = '';
   $numOfResults = 0;
+  $bookId = 0;
 
-  foreach($books as $book) {
+  foreach($books as $key => $book) {
     $bookId = $book['id'];
     $imagePath = "src/view/static/img/".$bookId.".jpg";
     $numOfResults += 1;
@@ -22,10 +23,10 @@ function render_template(string $username, $books) {
     </div>
   </div>
   <div class='search-detail-button-container'>
-    <form id='bookDetail' action='/book' method='get'>
-      <input hidden name='id' value={$book_id}>
+    <form id='bookDetail-{$key}' action='/book' method='get'>
+      <input hidden name='id' value={$bookId}>
     </form>
-    <button class='search-detail-button' type='submit' form='bookDetail'>
+    <button class='search-detail-button' type='submit' form='bookDetail-{$key}'>
       <div class='search-detail-button-inner'>
         DETAIL
       </div>
