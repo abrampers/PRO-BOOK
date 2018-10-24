@@ -85,14 +85,14 @@ function render_template(string $username, $book, $user_id) {
           <div class='review-button-container'>
             <div class='review-back-container'>
               <a href='/history'>
-                <button class='review-back-button'>BACK</button>
+                <button class='review-back-button'>
+                  BACK
+                </button>
               </a>
             </div>
             <div class='review-submit-container'>
               <button type='submit' form='reviewForm'>
-                <div class='review-submit-button-inner'>
-                  SUBMIT
-                </div>
+                SUBMIT
               </button>
             </div>
           </div>

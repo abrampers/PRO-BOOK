@@ -58,6 +58,14 @@ HTML;
     $reviewsHTML = $reviewsHTML . $reviewHTML;
   }
 
+  if (empty($reviews)) {
+    $reviewsHTML = <<<HTML
+
+<h3 class='book-review-empty-message'>No reviews yet!</h3>
+
+HTML;
+  }
+
   return <<<HTML
 
 <!DOCTYPE html>
