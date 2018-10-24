@@ -9,15 +9,14 @@ function render_template(string $username, $book, $user_id) {
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
-  <link rel='stylesheet' href='src/view/static/css/rating.css'>
+  <link rel='stylesheet' href='src/view/static/css/review.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
-  <script type='module' src='src/view/static/js/history.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=Kite+One" rel="stylesheet">
-  <title>Browse</title>
+  <title>History</title>
 </head>
 <body>
 	<div class='main-page-container'>
@@ -36,35 +35,35 @@ function render_template(string $username, $book, $user_id) {
         </div>
         <div class='main-misc-container'>
           <div class='main-greeting-container'>
-            <h3>Hi, Cebong!</h3>
+            <h5>Hi, {$username}!</h5>
           </div>
           <div id='logoutButtonContainer' class='main-logout-button-container'>
             <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
-              <div id="logoutButtonIcon" class='main-logout-button-icon'>
+              <div id="logoutButtonIcon" class='main-logout-button-icon'></div>
             </button>
           </div>
         </div>
       </div>
       <div class='main-header-bottom-container'>
         <div id='browseTab' class='main-menu-tab'>
-          <h2>Browse</h2>
+          <h3>Browse</h3>
         </div>
         <div id='historyTab' class='main-menu-tab tab-mid tab-selected'>
-          <h2>History</h2>
+          <h3>History</h3>
         </div>
         <div id='profileTab' class='main-menu-tab'>
-          <h2>Profile</h2>
+          <h3>Profile</h3>
         </div>
       </div>
     </div>
     <div class='main-content-container'>
-      <div>
-        <div>
-          {$book['title']}
-          {$book['author']}
+      <div class='review-main-book-container'>
+        <div class='review-main-book-detail-container'>
+          <div class='review-main-book-title-content'>{$book['title']}</div>
+          <div class='review-main-book-author-content'>{$book['author']}</div>
         </div>
-        <div>
+        <div class='review-main-book-image-container'>
           <img src={$img_name}/>
         </div>
       </div>
