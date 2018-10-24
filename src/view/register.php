@@ -124,7 +124,7 @@ HTML
               <h4>Phone Number</h4>
             </div>
             <div class='auth-form-item-field-container'>
-              <input id='formPhoneNumberField' type='text' name='phoneNumber'>
+              <input id='formPhoneNumberField' type='text' name='phone_number'>
             </div>
           </div>
 
