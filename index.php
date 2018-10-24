@@ -57,9 +57,8 @@ $router->get('/profile', function($request) {
   return ProfileGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
-$router->get('/profile/edit', function($request) {
-  $template = new Template('src/view/huyu.php');
-  return $template->render();
+$router->get('/edit', function($request) {
+  return EditGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/deletecookie', function($request) {

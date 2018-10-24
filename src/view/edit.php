@@ -1,5 +1,5 @@
 <?php
-function render_template(string $name, string $username, string $email, string $address, string $phoneNumber) {
+function render_template(string $id, string $name, string $username, string $email, string $address, string $phoneNumber) {
   return <<<HTML
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ function render_template(string $name, string $username, string $email, string $
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
-  <link rel='stylesheet' href='src/view/static/css/profile.css'>
+  <link rel='stylesheet' href='src/view/static/css/edit.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
   <script type='module' src='src/view/static/js/profile.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
@@ -68,7 +68,7 @@ function render_template(string $name, string $username, string $email, string $
         </div>
         <div class='profile-main-right-container'>
           <div class='profile-main-button-container'>
-            <form id='editProfileForm' action='/edit' method='get'></form>
+            <form id='editProfileForm' action='/profile/edit' method='get'></form>
             <button id='editProfileButton' class='profile-edit-button' type='submit' form='editProfileForm'>
               <div id='editProfileButtonIcon' class='profile-edit-button-icon'></div>
             </button>
