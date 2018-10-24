@@ -75,10 +75,11 @@ function render_template(string $userId, string $name, string $username, string 
         </div>
         <div class='profile-main-right-container'>
           <div class='profile-main-button-container'>
-            <form id='editProfileForm' action='/edit' method='get'></form>
-            <button id='editProfileButton' class='profile-edit-button' type='submit' form='editProfileForm'>
-              <div id='editProfileButtonIcon' class='profile-edit-button-icon'></div>
-            </button>
+            <a href='/edit'>
+              <button id='editProfileButton' class='profile-edit-button'>
+                <div id='editProfileButtonIcon' class='profile-edit-button-icon'></div>
+              </button>
+            </a>
           </div>
         </div>
       </div>
