@@ -1,160 +1,35 @@
 .main-content-container {
   display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
   align-items: center;
-}
-
-.history-title-container {
-  width: 80%;
-  margin: 60px 0px 20px 0px;
-}
-
-.history-title {
-  font-size: 4.6rem;
+  background-color: #ededed;
+	background-image: url('../img/bg_auth.jpg');
+  background-blend-mode: screen;
+  background-size: contain;
 }
 
 .history-content-container {
   width: 80%;
+  margin-bottom: 80px;
   display: flex;
   flex-direction: column;
 	justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.history-book-image-container {
-  width: 150px;
-  margin-left: 10px;
+.history-title-container {
+  width: 100%;
+  margin: 30px 0px 40px 0px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+	justify-content: space-between;
   align-items: flex-end;
 }
 
-img {
-  width: 90%;
-  height: 90%;
-  margin-top: 5px;
-  margin-left: 10px;
-  flex: none;
-  border: 2px solid #bababa;
-  border-radius: 10%;
-}
-
-.history-order-container {
-  width: 100%;
-  height: 150px;
-  margin-top: 5px;
-  display: flex;
-  background: #f2f2f2;
-}
-
-.history-book-container {
-  margin-left: 10px;
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.history-book-title-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.history-book-title-content {
-  line-height: 44px;
-  font-size: 4.5rem;
-  font-family: 'Chathura', sans-serif;
-  font-weight: 600;
-  color: #ef8700;
-}
-
-.history-book-detail-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.history-book-detail-content {
-  line-height: 27px;
-  font-size: 3rem;
-  font-family: 'Chathura', sans-serif;
-  font-weight: 500;
-  color: #6d6d6d;
-}
-
-.history-order-detail-container {
-  margin-top: 14px;
+.history-title {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  font-size: 4.6rem;
+  color: black;
 }
 
-.history-order-date-content {
-  line-height: 30px;
-  margin-right: 20px;
-  font-size: 3rem;
-  font-family: 'Chathura', sans-serif;
-  font-weight: 600;
-  color: #6d6d6d;
-}
-
-.history-order-number-content {
-  line-height: 30px;
-  margin-right: 20px;
-  font-size: 2.3rem;
-  font-family: 'Chathura', sans-serif;
-  font-weight: 600;
-  color: #6d6d6d;
-}
-
-.review-button-container {
-  width: 100%;
-  margin: 0px 20px 0 0;
-  display: flex;
-	justify-content: flex-end;
-}
-
-.review-button-inner {
-  height: 100%;
-  width: 100%;
-  transform: scale(1.08);
-  display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-button {
-	width: 130px;
-  height: 60px;
-  padding: 0px;
-	box-sizing: border-box;
-	border-radius: 4px;
-	background-color: #54c0ff;
-	outline: none;
-	cursor: pointer;
-	font-family: 'Chathura', sans-serif;
-	font-weight: 600;
-	font-size: 3rem;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	line-height: 28px;
-	-webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-}
-
-button:hover {
-	background-color: orangered;
-	box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	transform: scale(1.08);
-}
-
-button:active {
-  background-color: orangered;
-	transform: scale(0.96);
-}

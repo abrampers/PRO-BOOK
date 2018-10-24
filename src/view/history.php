@@ -1,6 +1,64 @@
 <?php
-function render_template($orders) {
-  $template = <<<HTML
+function render_template(string $username, $orders) {
+  $listOfOrders = '';
+
+  foreach($orders as $order) {
+    $orderDate = date("j F Y", $order['order_timestamp']);
+    $reviewLink = "/rating?id=".$order['book_id'];
+    $bookId = $order['id'];
+    $reviewStatusText = $order['is_review'] == 1 ? "You have already reviewed this purchase." : "You haven't reviewed this purchase yet.";
+    $imagePath = "src/view/static/img/".$order['book_id'].".jpg";
+
+    $str = <<<HTML
+
+<div class='history-order-detail-container'>
+  <div class='history-order-detail-content-container'>
+    <div class='history-order-detail-image-container'>
+      <img class='history-order-detail-image' src={$imagePath}/>
+    </div>
+    <div class='history-order-detail-text-container'>
+
+      <h4 class='order-title'>{$order['title']}</h4>
+      <p class='order-amount'>Amount: {$order['amount']}</p>
+      <p class='order-review-status'>{$reviewStatusText}</p>
+      <p class='order-date'>{$orderDate}</p>
+      <p class='order-number'>Order Number: #{$order['id']}</p>
+
+    </div>
+  </div>
+</div>
+
+HTML;
+//     if ($order['is_review'] == 1) {
+//       $review_template = <<<HTML
+
+//     </div>
+//   </div>
+// </div>
+
+// HTML;
+//     } else {
+//       $review_template = <<<HTML
+
+//       <div class='review-button-container'>
+//         <form id='formRating' action='/rating' method='get'><input hidden name="id" value={$book_id}></form>
+//         <button id='reviewButton' type='submit' form='formRating'>
+//           <div id='reviewButtonInner' class='review-button-inner'>
+//             REVIEW
+//           </div>
+//         </button>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+// HTML;
+//     }
+
+    $listOfOrders = $listOfOrders . $str;
+  }
+
+  return <<<HTML
 
 <!DOCTYPE html>
 <html>
@@ -15,7 +73,7 @@ function render_template($orders) {
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=Kite+One" rel="stylesheet">
-  <title>Browse</title>
+  <title>History</title>
 </head>
 <body>
 	<div class='main-page-container'>
@@ -34,91 +92,41 @@ function render_template($orders) {
         </div>
         <div class='main-misc-container'>
           <div class='main-greeting-container'>
-            <h3>Hi, Cebong!</h3>
+            <h5>Hi, {$username}!</h5>
           </div>
           <div id='logoutButtonContainer' class='main-logout-button-container'>
             <form id='logoutForm' action='/logout' method='get'></form>
             <button id="logoutButton" class='main-logout-button' type='submit' form='logoutForm'>
-              <div id="logoutButtonIcon" class='main-logout-button-icon'>
+              <div id="logoutButtonIcon" class='main-logout-button-icon'></div>
             </button>
           </div>
         </div>
       </div>
       <div class='main-header-bottom-container'>
         <div id='browseTab' class='main-menu-tab'>
-          <h2>Browse</h2>
+          <h3>Browse</h3>
         </div>
         <div id='historyTab' class='main-menu-tab tab-mid tab-selected'>
-          <h2>History</h2>
+          <h3>History</h3>
         </div>
         <div id='profileTab' class='main-menu-tab'>
-          <h2>Profile</h2>
+          <h3>Profile</h3>
         </div>
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='history-title-container'>
-        <h1 class='history-title'>HISTORY</h1>
-      </div>
-HTML;
-foreach($orders as $order) {
-  $order_date = date("j F Y", $order['order_timestamp']);
-  $review_link = "/rating?id=".$order['book_id'];
-  $book_id = $order['id'];
-  // print_r($review_link);
-  $review_text = $order['is_review'] == 1 ? "You have already given review" : "Haven't reviewed yet";
-  $img_name = "src/view/static/img/".$order['book_id'].".jpg";
-  $order_template = <<<HTML
       <div class='history-content-container'>
-        <div class='history-order-container'>
-          <div class='history-book-image-container'>
-            <img src={$img_name}/>
-          </div>
-          <div class='history-book-container'>
-            <div class='history-book-title-container'>
-              <div class='history-book-title-content'>
-                {$order['title']}
-              </div>
-            </div>
-            <div class='history-book-detail-container'>
-              <div class='history-book-detail-content'>Amount : {$order['amount']}</div>
-              <div class='history-book-detail-content'>{$review_text}</div>
-            </div>
-          </div>
-          <div class='history-order-detail-container'>
-            <div class='history-order-date-content'>{$order_date}</div>
-            <div class='history-order-number-content'>Order Number : #{$order['id']}</div>
-HTML;
-  if ($order['is_review'] == 1) {
-    $review_template = <<<HTML
-          </div>
+        <div class='history-title-container'>
+          <h1 class='history-title'>History</h1>
+        </div>
+        <div class='history-content-container'>
+          {$listOfOrders}
         </div>
       </div>
-HTML;
-  } else {
-    $review_template = <<<HTML
-            <div class='review-button-container'>
-              <form id='formRating' action='/rating' method='get'><input hidden name="id" value={$book_id}></form>
-              <button id='reviewButton' type='submit' form='formRating'>
-                <div id='reviewButtonInner' class='review-button-inner'>
-                  REVIEW
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-HTML;
-  }
-  $template = $template.$order_template.$review_template;
-};
-
-$template = $template.<<<HTML
     </div>
 	</div>
 </body>
 </html>
-HTML;
 
-return $template;
+HTML;
 }
