@@ -3,10 +3,12 @@
 	flex-direction: column;
 	justify-content: flex-start;
   align-items: center;
-  background-color: #ededed;
-	background-image: url('../img/bg_auth.jpg');
-  background-blend-mode: screen;
-  background-size: contain;
+  background: white;
+  background-image:
+    radial-gradient(#ededed 10%, transparent 0),
+    radial-gradient(#ededed 10%, transparent 0);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
 }
 
 .history-content-container {
@@ -162,7 +164,8 @@ button {
 	width: 106px;
   height: 50px;
   padding: 0px;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0px;
 	border-radius: 4px;
 	background-color: #54c0ff;
 	outline: none;

@@ -1,5 +1,13 @@
 <?php
-function render_template(string $id, string $name, string $username, string $email, string $address, string $phoneNumber) {
+function render_template(string $id, string $name, string $username, string $email, string $address, string $phoneNumber, $response = null) {
+  // Jangan lupa jon buat message dari response;
+  $path = 'src/model/profile/';
+  if(file_exists($path . $id .'.jpg')) {
+    $path = $path . $id . '.jpg';
+  } else {
+    $path = 'src/model/profile/avatar_default.jpg';
+  }
+
   return <<<HTML
 
 <!DOCTYPE html>
@@ -9,13 +17,12 @@ function render_template(string $id, string $name, string $username, string $ema
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <link rel='stylesheet' href='src/view/static/css/edit.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
-  <script type='module' src='src/view/static/js/profile.js'></script>
   <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Kite+One' rel='stylesheet'>
-  <title>Profile</title>
+  <title>Edit Profile</title>
 </head>
 <body>
 	<div class='main-page-container'>
@@ -62,12 +69,14 @@ function render_template(string $id, string $name, string $username, string $ema
         <div class='edit-detail-title-container'>
           <h2 class='edit-detail-title'>Edit Profile</h2>
         </div>
-        <form id='editForm' action='/edit' method='post'>
-          <div>
-            <div></div>
-            <div></div>
+        <form id='editForm' action='/edit' method='post' enctype='multipart/form-data'>
+          <div class='edit-detail-picture-container'>
+            <div class='profile-main-image-container'>
+              <img class='profile-picture' src={$path} alt='Profile Picture' height='200' width='200'>
+            </div>
+            <input type="file" name="fileToUpload" id="fileToUpload">
           </div>
-          <input hidden name='userid' value='{$id}'>
+          <input hidden name='user_id' value='{$id}'>
           <div class='edit-detail-content-container'>
             <div class='edit-detail-content-row-container'>
               <div class='edit-detail-content-row-label-container'>
@@ -93,20 +102,22 @@ function render_template(string $id, string $name, string $username, string $ema
                 <p class='edit-detail-content-row-label'>Phone Number</p>
               </div>
               <div class='edit-detail-content-row-content-container'>
-                <input class='edit-detail-content-row-content' type='textarea' name='phonenumber' value='{$phoneNumber}'>
+                <input class='edit-detail-content-row-content' type='textarea' name='phone_number' value='{$phoneNumber}'>
               </div>
             </div>
           </form>
           <div class='edit-button-container'>
             <div>
+              <form action='/profile'>
+              <button id='huyu' type='submit'>
+                BACK
+              </button>
+              </form>
               <a href='/profile'>
-                <button type='submit'>
-                  BACK
-                </button>
               </a>
             </div>
             <div>
-              <button type='submit' form='editForm'>
+              <button id='submitButton' form='editForm' type='submit'>
                 SUBMIT
               </button>
             </div>
