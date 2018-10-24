@@ -78,44 +78,46 @@ function render_template(string $id, string $name, string $username, string $ema
 
       <div class='profile-detail-container'>
         <div class='profile-detail-title-container'>
-          <h2 class='profile-detail-title'>My Profile</h2>
+          <h2 class='profile-detail-title'>Edit Profile</h2>
         </div>
-        <div class='profile-detail-content-container'>
-          <div class='profile-detail-content-row-container'>
-            <div class='profile-detail-content-row-label-container'>
-              <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_username.svg' alt='Username icon'>
-              <p class='profile-detail-content-row-label'>Username</p>
+        <form id="editForm" action="/edit" method="post">
+          <input hidden name="userid" value="{$id}">
+          <div class='profile-detail-content-container'>
+            <div class='profile-detail-content-row-container'>
+              <div class='profile-detail-content-row-label-container'>
+                <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_username.svg' alt='Username icon'>
+                <p class='profile-detail-content-row-label'>Name</p>
+              </div>
+              <div class='profile-detail-content-row-content-container'>
+                <input class='profile-detail-content-row-content' type="text" name="name" value="{$name}">
+              </div>
             </div>
-            <div class='profile-detail-content-row-content-container'>
-              <p class='profile-detail-content-row-content'>{$username}</p>
+            <div class='profile-detail-content-row-container'>
+              <div class='profile-detail-content-row-label-container'>
+                <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_address.svg' alt='Address icon'>
+                <p class='profile-detail-content-row-label'>Address</p>
+              </div>
+              <div class='profile-detail-content-row-content-container'>
+                <input class='profile-detail-content-row-content' type="textarea" name="address" value="{$address}">
+              </div>
             </div>
-          </div>
-          <div class='profile-detail-content-row-container'>
-            <div class='profile-detail-content-row-label-container'>
-              <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_email.svg' alt='Email icon'>
-              <p class='profile-detail-content-row-label'>Email</p>
+            <div class='profile-detail-content-row-container'>
+              <div class='profile-detail-content-row-label-container'>
+                <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_phone.svg' alt='Phone Number icon'>
+                <p class='profile-detail-content-row-label'>Phone Number</p>
+              </div>
+              <div class='profile-detail-content-row-content-container'>
+                <input class='profile-detail-content-row-content' type="textarea" name="phonenumber" value="{$phoneNumber}">
+              </div>
             </div>
-            <div class='profile-detail-content-row-content-container'>
-              <p class='profile-detail-content-row-content'>{$email}</p>
-            </div>
-          </div>
-          <div class='profile-detail-content-row-container'>
-            <div class='profile-detail-content-row-label-container'>
-              <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_address.svg' alt='Address icon'>
-              <p class='profile-detail-content-row-label'>Address</p>
-            </div>
-            <div class='profile-detail-content-row-content-container'>
-              <p class='profile-detail-content-row-content'>{$address}</p>
-            </div>
-          </div>
-          <div class='profile-detail-content-row-container'>
-            <div class='profile-detail-content-row-label-container'>
-              <img class='profile-detail-content-row-label-icon' src='src/view/static/img/icon_phone.svg' alt='Phone Number icon'>
-              <p class='profile-detail-content-row-label'>Phone Number</p>
-            </div>
-            <div class='profile-detail-content-row-content-container'>
-              <p class='profile-detail-content-row-content'>{$phoneNumber}</p>
-            </div>
+          </form>
+          <div>
+            <button>
+              BACK
+            </button>
+            <button type="submit" form="editForm">
+              SUBMIT
+            </button>
           </div>
         </div>
       </div>

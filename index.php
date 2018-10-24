@@ -87,6 +87,10 @@ $router->post('/rating', function($request) {
   return RatingPostController::control($request);
 });
 
+$router->post('/edit', function($request) {
+  return EditPostController::control($request);
+});
+
 /************/
 /* REST API */
 /************/
