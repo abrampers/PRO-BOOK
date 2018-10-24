@@ -48,18 +48,16 @@ $router->get('/history', function($request) {
   return HistoryGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
-$router->get('/history/review', function($request) {
-  $template = new Template('src/view/huyu.php');
-  return $template->render();
+$router->get('/review', function($request) {
+  return ReviewGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/profile', function($request) {
   return ProfileGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
-$router->get('/profile/edit', function($request) {
-  $template = new Template('src/view/huyu.php');
-  return $template->render();
+$router->get('/edit', function($request) {
+  return EditGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
 $router->get('/deletecookie', function($request) {
@@ -86,6 +84,10 @@ $router->post('/register', function($request) {
 
 $router->post('/rating', function($request) {
   return RatingPostController::control($request);
+});
+
+$router->post('/edit', function($request) {
+  return EditPostController::control($request);
 });
 
 /************/

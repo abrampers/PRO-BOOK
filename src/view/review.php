@@ -1,5 +1,5 @@
 <?php
-function render_template($book, $username, $user_id) {
+function render_template(string $username, $book, $user_id) {
   $img_name = "src/view/static/img/".$book['id'].".jpg";
   $book_id = $book['id'];
   $template = <<<HTML
