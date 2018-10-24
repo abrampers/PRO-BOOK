@@ -9,6 +9,7 @@ class Router {
 
   function __construct(RequestInterface $req) {
     $this->request = $req;
+    $_POST = json_decode(file_get_contents('php://input'), true);
   }
 
   function get(string $route, Closure $callback, $middlewares = null) {

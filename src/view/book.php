@@ -1,6 +1,7 @@
 <?php
 function render_template(string $username, $book, $reviews) {
   $listOfReviews = '';
+  $book_id = $book['id'];
 
   foreach($reviews as $review) {
     $str = <<<HTML
@@ -29,7 +30,7 @@ HTML;
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <link rel='stylesheet' href='src/view/static/css/browse.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
-  <script type='module' src='src/view/static/js/browse.js'></script>
+  <script type='module' src='src/view/static/js/book.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
@@ -95,7 +96,7 @@ HTML;
       </div>
       <div class='book-order-container'>
         <p class='book-order-title'>Order</p>
-        <select name='orderQuantity' id='quantity'>
+        <select id='orderQuantitySelector' name='orderQuantity' id='quantity'>
           <option value='1'>1</option>
           <option value='2'>2</option>
           <option value='3'>3</option>
@@ -104,7 +105,12 @@ HTML;
           <option value='6'>6</option>
           <option value='7'>7</option>
         </select>
-        <div class='book-order-button'></div>
+        <div class='book-order-button-container'>
+          <input hidden id='bookIdInput' name='id' value={$book_id}>
+          <button id='orderButton'>
+            <p class='search-detail-button-title'>Order</p>
+          </button>
+        </div>
       </div>
       <div class='book-review-container'>
         <p class='book-review-title'>Reviews</p>

@@ -24,7 +24,8 @@ function ajaxHandler(requestParams) {
     return xhttp;
   } else if (requestParams.method.toUpperCase() == 'POST') {
     xhttp.open('POST', requestParams.url, true);
-    xhttp.send(requestParams.data);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify(requestParams.data));
     return xhttp;
   } else {
     console.log('ERROR: Invalid AJAX request method')
