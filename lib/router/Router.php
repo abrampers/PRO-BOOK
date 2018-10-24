@@ -10,8 +10,10 @@ class Router {
   function __construct(RequestInterface $req) {
     $this->request = $req;
     $json = json_decode(file_get_contents('php://input'), true);
-    foreach($json as $key => $value) {
-      $_POST[$key] = $value;
+    if (is_array($json) || is_object($json)) {
+      foreach($json as $key => $value) {
+        $_POST[$key] = $value;
+      }
     }
   }
 
