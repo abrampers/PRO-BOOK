@@ -118,7 +118,7 @@ HTML;
     <div class='main-content-container'>
       <div class='history-content-container'>
         <div class='history-title-container'>
-          <h1 class='history-title'>History</h1>
+          <h1 class='history-title'>Hist<a class='o-button' href='/about'>o</a>ry</h1>
         </div>
         <div class='history-list-container'>
           {$ordersHTML}

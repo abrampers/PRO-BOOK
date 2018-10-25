@@ -7,7 +7,7 @@ function render_template(string $username) {
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
-  <link rel='stylesheet' href='src/view/static/css/browse.css'>
+  <link rel='stylesheet' href='src/view/static/css/about.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
@@ -44,7 +44,7 @@ function render_template(string $username) {
         </div>
       </div>
       <div class='main-header-bottom-container'>
-        <div id='browseTab' class='main-menu-tab tab-selected'>
+        <div id='browseTab' class='main-menu-tab'>
           <h3>Browse</h3>
         </div>
         <div id='historyTab' class='main-menu-tab tab-mid'>
@@ -56,19 +56,57 @@ function render_template(string $username) {
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='browse-content-container'>
-        <div class='browse-title-container'>
-          <h1 class='browse-title'>Search B<a class='o-button' href='/about'>o</a><a class='o-button' href='/about'>o</a>ks</h1>
+      <div class='about-title-container'>
+        <h2 class='about-title'>About Us</h2>
+      </div>
+      <div class='about-content-container'>
+        <div class='about-content-column-container'>
+          <div class='about-content-picture-container'>
+            <img class='profile-picture' src='src/model/profile/nicholas.jpg' alt='Nicholas Rianto Putra'>
+          </div>
+          <div class='abobut-content-container'>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+          </div>
         </div>
-        <form id='browseForm' class='browse-form' action='/search' method='GET'>
-          <input type='text' name='title' placeholder='Input search terms...' autofocus>
-        </form>
-        <div class='browse-submit-container'>
-          <button type='submit' form='browseForm'>
-            <div class='browse-submit-inner'>
-              SEARCH
-            </div>
-          </button>
+        <div class='about-content-column'>
+          <div class='about-content-picture-container'>
+            <img class='profile-picture' src='src/model/profile/abram.jpg' alt='Abram Situmorang'>
+          </div>
+          <div class='abobut-content-container'>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+          </div>
+        </div>
+        <div class='about-content-column'>
+          <div class='about-content-picture-container'>
+            <img class='profile-picture' src='src/model/profile/faza.jpg' alt='Faza Fahleraz'>
+          </div>
+          <div class='abobut-content-container'>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+          </div>
         </div>
       </div>
     </div>

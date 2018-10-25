@@ -86,7 +86,7 @@ function render_template(string $userId, string $name, string $username, string 
 
       <div class='profile-detail-container'>
         <div class='profile-detail-title-container'>
-          <h2 class='profile-detail-title'>My Profile</h2>
+          <h2 class='profile-detail-title'>My Pr<a id='oOrangeButton' class='o-button' href='/about'>o</a>file</h2>
         </div>
         <div class='profile-detail-content-container'>
           <div class='profile-detail-content-row-container'>
