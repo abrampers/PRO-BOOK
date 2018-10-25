@@ -100,7 +100,7 @@ $str
                 <div class='edit-detail-file-upload-content-container'>
                   <h4>Update profile picture</h4>
                   <input class='edit-detail-file-input' type="file" name="fileToUpload" id="fileToUpload">
-                  <div class='edit-detail-file-upload-container'>
+                  <div id='fileUploadContainer' class='edit-detail-file-upload-container'>
                     <input id='fileNameTextArea' class='edit-detail-file-input-name' type="textarea">
                     <input type="button" id="browseButton" value="BROWSE...">
                   </div>
@@ -112,7 +112,7 @@ $str
                   <h4>Name</h4>
                 </div>
                 <div class='edit-detail-content-row-content-container'>
-                  <input class='edit-detail-content-row-content' type='textarea' name='name' value='{$name}'>
+                  <input class='edit-detail-content-row-content' type='text' name='name' value='{$name}'>
                 </div>
               </div>
               <div class='edit-detail-content-row-container'>
@@ -121,7 +121,7 @@ $str
                   <h4>Address</h4>
                 </div>
                 <div class='edit-detail-content-row-content-container'>
-                  <input class='edit-detail-content-row-content' type='textarea' name='address' value='{$address}'>
+                  <textarea class='edit-detail-content-row-content' name='address'>{$address}</textarea>
                 </div>
               </div>
               <div class='edit-detail-content-row-container'>
@@ -130,7 +130,7 @@ $str
                   <h4>Phone Number</h4>
                 </div>
                 <div class='edit-detail-content-row-content-container'>
-                  <input class='edit-detail-content-row-content' type='textarea' name='phone_number' value='{$phoneNumber}'>
+                  <input class='edit-detail-content-row-content' type='text' name='phone_number' value='{$phoneNumber}'>
                 </div>
               </div>
             </form>

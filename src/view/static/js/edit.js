@@ -1,9 +1,9 @@
 import $$ from './lib/jQowi.js';
 
 $$('#fileNameTextArea').disabled = true;
-$$('#fileNameTextArea').value ='File (.jpg)';
+$$('#fileNameTextArea').value ='Choose file...';
 
-$$('#browseButton').onclick = () => {
+$$('#fileUploadContainer').onclick = () => {
   $$('#fileToUpload').click();
 }
 

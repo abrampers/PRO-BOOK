@@ -68,7 +68,7 @@
 
 .edit-detail-title-container {
   width: 650px;
-  margin: 30px 0px 6px 0px;
+  margin: 40px 0px 20px 0px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -77,7 +77,7 @@
 
 .edit-detail-title {
   font-family: 'Bungee', sans-serif;
-  font-size: 4rem;
+  font-size: 4.4rem;
   color: orangered;
   text-shadow: -3px 3px 0px black;
 }
@@ -85,7 +85,7 @@
 .edit-detail-content-container {
   width: 680px;
   margin-bottom: 60px;
-  padding: 60px 0px 60px 0px;
+  padding: 60px 0px 46px 0px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -122,12 +122,12 @@
 }
 
 .edit-detail-file-upload-content-container {
-  line-height: 30px;
+  margin-left: 10px;
+  line-height: 54px;
 }
 
 .edit-detail-file-input {
   display: none;
-  /* margin: 0px 30px 0px 0px; */
 }
 
 .edit-detail-file-upload-container {
@@ -138,8 +138,8 @@
 }
 
 #browseButton {
-  width: 100px;
-  height: 30px;
+  width: 104px;
+  height: 35px;
   padding: 0px;
   box-sizing: border-box;
   border: 0px;
@@ -149,7 +149,7 @@
 	cursor: pointer;
 	font-family: 'Chathura', sans-serif;
 	font-weight: 600;
-	font-size: 2.1rem;
+	font-size: 2rem;
 	color: white;
 	text-align: center;
 	text-decoration: none;
@@ -170,7 +170,6 @@
 }
 
 input {
-	width: 200px;
 	height: 36px;
 	padding: 8px;
 	margin: 0px;
@@ -262,7 +261,9 @@ button:active {
 }
 
 .edit-detail-file-input-name {
-  margin: 0px 30px 0px 0px;
+  width: 178px;
+  margin: 0px 16px 0px 0px;
+  cursor: pointer;
 }
 
 .edit-detail-content-row-container {
@@ -300,6 +301,10 @@ button:active {
   flex: 5;
 }
 
+.edit-detail-content-row-content {
+  width: 300px;
+}
+
 .edit-main-button-container {
   display: flex;
 }
@@ -309,9 +314,8 @@ button:active {
 }
 
 .edit-button-container {
-  width: 665px;
-  margin-top: 40px;
-  padding: 0px 40px;
+  width: 590px;
+  margin-top: 60px;
   display: flex;
   justify-content: space-between;
 }
@@ -341,7 +345,7 @@ button:active {
   width: fit-content;
   height: 36px;
   padding: 0px 18px;
-  top: 25%;
+  top: 174px;
   left: 50%;
   transform: translate(-50%, 0%);
   display: flex;
