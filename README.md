@@ -89,7 +89,7 @@ MySQL Password
 PDO Object
 
 ###### Member Function
-```
+```php
 public function __construct() #Class Constructor. It will assign member variables with defined variables on .ethes file (environment file) and create pdo connection.
 private function Connect() #Create PDO Connection with member variables as parameters.
 public function getUserId($token) #Get current userId by their token cookies.
