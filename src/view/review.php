@@ -1,5 +1,5 @@
 <?php
-function render_template(string $username, $book, $user_id) {
+function render_template(string $username, $book, $user_id, $order_id) {
   $img_name = "src/model/books/".$book['id'].".jpg";
   $book_id = $book['id'];
   $template = <<<HTML
@@ -91,6 +91,7 @@ function render_template(string $username, $book, $user_id) {
             <input hidden name='username' value={$username}>
             <input hidden name='user_id' value={$user_id}>
             <input hidden name='book_id' value={$book_id}>
+            <input hidden name='order_id' value={$order_id}>
           </div>
           <div class='review-button-container'>
             <div class='review-back-container'>

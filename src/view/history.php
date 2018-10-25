@@ -4,7 +4,7 @@ function render_template(string $username, $orders) {
 
   foreach($orders as $key => $order) {
     $orderDate = date("j F Y", $order['order_timestamp']);
-    $orderId = $order['id'];
+    $orderId = $order['order_id'];
     $reviewStatusText = $order['is_review'] == 1 ? "You have already reviewed this purchase." : "You haven't reviewed this purchase yet.";
     $imagePath = "src/model/books/".$order['book_id'].".jpg";
 
@@ -38,7 +38,7 @@ HTML;
     <div class='history-order-right-container'>
       <div class='history-order-right-text-container'>
         <h4 class='order-date'>{$orderDate}</h4>
-        <h4 class='order-number'>Order Number: #{$order[0]}</h4>
+        <h4 class='order-number'>Order Number: #{$order['order_id']}</h4>
       </div>
       {$reviewButtonHTML}
     </div>
