@@ -42,3 +42,4 @@ Thanks to our lovely lecturer Mr. Dr.Techn. Muhammad Zuhri Catur Candra ST,MT fo
 * [Mozilla Developer Network web docs](https://developer.mozilla.org/en-US/)
 * [MIT 6.148 Web Development: IAP Class](http://webdevelopment.mit.edu/2018/)
 * [CS193X: Web Programming Fundamentals](http://web.stanford.edu/class/cs193x/)
+* [Flaticon](https://flaticon.com)
