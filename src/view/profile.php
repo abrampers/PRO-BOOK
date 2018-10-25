@@ -3,9 +3,16 @@ function render_template(string $userId, string $name, string $username, string 
   $path = 'src/model/profile/';
   if(file_exists($path . $userId .'.jpg')) {
     $path = $path . $userId . '.jpg';
+    $img = <<<HTML
+    <img class='profile-picture' src={$path} alt='Profile Picture' height='200' width='200'>
+HTML;
   } else {
-    $path = 'src/model/profile/avatar_default.jpg';
+    $img = <<<HTML
+    <img class='profile-picture' src='src/model/profile/avatar_default.jpg' alt='Profile Picture' height='200' width='200'>
+HTML;
   }
+
+
 
   return <<<HTML
 
@@ -69,7 +76,7 @@ function render_template(string $userId, string $name, string $username, string 
         <div class='profile-main-left-container'></div>
         <div class='profile-main-center-container'>
           <div class='profile-main-image-container'>
-            <img class='profile-picture' src={$path} alt='Profile Picture' height='200' width='200'>
+            $img;
           </div>
           <h2 class='profile-main-name'>{$name}</h2>
         </div>
