@@ -19,13 +19,13 @@ Pro-Book
 
 ## Introduction
 This is the implementation of a web-based online book store using **PHP**. It is open-source and everyone could contribute to probook by creating pull request.
-### Creating an online book store has never been so easy
+#### *Creating an online book store has never been so easy*
 **Online Book Store Template** - This web-based online book store template is your solution to start your own online book store.
 
-### *What's the point of Pro-Book?*
+#### *What's the point of Pro-Book?*
 Pro-Book wants to contribute to community by creating this open-source project about web-based online book store. Young entrepreneurs can start their own online book store business by cloning this repository and deploy it on their own servers. 
 
-### *Why should I care?*
+#### *Why should I care?*
 Because Pro-Book is for *people* :tada:. You have contributed to community by cloning or creating a pull request on this Pro-Book projects.
 
 ## Installation
@@ -52,10 +52,16 @@ php -S localhost:5000
 ```
 
 ## Features and advantages of this project
-### List of Features
-TODO
-### Advantages of this project
-We **create** our own library to support this project. We build this project from **scratch**(vanilla). List of our own library:
+#### List of Features
+- **Browse** : You can search any books do you want and view its detail. The detail contains title, author, synopsis, cover, ratings, and list of reviews. 
+- **Order** : When you on the book's detail page, you can order the book by choosing the amount of the book and click on the Order Button.
+- **History** : You can see your history of orders.
+- **Review** : On your history page, you can click **review** button in order to give review about your purchased books. You can give the rating and comment about the book.
+- **View Profile** : You can view your profile on the profile page.
+- **Edit Profile** : On the profile page, you can click **edit** button and change some personal information about you. You are allowed to change your profile picture, name, address, and phone number.
+
+#### Advantages of this project
+We **create** our own library to support this project. We build this project from **scratch**. List of our own library:
 - [**Router**](#router)
 - [**Request**](#request)
 - [**MarufDB**](#marufdb)
@@ -63,6 +69,14 @@ We **create** our own library to support this project. We build this project fro
 - [**Template Engine**](#templateengine)
 - [**dotEthes**](#dotethes)
 - [**JKWToken**](#jkwtoken)
+
+##### Router
+##### Request
+##### MarufDB
+##### jQowi
+##### Template Engine
+##### dotEthes
+##### JKWToken
 
 ## Authors
 1. Nicholas Rianto Putra - 13516020 - https://github.com/nicholaz99
