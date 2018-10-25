@@ -57,55 +57,185 @@ function render_template(string $username) {
     </div>
     <div class='main-content-container'>
       <div class='about-title-container'>
-        <h2 class='about-title'>About Us</h2>
+        <h1 class='about-title'>About Us</h1>
       </div>
       <div class='about-content-container'>
         <div class='about-content-column-container'>
           <div class='about-content-picture-container'>
-            <img class='profile-picture' src='src/model/profile/nicholas.jpg' alt='Nicholas Rianto Putra'>
+            <img class='profile-picture' src='src/model/profile/nicho.jpg' alt='Nicholas Rianto Putra'>
           </div>
-          <div class='abobut-content-container'>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
+          <div class='about-content-name-container'>
+            <h3 class='name'>Nicholas Rianto Putra</h3>
+            <h3 class='title'>Query Master</h3>
+          </div>
+          <div class='about-content-detail-container'>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_email.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='mailto:nicholasmagbanua@gmail.com'><p>nicholasmagbanua@gmail.com</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_github.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://github.com/Nicholaz99'><p>Nicholaz99</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_linkedin.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://www.linkedin.com/in/nicholas-rp/'><p>Nicholas Rianto Putra</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_twitter.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://twitter.com/nicho_cholas'><p>@nicho_cholas</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_instagram.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://www.instagram.com/nicholasr.p/'><p>@nicholasr.p</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_facebook.svg'>
+              </div>
+              <div class='about-content'>
+                <p>-</p>
+                  <!-- <a href=''>@nicho_cholas</a> -->
+              </div>
+            </div>
           </div>
         </div>
-        <div class='about-content-column'>
+        <div class='about-content-column-container'>
           <div class='about-content-picture-container'>
             <img class='profile-picture' src='src/model/profile/abram.jpg' alt='Abram Situmorang'>
           </div>
-          <div class='abobut-content-container'>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
+          <div class='about-content-name-container'>
+            <h3 class='name'>Abram Situmorang</h3>
+            <h3 class='title'>PHP Master</h3>
+          </div>
+          <div class='about-content-detail-container'>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_email.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='mailto:abram.perdanaputra@gmail.com'><p>abram.perdanaputra@gmail.com</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_github.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://github.com/abrampers'><p>abrampers</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_linkedin.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://www.linkedin.com/in/abrampers/'><p>Abram Situmorang</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_twitter.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://twitter.com/abrampers'><p>@abrampers</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_instagram.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://www.instagram.com/abrampers/'><p>@abrampers</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_facebook.svg'>
+              </div>
+              <div class='about-content'>
+                  <a href='https://www.facebook.com/abram.perdanaputra'><p>Abram Perdanaputra</p></a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class='about-content-column'>
+        <div class='about-content-column-container'>
           <div class='about-content-picture-container'>
             <img class='profile-picture' src='src/model/profile/faza.jpg' alt='Faza Fahleraz'>
           </div>
-          <div class='abobut-content-container'>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
-            <p>huyuuuu</p>
+          <div class='about-content-name-container'>
+            <h3 class='name'>Faza Fahleraz</h3>
+            <h3 class='title'>JS x CSS Master</h3>
+          </div>
+          <div class='about-content-detail-container'>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_email.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='mailto:ffahleraz@gmail.com'><p>ffahleraz@gmail.com</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_github.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://github.com/ffahleraz'><p>ffahleraz</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_linkedin.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://www.linkedin.com/in/ffahleraz/'><p>Faza Fahleraz</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_twitter.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://twitter.com/ffahleraz'><p>@ffahleraz</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_instagram.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://www.instagram.com/ffahleraz/'><p>@ffahleraz</p></a>
+              </div>
+            </div>
+            <div class='about-content-row-container'>
+              <div class='about-content-icon-container'>
+                <img class='icon' src='src/view/static/img/icon_facebook.svg'>
+              </div>
+              <div class='about-content'>
+                <a href='https://www.facebook.com/ffahleraz'><p>Faza Fahleraz</p></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
