@@ -5,7 +5,7 @@
 This is the implementation of a web-based online book store using **PHP**. It is open-source and everyone could contribute to probook by creating pull request.
 
 ## Requirements
-In order to train a RL agent to play the mighty game of Pong, you need to run it on **PHP 7.1** and install:
+In order to run this web on your local server, you need to run it on **PHP 7.1** and install:
 
 1. PHP 7.1
 ```
