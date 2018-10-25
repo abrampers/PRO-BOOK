@@ -6,7 +6,7 @@ const invalidPhoneNumberMessage = 'Phone number must be a number with 9 to 12 di
 const invalidImageMessage = 'Image must be in JPG format';
 
 let submitButtonHovered = false;
-let imagePath = null;
+let imageSelected = false;
 
 function isName(value) {
   const re = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
@@ -40,7 +40,9 @@ function validateInput(_) {
   const nameField = $$('#nameField');
   const addressField = $$('#addressField');
   const phoneNumberField = $$('#phoneNumberField');
+  const imagePath = $$('#fileNameTextArea').value;
   const submitButton = $$('#submitButton');
+  console.log(imagePath);
 
   if (!isName(nameField.value) || nameField.value.length == 0 || nameField.value.length > 20) {
     submitButton.disabled = true;
@@ -54,7 +56,7 @@ function validateInput(_) {
     submitButton.disabled = true;
     updateInputValidationMessage(invalidPhoneNumberMessage);
     if (submitButtonHovered) showInputValidationMessage();
-  } else if (!isJPG(imagePath) || imagePath !== null) {
+  } else if (imageSelected && !isJPG(imagePath)) {
     submitButton.disabled = true;
     updateInputValidationMessage(invalidImageMessage);
     if (submitButtonHovered) showInputValidationMessage();
@@ -72,8 +74,8 @@ $$('#fileUploadContainer').onclick = () => {
 };
 
 $$('#fileToUpload').onchange = () => {
-  imagePath = $$('#fileToUpload').value.split('\\').pop();
-  $$('#fileNameTextArea').value = imagePath;
+  $$('#fileNameTextArea').value = $$('#fileToUpload').value.split('\\').pop();
+  imageSelected = true;
   validateInput();
 };
 
