@@ -62,8 +62,6 @@ function validateInput(_) {
   const commentField = $$('#commentField');
   const submitButton = $$('#submitButton');
 
-  console.log(ratingField.value);
-
   if (ratingField.value < 1 || ratingField.value > 5) {
     submitButton.disabled = true;
     updateInputValidationMessage(invalidRatingMessage);
