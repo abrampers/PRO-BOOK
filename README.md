@@ -39,11 +39,14 @@ apt-get install mysql
 apt-get install mysql-server
 ```
 
-## Run Pro-Bookr
+## Run Pro-Book
 Run this command on your terminal
 ```
 php -S localhost:5000
 ```
+
+## Features and advantages of this project
+TODO
 
 ## Authors
 1. Nicholas Rianto Putra - 13516020 - https://github.com/nicholaz99
