@@ -5,7 +5,6 @@ $router = new Router(new Request);
 $dotEthes = new DotEthes(__DIR__);
 $dotEthes->load();
 
-
 /***************/
 /* ROUTE PATHS */
 /************* */
@@ -56,17 +55,14 @@ $router->get('/edit', function($request) {
   return EditGetController::control($request);
 }, [new TokenValidationMiddleware, new AuthMiddleware]);
 
+$router->get('/about', function($request) {
+  return AboutGetController::control($request);
+}, [new TokenValidationMiddleware, new AuthMiddleware]);
+
 $router->get('/deletecookie', function($request) {
   $db = new MarufDB();
   $db->deleteToken($request->token);
   setcookie('token', '', time() - 3600, '/');
-});
-
-
-$router->get('/hu', function($request) {
-  $db = new MarufDB;
-  $user = $db->getUser($_COOKIE['token']);
-  print_r($user);
 });
 
 /** POST */
@@ -85,10 +81,6 @@ $router->post('/edit', function($request) {
 $router->post('/review', function($request) {
   return ReviewPostController::control($request);
 });
-
-// $router->post('/edit', function($request) {
-//   return EditPostController::control($request);
-// });
 
 /************/
 /* REST API */
