@@ -145,18 +145,18 @@ HTML;
         <div class='book-detail-container'>
           <div class='book-detail-left-container'>
             <h3 class='book-detail-title'>{$book['title']}</h3>
-            <h4 class='book-detail-author'>{$book['author']}</h4>
-            <p class='book-detail-synopsis'>{$book['synopsis']}</p>
+            <h4 class='book-detail-author add-background'>{$book['author']}</h4>
+            <p class='book-detail-synopsis add-background'>{$book['synopsis']}</p>
           </div>
           <div class='book-detail-right-container'>
             <div class='book-detail-right-content-container'>
               <div class='book-detail-image-container'>
                 <img class='book-detail-image' src='{$bookImagePath}'>
               </div>
-              <div class='book-detail-stars-container'>
+              <div class='book-detail-stars-container add-background'>
                 {$starsHTML}
               </div>
-              <div class='book-detail-rating-container'>
+              <div class='book-detail-rating-container add-background'>
                 <h4 class='book-detail-rating'>{$ratingText} / 5.0</h4>
               </div>
             </div>
@@ -166,7 +166,7 @@ HTML;
           <div class='book-order-title-container'>
             <h3 class='book-order-title'>Order</h3>
           </div>
-          <div class='book-order-dropdown-container'>
+          <div class='book-order-dropdown-container add-background'>
             <h4 class='book-order-dropdown-label'>Amount: </h4>
             <select id='orderQuantitySelector' name='orderQuantity'>
               <option value='1'>1</option>

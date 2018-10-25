@@ -5,10 +5,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ededed;
-	background-image: url('../img/bg_auth.jpg');
-  background-blend-mode: screen;
-  background-size: 50% 65%;
 }
 
 .edit-main-container {
@@ -17,7 +13,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color:#14364a;
+  background-color: #14364a;
 }
 
 .edit-main-left-container {
@@ -82,18 +78,21 @@
 .edit-detail-title {
   font-family: 'Bungee', sans-serif;
   font-size: 4rem;
-  color: #f27d0c;
+  color: orangered;
   text-shadow: -3px 3px 0px black;
 }
 
 .edit-detail-content-container {
-  width: 100%;
+  width: 680px;
+  margin-bottom: 60px;
+  padding: 60px 0px 60px 0px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background-color: white;
   border-radius: 20px;
+  box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.08), 0 3px 20px 0 rgba(0, 0, 0, 0.08);
 }
 
 .edit-detail-picture-container {
@@ -107,7 +106,7 @@
 .profile-picture {
   height: 200px;
   width: 200px;
-  margin: 0px 30px 0px 70px;
+  margin: 0px 30px 0px 60px;
   display: block;
   flex: 0;
   flex-basis: 200px;
@@ -312,6 +311,7 @@ button:active {
 .edit-button-container {
   width: 665px;
   margin-top: 40px;
+  padding: 0px 40px;
   display: flex;
   justify-content: space-between;
 }

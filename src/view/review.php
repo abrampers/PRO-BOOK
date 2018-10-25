@@ -63,7 +63,7 @@ function render_template(string $username, $book, $user_id) {
         <div class='review-book-container'>
           <div class='review-book-left-container'>
             <h3 class='review-book-title'>{$book['title']}</h3>
-            <h4 class='review-book-author'>{$book['author']}</h4>
+            <h4 class='review-book-author add-background'>{$book['author']}</h4>
           </div>
           <div class='review-book-right-container'>
             <div class='review-book-image-container'>
@@ -76,7 +76,7 @@ function render_template(string $username, $book, $user_id) {
             <h3 class='review-rating-title'>Add Rating</h3>
             <input id='ratingField' type='number' name='rating' hidden>
             <div class='review-rating-stars-container'>
-              <div class='review-rating-stars'>
+              <div class='review-rating-stars add-background'>
                 <div id='1' class='review-star'></div>
                 <div id='2' class='review-star'></div>
                 <div id='3' class='review-star'></div>
