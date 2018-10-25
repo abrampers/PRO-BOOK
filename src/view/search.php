@@ -126,7 +126,7 @@ HTML;
       <div class='search-content-container'>
         <div class='search-title-container'>
           <h1 class='search-title'>Search Result</h1>
-          <div class='search-result-count-container'>
+          <div class='search-result-count-container add-background'>
             <h4 class='search-result-count'>{$numOfResultsText}</h4>
           </div>
         </div>

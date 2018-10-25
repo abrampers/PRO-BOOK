@@ -4,7 +4,8 @@
   display: flex;
 	flex-direction: row;
 	justify-content: center;
-	align-items: center;
+  align-items: center;
+  background: rgb(248, 248, 248);
 }
 
 .auth-pane-container {
@@ -25,10 +26,10 @@
 	box-sizing: border-box;
 	background: white;
   background-image:
-    radial-gradient(#ededed 10%, transparent 0),
-    radial-gradient(#ededed 10%, transparent 0);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
+    radial-gradient(#efefef 10%, transparent 0),
+    radial-gradient(#efefef 10%, transparent 0);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
 	border-radius: 16px;
   display: flex;
 	flex-direction: column;
