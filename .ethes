@@ -1,0 +1,9 @@
+#list of ethes variables
+DB_HOST=localhost
+DB_NAME=probook
+DB_USERNAME=root
+DB_PASSWORD=
+HOST_NAME=intense-thicket-60275.herokuapp.com
+HOST_PORT=
+COOKIE_EXPIRED_TIME=60000
+JKWTOKEN_BYTES_LENGTH=16
