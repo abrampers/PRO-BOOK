@@ -1,5 +1,5 @@
-# Probook
-> A book is both a usually portable physical object and the body of immaterial representations or intellectual object whose material signs—written or drawn lines or other two-dimensional media—the physical object contains or houses. Probook is an online book store that allowed user to buy books and give reviews to their purchased books.
+# Pro-Book
+> A book is both a usually portable physical object and the body of immaterial representations or intellectual object whose material signs—written or drawn lines or other two-dimensional media—the physical object contains or houses. Pro-Book is an online book store that allowed user to buy books and give reviews to their purchased books.
 
 [![GitLab license](https://img.shields.io/github/license/Day8/re-frame.svg)](license.txt)
 ## Introduction
