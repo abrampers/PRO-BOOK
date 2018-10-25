@@ -151,9 +151,15 @@ class MarufDB {
   }
 
   public function getHistory($user_id) {
-    $query = $this->pdo->prepare("SELECT * FROM Orders JOIN Books ON Orders.book_id = Books.id WHERE user_id = ? ORDER BY Orders.id DESC");
+    $query = $this->pdo->prepare("SELECT Orders.id as order_id, Books.id as book_id, order_timestamp, is_review, title, amount  FROM Orders JOIN Books ON Orders.book_id = Books.id WHERE user_id = ? ORDER BY Orders.id DESC");
     $query->execute(array($user_id));
     return $query->fetchAll();
+  }
+
+  public function getBookIdByOrderId($order_id) {
+    $query = $this->pdo->prepare("SELECT book_id FROM Orders WHERE id = ?");
+    $query->execute(array($order_id));
+    return $query->fetch()['book_id'];
   }
 
   public function getBookDetail($book_id) {
@@ -162,7 +168,7 @@ class MarufDB {
     return $query->fetch();
   }
 
-  public function addReview($user_id, $username, $book_id, $rating, $comment) {
+  public function addReview($user_id, $username, $book_id, $rating, $comment, $order_id) {
     try {
       $query = $this->pdo->prepare("INSERT INTO Reviews (username, book_id, rating, comment, user_id) VALUES (?, ?, ?, ?, ?)");
       $query->execute(array($username, $book_id, $rating, $comment, $user_id));
@@ -173,8 +179,8 @@ class MarufDB {
       $currRating = ($result['rating'] * $result['vote'] + $rating) / $currVote;
       $query = $this->pdo->prepare("UPDATE Books SET rating = ?, vote = ? WHERE id = ?");
       $query->execute(array($currRating, $currVote, $book_id));
-      $query = $this->pdo->prepare("UPDATE Orders SET is_review = 1 WHERE user_id = ?");
-      $query->execute(array($user_id));
+      $query = $this->pdo->prepare("UPDATE Orders SET is_review = 1 WHERE id = ?");
+      $query->execute(array($order_id));
       return 1;
     } catch (PDOException $e) {
       return 0;
