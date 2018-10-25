@@ -25,15 +25,15 @@
 
 .about-title-container {
   width: 690px;
-  margin-top: 30px;
+  margin: 50px 0px 10px 0px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
 .about-title {
-  font-size: 4.4rem;
+  font-size: 5rem;
 }
 
 .about-content-column-container {
@@ -70,7 +70,7 @@ h3 {
 }
 
 .title {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .about-content-detail-container {
@@ -88,9 +88,11 @@ h3 {
 }
 
 .about-content-name-container {
+  height: 120px;
   margin: 10px 0px 10px 0px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 
