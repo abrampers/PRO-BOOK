@@ -20,6 +20,9 @@ function render_template(string $username, $book, $user_id, $order_id) {
   <title>{$book['title']} - History</title>
 </head>
 <body>
+  <div id='inputValidationMessageContainer' class='main-input-validation-message-container'>
+    <p id='inputValidationMessage' class='main-input-validation-message'></p>
+  </div>
 	<div class='main-page-container'>
     <div class='main-header-container'>
       <div class='main-header-top-container'>
@@ -74,9 +77,9 @@ function render_template(string $username, $book, $user_id, $order_id) {
         <form id='reviewForm' class='review-form-container' action='/review' method='POST'>
           <div class='review-rating-container'>
             <h3 class='review-rating-title'>Add Rating</h3>
-            <input id='ratingField' type='number' name='rating' hidden>
+            <input id='ratingField' type='number' name='rating' value='0' hidden>
             <div class='review-rating-stars-container'>
-              <div class='review-rating-stars'>
+              <div class='review-rating-stars add-background'>
                 <div id='1' class='review-star'></div>
                 <div id='2' class='review-star'></div>
                 <div id='3' class='review-star'></div>
@@ -87,7 +90,7 @@ function render_template(string $username, $book, $user_id, $order_id) {
           </div>
           <div class='review-comment-container'>
             <h3 class='review-comment-title'>Add Comment</h3>
-            <textarea class='review-textbox-input' type='text' name='comment' placeholder='Input your comment...'></textarea>
+            <textarea id='commentField' class='review-textbox-input' type='text' name='comment' placeholder='Input your comment...'></textarea>
             <input hidden name='username' value={$username}>
             <input hidden name='user_id' value={$user_id}>
             <input hidden name='book_id' value={$book_id}>
@@ -101,8 +104,8 @@ function render_template(string $username, $book, $user_id, $order_id) {
                 </button>
               </a>
             </div>
-            <div class='review-submit-container'>
-              <button type='submit' form='reviewForm'>
+            <div id='submitButtonContainer' class='review-submit-container'>
+              <button id='submitButton' type='submit' form='reviewForm' disabled>
                 SUBMIT
               </button>
             </div>

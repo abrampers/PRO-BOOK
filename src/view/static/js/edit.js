@@ -42,7 +42,6 @@ function validateInput(_) {
   const phoneNumberField = $$('#phoneNumberField');
   const imagePath = $$('#fileNameTextArea').value;
   const submitButton = $$('#submitButton');
-  console.log(imagePath);
 
   if (!isName(nameField.value) || nameField.value.length == 0 || nameField.value.length > 20) {
     submitButton.disabled = true;
