@@ -6,7 +6,7 @@ Pro-Book
 ![Build Pass](https://img.shields.io/badge/Linux%2FOSX%20Build-passing-brightgreen.svg)
 ![Downloads](https://img.shields.io/badge/downloads-1m-brightgreen.svg?longCache=true&style=flat)
 =====
-> A book is both a usually portable physical object and the body of immaterial representations or intellectual object whose material signs—written or drawn lines or other two-dimensional media—the physical object contains or houses. Pro-Book is an online book store that allowed user to buy books and give reviews to their purchased books.
+> A book is both a usually portable physical object and the body of immaterial representations or intellectual object whose material signs—written or drawn lines or other two-dimensional media—the physical object contains or houses. Pro-Book is an online book store that allows user to buy books and give reviews to their purchased books.
 
 ## Table Of Contents
 - [Introduction](#introduction)
@@ -52,7 +52,17 @@ php -S localhost:5000
 ```
 
 ## Features and advantages of this project
+### List of Features
 TODO
+### Advantages of this project
+We **create** our own library to support this project. We build this project from **scratch**(vanilla). List of our own library:
+- **Router**
+- **Request**
+- **MarufDB**
+- **jQowi**
+- **Template Engine**
+- **dotEthes**
+- **JKWToken**
 
 ## Authors
 1. Nicholas Rianto Putra - 13516020 - https://github.com/nicholaz99
