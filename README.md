@@ -77,13 +77,17 @@ Here is the documentation about our own library. We will tell you about its func
 ##### MarufDB
 This is the library for Pro-Book Database. It is a PDO-MySQL Connection Class that contains some functions to help us doing CRUD Operation on our Database.
 ###### Member Variables
-```
-private $host; #MySQL host 
-private $dbName; #MySQL Database Name
-private $dbUser; #MySQL Username
-private $dbPassword; #MySQL Password 
-private $pdo; #PDO Object
-```
+**private $host**
+MySQL host 
+**private $dbName**
+MySQL Database Name
+**private $dbUser**
+MySQL Username
+**private $dbPassword**
+MySQL Password 
+**private $pdo**
+PDO Object
+
 ###### Member Function
 ```
 public function __construct() #Class Constructor. It will assign member variables with defined variables on .ethes file (environment file) and create pdo connection.
