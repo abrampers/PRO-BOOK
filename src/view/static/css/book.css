@@ -1,3 +1,128 @@
+.book-purchase-message-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  padding: 0px 18px;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  display: flex;
+	justify-content: center;
+  align-items: center;
+  background-color: black;
+  opacity: 0;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+
+.book-purchase-message-background.visible {
+  opacity: 0.6;
+}
+
+.book-purchase-message-popup {
+  position: fixed;
+  width: 500px;
+  height: 180px;
+  padding: 14px;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+	justify-content: flex-start;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+  color: black;
+  opacity: 0;
+  transform: scale(0.9) translate(-55%, -55%);
+  /* transform: translate(-50%, -50%); */
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+
+.book-purchase-message-popup.visible {
+  opacity: 1;
+  transform: scale(1) translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
+}
+
+.book-purchase-message-popup-close-container {
+  width: 100%;
+  flex: 0 40px;
+  display: flex;
+  flex-direction: row;
+	justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.book-purchase-message-popup-close {
+  height: 24px;
+  width: 24px;
+  margin: 4px;
+  background-color: gray;
+  cursor: pointer;
+  -webkit-mask: url(../img/icon_close.svg) no-repeat center;
+  mask: url(../img/icon_close.svg) no-repeat center;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.book-purchase-message-popup-close:hover {
+  background-color: black;
+}
+
+.book-purchase-message-popup-content {
+  width: 100%;
+  flex: 1;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+	justify-content: center;
+  align-items: center;
+}
+
+.book-purchase-message-popup-content-icon-container {
+  height: 100%;
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+	justify-content: center;
+  align-items: center;
+}
+
+.book-purchase-message-popup-content-icon {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+	justify-content: center;
+  align-items: center;
+  border-radius: 62px;
+  background-color: #54c0ff;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transform: rotateZ(5deg);
+}
+
+.book-purchase-message-popup-content-icon-img {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  -webkit-mask: url(../img/icon_check.svg) no-repeat center;
+  mask: url(../img/icon_check.svg) no-repeat center;
+}
+
+.book-purchase-message-popup-content-text-container {
+  height: 100%;
+  margin-left: 10px;
+  padding-bottom: 8px;
+  flex: 5.4;
+  display: flex;
+  flex-direction: column;
+	justify-content: center;
+  align-items: flex-start;
+}
+
 .main-content-container {
   display: flex;
 	flex-direction: column;
@@ -78,8 +203,8 @@
 }
 
 .book-detail-image-container {
-  height: 350px;
-  width: 245px;
+  height: 400px;
+  width: 280px;
   display: flex;
 	justify-content: center;
   align-items: center;
@@ -126,6 +251,7 @@
 	flex-direction: column;
 	justify-content: center;
   align-items: flex-start;
+  transform: translateY(-50px);
 }
 
 .book-order-title-container {
@@ -172,6 +298,7 @@
 	flex-direction: column;
 	justify-content: center;
   align-items: flex-start;
+  transform: translateY(-50px);
 }
 
 .book-review-title-container {
@@ -326,4 +453,20 @@ button:hover {
 button:active {
   background-color: orangered;
 	transform: scale(0.96);
+}
+
+button:active {
+  background-color: orangered;
+	transform: scale(0.96);
+}
+
+button[disabled] {
+  background-color: lightsalmon;
+  color: white;
+}
+
+button:hover[disabled] {
+  background-color: lightsalmon;
+  color: white;
+  transform: scale(1);
 }

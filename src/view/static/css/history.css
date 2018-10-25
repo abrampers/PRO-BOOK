@@ -115,7 +115,7 @@
 }
 
 .history-order-right-container {
-  flex: 0 200px;
+  flex: 0 220px;
   align-self: stretch;
   display: flex;
   flex-direction: column;
