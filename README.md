@@ -13,14 +13,20 @@ Pro-Book
 - [Installation](#installation)
 - [Run Pro-Book](#run-pro-book)
 - [Features and advantages of this project](#features-and-advantages-of-this-project)
-    - [Alternatives](#alternatives)
-    - [Projects using this library](#projects-using-this-library)
 - [Authors](#authors)
 - [Words From Authors](#words-from-authors)
 - [References](#references)
 
 ## Introduction
 This is the implementation of a web-based online book store using **PHP**. It is open-source and everyone could contribute to probook by creating pull request.
+### Creating an online book store has never been so easy
+**Online Book Store Template** - This web-based online book store template is your solution to start your own online book store.
+
+### What's the point of Pro-Book?
+Pro-Book wants to contribute to community by creating this open-source project about web-based online book store. Young entrepreneurs can start their own online book store business by cloning this repository and deploy it on their own servers. 
+
+### Why should I care?
+Because Pro-Book are for *people*. You have contributed to community by cloning or creating a pull request on this Pro-Book projects.
 
 ## Installation
 In order to run this web on your local server, you need to run it on **PHP 7.1** and install:
