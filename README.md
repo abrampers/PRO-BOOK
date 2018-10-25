@@ -77,24 +77,31 @@ Here is the documentation about our own library. We will tell you about its func
 ##### MarufDB
 This is the library for Pro-Book Database. It is a PDO-MySQL Connection Class that contains some functions to help us doing CRUD Operation on our Database.
 ###### Member Variables
-- **private $host**
-MySQL host 
-- **private $dbName**
-MySQL Database Name
-- **private $dbUser**
-MySQL Username
-- **private $dbPassword**
-MySQL Password 
-- **private $pdo**
-PDO Object
+```php
+private $host
+#MySQL host 
+private $dbName
+#MySQL Database Name
+private $dbUser
+#MySQL Username
+private $dbPassword
+#MySQL Password 
+private $pdo
+#PDO Object
+```
 
 ###### Member Function
 ```php
-public function __construct() #Class Constructor. It will assign member variables with defined variables on .ethes file (environment file) and create pdo connection.
-private function Connect() #Create PDO Connection with member variables as parameters.
-public function getUserId($token) #Get current userId by their token cookies.
-public function getUser($token) #Get current user data from Users table by their token cookies.
-public function getUsername($token) #Get current username by their token cookies.
+public function __construct()
+#Class Constructor. It will assign member variables with defined variables on .ethes file (environment file) and create pdo connection.
+private function Connect()
+#Create PDO Connection with member variables as parameters.
+public function getUserId($token)
+#Get current userId by their token cookies.
+public function getUser($token)
+#Get current user data from Users table by their token cookies.
+public function getUsername($token)
+#Get current username by their token cookies.
 public function checkLogin($username, $password) #Check whether user has the correct combination of username and password or not when they try to login into Pro-Book.
 public function searchBook($title) #Get all books where $title is a substring on their title.
 public function addToken($user_id, $token) #Add user token to Pro-Book Database, so user doesn't need to login as long as the cookie expired time.
