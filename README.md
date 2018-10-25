@@ -8,11 +8,21 @@ Pro-Book
 =====
 > A book is both a usually portable physical object and the body of immaterial representations or intellectual object whose material signs—written or drawn lines or other two-dimensional media—the physical object contains or houses. Pro-Book is an online book store that allowed user to buy books and give reviews to their purchased books.
 
+## Table Of Contents
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Run Pro-Book](#run-pro-book)
+- [Features and advantages of this project](#features-and-advantages-of-this-project)
+    - [Alternatives](#alternatives)
+    - [Projects using this library](#projects-using-this-library)
+- [Authors](#authors)
+- [Words From Authors](#words-from-authors)
+- [References](#references)
 
 ## Introduction
 This is the implementation of a web-based online book store using **PHP**. It is open-source and everyone could contribute to probook by creating pull request.
 
-## Requirements
+## Installation
 In order to run this web on your local server, you need to run it on **PHP 7.1** and install:
 
 1. PHP 7.1
@@ -29,7 +39,7 @@ apt-get install mysql
 apt-get install mysql-server
 ```
 
-## Run the server
+## Run Pro-Bookr
 Run this command on your terminal
 ```
 php -S localhost:5000
