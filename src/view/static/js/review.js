@@ -1,5 +1,10 @@
 import $$ from './lib/jQowi.js';
 
+const invalidRatingMessage = 'Please pick a rating between 1 and 5';
+const invalidCommentMessage = 'Please give a comment';
+
+let submitButtonHovered = false;
+
 function hoverStars(index) {
   $$('.review-star').forEach((element) => {
     element.classList.remove('pre-selected');
@@ -38,6 +43,41 @@ function selectStars(index) {
   });
 }
 
+function showInputValidationMessage() {
+  $$('#inputValidationMessageContainer').classList.add('visible');
+  $$('#inputValidationMessage').classList.add('visible');
+}
+
+function hideInputValidationMessage() {
+  $$('#inputValidationMessageContainer').classList.remove('visible');
+  $$('#inputValidationMessage').classList.remove('visible');
+}
+
+function updateInputValidationMessage(message) {
+  $$('#inputValidationMessage').innerHTML = message;
+}
+
+function validateInput(_) {
+  const ratingField = $$('#ratingField');
+  const commentField = $$('#commentField');
+  const submitButton = $$('#submitButton');
+
+  console.log(ratingField.value);
+
+  if (ratingField.value < 1 || ratingField.value > 5) {
+    submitButton.disabled = true;
+    updateInputValidationMessage(invalidRatingMessage);
+    if (submitButtonHovered) showInputValidationMessage();
+  } else if (commentField.value.length == 0) {
+    submitButton.disabled = true;
+    updateInputValidationMessage(invalidCommentMessage);
+    if (submitButtonHovered) showInputValidationMessage();
+  } else {
+    submitButton.disabled = false;
+    hideInputValidationMessage();
+  }
+}
+
 $$('.review-star').forEach((element) => {
   element.onmouseenter = () => {
     hoverStars(parseInt(element.id));
@@ -49,3 +89,21 @@ $$('.review-star').forEach((element) => {
     selectStars(parseInt(element.id));
   };
 });
+
+$$('#ratingField').onchange = validateInput;
+$$('#commentField').oninput = validateInput;
+
+updateInputValidationMessage(invalidCommentMessage);
+
+$$('#submitButtonContainer').onmouseenter = () => {
+  if ($$('#submitButton').disabled) {
+    showInputValidationMessage();
+  }
+  submitButtonHovered = true;
+  validateInput();
+};
+
+$$('#submitButtonContainer').onmouseleave = () => {
+  hideInputValidationMessage();
+  submitButtonHovered = false;
+};
