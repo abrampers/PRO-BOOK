@@ -22,7 +22,7 @@ function render_template(string $userId, string $name, string $username, string 
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
-  <title>Profile</title>
+  <title>{$username} - Profile</title>
 </head>
 <body>
 	<div class='main-page-container'>

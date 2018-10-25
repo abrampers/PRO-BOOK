@@ -9,6 +9,18 @@ function render_template(string $username, $books, $searchTitle) {
     $imagePath = "src/model/books/".$bookId.".jpg";
     $numOfResults += 1;
 
+    $rating = round($book['rating'], 1);
+    $ratingText = "" . $rating;
+    if (($rating * 10) % 10 == 0) {
+      $ratingText = $ratingText . ".0";
+    }
+
+    $voteCount = $book['vote'];
+    $voteCountText = "" . $voteCount . " vote";
+    if ($voteCount > 1) {
+      $voteCountText = $voteCountText . "s";
+    }
+
     $bookHTML = <<<HTML
 
 <div class='search-book-container'>
@@ -18,7 +30,7 @@ function render_template(string $username, $books, $searchTitle) {
     </div>
     <div class='search-book-text-container'>
       <h4 class='book-title'>{$book['title']}</h4>
-      <h4 class='book-author'>{$book['author']} - {$book['rating']}/5.0 ({$book['vote']} vote(s))</h4>
+      <h4 class='book-author'>{$book['author']} - {$ratingText} / 5.0 ({$voteCountText})</h4>
       <p class='book-description'>{$book['synopsis']}</p>
     </div>
   </div>
@@ -28,7 +40,7 @@ function render_template(string $username, $books, $searchTitle) {
     </form>
     <button class='search-detail-button' type='submit' form='bookDetail-{$key}'>
       <div class='search-detail-button-inner'>
-        DETAIL
+        DETAILS
       </div>
     </button>
   </div>
@@ -69,7 +81,7 @@ HTML;
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
-  <title>Browse</title>
+  <title>{$searchTitle} - Browse</title>
 </head>
 <body>
 	<div class='main-page-container'>
@@ -114,7 +126,7 @@ HTML;
       <div class='search-content-container'>
         <div class='search-title-container'>
           <h1 class='search-title'>Search Result</h1>
-          <div class='search-result-count-container'>
+          <div class='search-result-count-container add-background'>
             <h4 class='search-result-count'>{$numOfResultsText}</h4>
           </div>
         </div>

@@ -1,5 +1,5 @@
 <?php
-function render_template(string $username, $book, $user_id) {
+function render_template(string $username, $book, $user_id, $order_id) {
   $img_name = "src/model/books/".$book['id'].".jpg";
   $book_id = $book['id'];
   $template = <<<HTML
@@ -17,7 +17,7 @@ function render_template(string $username, $book, $user_id) {
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
-  <title>History</title>
+  <title>{$book['title']} - History</title>
 </head>
 <body>
 	<div class='main-page-container'>
@@ -91,11 +91,12 @@ function render_template(string $username, $book, $user_id) {
             <input hidden name='username' value={$username}>
             <input hidden name='user_id' value={$user_id}>
             <input hidden name='book_id' value={$book_id}>
+            <input hidden name='order_id' value={$order_id}>
           </div>
           <div class='review-button-container'>
             <div class='review-back-container'>
               <a href='/history'>
-                <button class='review-back-button'>
+                <button class='review-back-button' type='button'>
                   BACK
                 </button>
               </a>

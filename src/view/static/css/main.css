@@ -124,6 +124,7 @@
 	justify-content: center;
   align-items: center;
   background-color: orangered;
+  border-radius: 0px;
   color: white;
   outline: none;
   cursor: pointer;
@@ -188,6 +189,8 @@
   align-items: center;
   background-color: #25a3ec;
   cursor: pointer;
+  color: white;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -209,11 +212,16 @@
 .main-content-container {
   width: 100%;
   margin-top: 162px;
+  background: rgb(248, 248, 248);
+  background-image:
+    radial-gradient(#e2e2e2 10%, transparent 0),
+    radial-gradient(#e2e2e2 10%, transparent 0);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
 }
 
-h3 {
-  color: white;
-  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+.add-background {
+  background-color: rgb(248, 248, 248);
 }
 
 h5 {

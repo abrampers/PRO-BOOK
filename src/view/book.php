@@ -81,9 +81,27 @@ HTML;
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
-  <title>Browse</title>
+  <title>{$book['title']} - Browse</title>
 </head>
 <body>
+  <div id='purchaseMessageBackground' class='book-purchase-message-background'>
+  </div>
+  <div id='purchaseMessagePopup' class='book-purchase-message-popup'>
+    <div class='book-purchase-message-popup-close-container'>
+      <div id='purchaseMessagePopupCloseButton' class='book-purchase-message-popup-close'></div>
+    </div>
+    <div class='book-purchase-message-popup-content'>
+      <div class='book-purchase-message-popup-content-icon-container'>
+        <div class='book-purchase-message-popup-content-icon'>
+          <div class='book-purchase-message-popup-content-icon-img'></div>
+        </div>
+      </div>
+      <div class='book-purchase-message-popup-content-text-container'>
+        <h3>Purchase Successful!</h3>
+        <p id='purchaseMessagePopupText'></p>
+      </div>
+    </div>
+  </div>
 	<div class='main-page-container'>
     <div class='main-header-container'>
       <div class='main-header-top-container'>
@@ -127,18 +145,18 @@ HTML;
         <div class='book-detail-container'>
           <div class='book-detail-left-container'>
             <h3 class='book-detail-title'>{$book['title']}</h3>
-            <h4 class='book-detail-author'>{$book['author']}</h4>
-            <p class='book-detail-synopsis'>{$book['synopsis']}</p>
+            <h4 class='book-detail-author add-background'>{$book['author']}</h4>
+            <p class='book-detail-synopsis add-background'>{$book['synopsis']}</p>
           </div>
           <div class='book-detail-right-container'>
             <div class='book-detail-right-content-container'>
               <div class='book-detail-image-container'>
                 <img class='book-detail-image' src='{$bookImagePath}'>
               </div>
-              <div class='book-detail-stars-container'>
+              <div class='book-detail-stars-container add-background'>
                 {$starsHTML}
               </div>
-              <div class='book-detail-rating-container'>
+              <div class='book-detail-rating-container add-background'>
                 <h4 class='book-detail-rating'>{$ratingText} / 5.0</h4>
               </div>
             </div>
@@ -148,7 +166,7 @@ HTML;
           <div class='book-order-title-container'>
             <h3 class='book-order-title'>Order</h3>
           </div>
-          <div class='book-order-dropdown-container'>
+          <div class='book-order-dropdown-container add-background'>
             <h4 class='book-order-dropdown-label'>Amount: </h4>
             <select id='orderQuantitySelector' name='orderQuantity'>
               <option value='1'>1</option>

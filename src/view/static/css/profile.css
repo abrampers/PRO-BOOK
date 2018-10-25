@@ -5,12 +5,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: white;
-  background-image:
-    radial-gradient(#ededed 10%, transparent 0),
-    radial-gradient(#ededed 10%, transparent 0);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
 }
 
 .profile-main-container {
@@ -146,14 +140,16 @@
 }
 
 .profile-detail-content-container {
-  width: 700px;
-  padding: 30px 0px 30px 100px;
+  width: 620px;
+  margin: 30px 0px 60px 0px;
+  padding: 60px 65px 40px 65px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background-color: white;
   border-radius: 20px;
+  box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.08), 0 3px 20px 0 rgba(0, 0, 0, 0.08);
 }
 
 .profile-detail-content-row-container {

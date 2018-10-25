@@ -3,12 +3,6 @@
 	flex-direction: column;
 	justify-content: flex-start;
   align-items: center;
-  background: white;
-  background-image:
-    radial-gradient(#ededed 10%, transparent 0),
-    radial-gradient(#ededed 10%, transparent 0);
-  background-size: 40px 40px;
-  background-position: 0 0, 20px 20px;
 }
 
 .history-content-container {
@@ -115,7 +109,7 @@
 }
 
 .history-order-right-container {
-  flex: 0 200px;
+  flex: 0 220px;
   align-self: stretch;
   display: flex;
   flex-direction: column;

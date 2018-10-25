@@ -39,13 +39,21 @@
   background-size: 50% 65%;
 }
 
+.main-content-padding {
+  flex: 2;
+  font-size: 15rem;
+  font-weight: bold;
+}
+
 .error-code {
-  height: 280px;
+  flex: 2;
   font-size: 15rem;
   font-weight: bold;
 }
 
 .error-message {
+  flex: 1;
   margin-bottom: 80px;
-  font-size: 5rem;
+  font-size: 2.5rem;
+  color: black;
 }

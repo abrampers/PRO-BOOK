@@ -37,7 +37,7 @@ HTML;
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
-  <title>Edit Profile</title>
+  <title>{$username} - Edit Profile</title>
 </head>
 <body>
 HTML
@@ -100,7 +100,7 @@ $str
                 <div class='edit-detail-file-upload-content-container'>
                   <h4>Update profile picture</h4>
                   <input class='edit-detail-file-input' type="file" name="fileToUpload" id="fileToUpload">
-                  <div class='edit-detail-file-upload-container'>
+                  <div id='fileUploadContainer' class='edit-detail-file-upload-container'>
                     <input id='fileNameTextArea' class='edit-detail-file-input-name' type="textarea">
                     <input type="button" id="browseButton" value="BROWSE...">
                   </div>
@@ -112,7 +112,7 @@ $str
                   <h4>Name</h4>
                 </div>
                 <div class='edit-detail-content-row-content-container'>
-                  <input class='edit-detail-content-row-content' type='textarea' name='name' value='{$name}'>
+                  <input class='edit-detail-content-row-content' type='text' name='name' value='{$name}'>
                 </div>
               </div>
               <div class='edit-detail-content-row-container'>
@@ -121,7 +121,7 @@ $str
                   <h4>Address</h4>
                 </div>
                 <div class='edit-detail-content-row-content-container'>
-                  <input class='edit-detail-content-row-content' type='textarea' name='address' value='{$address}'>
+                  <textarea class='edit-detail-content-row-content' name='address'>{$address}</textarea>
                 </div>
               </div>
               <div class='edit-detail-content-row-container'>
@@ -130,27 +130,25 @@ $str
                   <h4>Phone Number</h4>
                 </div>
                 <div class='edit-detail-content-row-content-container'>
-                  <input class='edit-detail-content-row-content' type='textarea' name='phone_number' value='{$phoneNumber}'>
+                  <input class='edit-detail-content-row-content' type='text' name='phone_number' value='{$phoneNumber}'>
                 </div>
               </div>
-            </form>
-            <div class='edit-button-container'>
-              <div>
-                <form action='/profile'>
-                <button class='edit-back-button' type='submit'>
-                  BACK
-                </button>
-                </form>
-                <a href='/profile'>
-                </a>
-              </div>
-              <div>
-                <button id='submitButton' form='editForm' type='submit'>
-                  SUBMIT
-                </button>
+              <div class='edit-button-container'>
+                <div>
+                  <a href='/profile'>
+                    <button class='edit-back-button' type='button'>
+                      BACK
+                    </button>
+                  </a>
+                </div>
+                <div>
+                  <button id='submitButton' form='editForm' type='submit'>
+                    SUBMIT
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
