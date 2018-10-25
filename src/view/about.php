@@ -1,65 +1,5 @@
 <?php
-function render_template(string $username, $orders) {
-  $ordersHTML = '';
-
-  foreach($orders as $key => $order) {
-    $orderDate = date("j F Y", $order['order_timestamp']);
-    $orderId = $order['order_id'];
-    $reviewStatusText = $order['is_review'] == 1 ? "You have already reviewed this purchase." : "You haven't reviewed this purchase yet.";
-    $imagePath = "src/model/books/".$order['book_id'].".jpg";
-
-    $reviewButtonHTML = $order['is_review'] == 1 ? '' : <<<HTML
-
-<div class='history-review-button-container'>
-  <form id='reviewOrder-{$key}' action='/review' method='get'>
-    <input hidden name='id' value={$orderId}>
-  </form>
-  <button class='history-review-button' type='submit' form='reviewOrder-{$key}'>
-    <div class='history-review-button-inner'>
-      REVIEW
-    </div>
-  </button>
-</div>
-
-HTML;
-
-    $orderHTML = <<<HTML
-
-<div class='history-order-container'>
-  <div class='history-order-content-container'>
-    <div class='history-order-image-container'>
-      <img class='history-order-image' src={$imagePath}/>
-    </div>
-    <div class='history-order-left-container'>
-      <h4 class='order-title'>{$order['title']}</h4>
-      <p class='order-amount'>Amount: {$order['amount']}</p>
-      <p class='order-review-status'>{$reviewStatusText}</p>
-    </div>
-    <div class='history-order-right-container'>
-      <div class='history-order-right-text-container'>
-        <h4 class='order-date'>{$orderDate}</h4>
-        <h4 class='order-number'>Order Number: #{$order['order_id']}</h4>
-      </div>
-      {$reviewButtonHTML}
-    </div>
-  </div>
-</div>
-
-HTML;
-
-    $ordersHTML = $ordersHTML . $orderHTML;
-  }
-
-  if (empty($orders)) {
-    $ordersHTML = <<<HTML
-
-<div class='history-empty-message-container'>
-  <h3 class='history-empty-message'><i>You haven't purchased any books!</i></h3>
-</div>
-
-HTML;
-  }
-
+function render_template(string $username) {
   return <<<HTML
 
 <!DOCTYPE html>
@@ -67,14 +7,14 @@ HTML;
 <head>
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
-  <link rel='stylesheet' href='src/view/static/css/history.css'>
+  <link rel='stylesheet' href='src/view/static/css/about.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
   <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
-  <title>History</title>
+  <title>Browse</title>
 </head>
 <body>
 	<div class='main-page-container'>
@@ -107,7 +47,7 @@ HTML;
         <div id='browseTab' class='main-menu-tab'>
           <h3>Browse</h3>
         </div>
-        <div id='historyTab' class='main-menu-tab tab-mid tab-selected'>
+        <div id='historyTab' class='main-menu-tab tab-mid'>
           <h3>History</h3>
         </div>
         <div id='profileTab' class='main-menu-tab'>
@@ -116,12 +56,57 @@ HTML;
       </div>
     </div>
     <div class='main-content-container'>
-      <div class='history-content-container'>
-        <div class='history-title-container'>
-          <h1 class='history-title'>Hist<a class='o-button' href='/about'>o</a>ry</h1>
+      <div class='about-title-container'>
+        <h2 class='about-title'>About Us</h2>
+      </div>
+      <div class='about-content-container'>
+        <div class='about-content-column-container'>
+          <div class='about-content-picture-container'>
+            <img class='profile-picture' src='src/model/profile/nicholas.jpg' alt='Nicholas Rianto Putra'>
+          </div>
+          <div class='abobut-content-container'>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+          </div>
         </div>
-        <div class='history-list-container'>
-          {$ordersHTML}
+        <div class='about-content-column'>
+          <div class='about-content-picture-container'>
+            <img class='profile-picture' src='src/model/profile/abram.jpg' alt='Abram Situmorang'>
+          </div>
+          <div class='abobut-content-container'>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+          </div>
+        </div>
+        <div class='about-content-column'>
+          <div class='about-content-picture-container'>
+            <img class='profile-picture' src='src/model/profile/faza.jpg' alt='Faza Fahleraz'>
+          </div>
+          <div class='abobut-content-container'>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+            <p>huyuuuu</p>
+          </div>
         </div>
       </div>
     </div>

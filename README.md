@@ -26,7 +26,7 @@ This is the implementation of a web-based online book store using **PHP**. It is
 Pro-Book wants to contribute to community by creating this open-source project about web-based online book store. Young entrepreneurs can start their own online book store business by cloning this repository and deploy it on their own servers. 
 
 ### *Why should I care?*
-Because Pro-Book are for *people* :tada:. You have contributed to community by cloning or creating a pull request on this Pro-Book projects.
+Because Pro-Book is for *people* :tada:. You have contributed to community by cloning or creating a pull request on this Pro-Book projects.
 
 ## Installation
 In order to run this web on your local server, you need to run it on **PHP 7.1** and install:
@@ -56,13 +56,13 @@ php -S localhost:5000
 TODO
 ### Advantages of this project
 We **create** our own library to support this project. We build this project from **scratch**(vanilla). List of our own library:
-- **Router**
-- **Request**
-- **MarufDB**
-- **jQowi**
-- **Template Engine**
-- **dotEthes**
-- **JKWToken**
+- [**Router**](#router)
+- [**Request**](#request)
+- [**MarufDB**](#marufdb)
+- [**jQowi**](#jQowi)
+- [**Template Engine**](#templateengine)
+- [**dotEthes**](#dotethes)
+- [**JKWToken**](#jkwtoken)
 
 ## Authors
 1. Nicholas Rianto Putra - 13516020 - https://github.com/nicholaz99

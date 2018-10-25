@@ -58,7 +58,7 @@ function render_template(string $username) {
     <div class='main-content-container'>
       <div class='browse-content-container'>
         <div class='browse-title-container'>
-          <h1 class='browse-title'>Search Books</h1>
+          <h1 class='browse-title'>Search B<a class='o-button' href='/about'>o</a><a class='o-button' href='/about'>o</a>ks</h1>
         </div>
         <form id='browseForm' class='browse-form' action='/search' method='GET'>
           <input type='text' name='title' placeholder='Input search terms...' autofocus>

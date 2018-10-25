@@ -227,3 +227,8 @@
 h5 {
   text-decoration: underline;
 }
+
+.o-button {
+  color: black;
+  text-decoration: none;
+}
