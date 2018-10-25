@@ -121,7 +121,20 @@
   transition-duration: 0.2s;
 }
 
-.review-star.filled {
+.review-star.pre-selected {
+  background-color: rgb(255, 208, 121);
+  -webkit-mask: url(../img/icon_star_full.svg) no-repeat center;
+  mask: url(../img/icon_star_full.svg) no-repeat center;
+}
+
+.review-star.pre-removed {
+  background-color: rgb(255, 208, 121);
+  -webkit-mask: url(../img/icon_star_full.svg) no-repeat center;
+  mask: url(../img/icon_star_full.svg) no-repeat center;
+}
+
+.review-star.selected {
+  background-color: orange;
   -webkit-mask: url(../img/icon_star_full.svg) no-repeat center;
   mask: url(../img/icon_star_full.svg) no-repeat center;
 }

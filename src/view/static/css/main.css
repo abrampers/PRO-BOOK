@@ -124,6 +124,7 @@
 	justify-content: center;
   align-items: center;
   background-color: orangered;
+  border-radius: 0px;
   color: white;
   outline: none;
   cursor: pointer;
