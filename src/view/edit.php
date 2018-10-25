@@ -10,7 +10,7 @@ function render_template(string $id, string $name, string $username, string $ema
 
   $printed = !is_null($response);
   if ($printed) {
-    $printed = $printed && !$printed['success'];
+    $printed = $printed && !$response['success'];
   }
 
   $str = '';

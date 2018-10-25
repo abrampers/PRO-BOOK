@@ -12,14 +12,18 @@ class EditPostController implements ControllerInterface {
     $db = new MarufDB();
     $user = $db->getUser($_COOKIE['token']);
     $userId = $user['id'];
+    $name = $user['name'];
+    $address = $user['address'];
+    $phoneNumber = $user['phonenumber'];
+
 
     $response = array('error' => array());
-    $response['success'] = False;
+    $response['success'] = True;
+    $uploadOk = 1;
 
     if ($_FILES['fileToUpload']['size'] > 0) {
       $targetDir = "src/model/profile/";
       $targetFile = $targetDir . $userId . '.jpg';
-      $uploadOk = 1;
       $imageFileType = strtolower(pathinfo($targetDir . basename($_FILES["fileToUpload"]["name"]), PATHINFO_EXTENSION));
 
       if(isset($_POST["submit"])) {
@@ -64,6 +68,9 @@ class EditPostController implements ControllerInterface {
         $response['success'] = False;
         $response['error'][] = 'Phone number must be a number with 9 to 12 digits';
       } else {
+        $name = $request->name;
+        $address = $request->address;
+        $phoneNumber = $request->phoneNumber;
         $response['success'] = True;
         $result = $db->editProfile(null, $request->name, $request->address, $request->phoneNumber, $request->userId);
       }
@@ -75,6 +82,6 @@ class EditPostController implements ControllerInterface {
     }
 
     $template = new Template('src/view/edit.php');
-    return $template->render($user['id'], $user['name'], $user['username'], $user['email'], $user['address'], $user['phonenumber'], $response);
+    return $template->render($user['id'], $name, $user['username'], $user['email'], $address, $phoneNumber, $response);
   }
 }
