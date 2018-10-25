@@ -1,13 +1,34 @@
-<img src="https://i.imgur.com/bJcEA2F.png">
+<img src="https://i.imgur.com/mutklIu.png">
 
-# Pro-Book
-> A book is both a usually portable physical object and the body of immaterial representations or intellectual object whose material signs—written or drawn lines or other two-dimensional media—the physical object contains or houses. Pro-Book is an online book store that allowed user to buy books and give reviews to their purchased books.
-
+Pro-Book 
+&middot;
 [![GitLab license](https://img.shields.io/github/license/Day8/re-frame.svg)](license.txt)
+![Build Pass](https://img.shields.io/badge/Linux%2FOSX%20Build-passing-brightgreen.svg)
+![Downloads](https://img.shields.io/badge/downloads-1m-brightgreen.svg?longCache=true&style=flat)
+=====
+> A book is both a usually portable physical object and the body of immaterial representations or intellectual object whose material signs—written or drawn lines or other two-dimensional media—the physical object contains or houses. Pro-Book is an online book store that allows user to buy books and give reviews to their purchased books.
+
+## Table Of Contents
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Run Pro-Book](#run-pro-book)
+- [Features and advantages of this project](#features-and-advantages-of-this-project)
+- [Authors](#authors)
+- [Words From Authors](#words-from-authors)
+- [References](#references)
+
 ## Introduction
 This is the implementation of a web-based online book store using **PHP**. It is open-source and everyone could contribute to probook by creating pull request.
+### Creating an online book store has never been so easy
+**Online Book Store Template** - This web-based online book store template is your solution to start your own online book store.
 
-## Requirements
+### *What's the point of Pro-Book?*
+Pro-Book wants to contribute to community by creating this open-source project about web-based online book store. Young entrepreneurs can start their own online book store business by cloning this repository and deploy it on their own servers. 
+
+### *Why should I care?*
+Because Pro-Book is for *people* :tada:. You have contributed to community by cloning or creating a pull request on this Pro-Book projects.
+
+## Installation
 In order to run this web on your local server, you need to run it on **PHP 7.1** and install:
 
 1. PHP 7.1
@@ -24,11 +45,24 @@ apt-get install mysql
 apt-get install mysql-server
 ```
 
-## Run the server
+## Run Pro-Book
 Run this command on your terminal
 ```
 php -S localhost:5000
 ```
+
+## Features and advantages of this project
+### List of Features
+TODO
+### Advantages of this project
+We **create** our own library to support this project. We build this project from **scratch**(vanilla). List of our own library:
+- [**Router**](#router)
+- [**Request**](#request)
+- [**MarufDB**](#marufdb)
+- [**jQowi**](#jQowi)
+- [**Template Engine**](#templateengine)
+- [**dotEthes**](#dotethes)
+- [**JKWToken**](#jkwtoken)
 
 ## Authors
 1. Nicholas Rianto Putra - 13516020 - https://github.com/nicholaz99
