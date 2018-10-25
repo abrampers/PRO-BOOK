@@ -254,6 +254,15 @@ button:active {
 	transform: scale(0.96);
 }
 
+button[disabled] {
+  background-color: lightblue;
+}
+
+button:hover[disabled] {
+  background-color: lightblue;
+  transform: scale(1);
+}
+
 .margin {
   margin-top: 20px;
   display: flex;
@@ -301,7 +310,12 @@ button:active {
   flex: 5;
 }
 
-.edit-detail-content-row-content {
+.edit-detail-content-row-input {
+  width: 300px;
+}
+
+.edit-detail-content-row-textarea {
+  height: 100px;
   width: 300px;
 }
 
@@ -339,9 +353,9 @@ button:active {
 	transform: scale(0.96);
 }
 
-.auth-error-message-container {
+.main-input-validation-message-container {
   position: fixed;
-  z-index: 2;
+  z-index: -1;
   width: fit-content;
   height: 36px;
   padding: 0px 18px;
@@ -360,8 +374,18 @@ button:active {
   transition-duration: 0.25s;
 }
 
-.auth-error-message-container.visible {
+.main-input-validation-message-container.visible {
+  z-index: 2;
   opacity: 1;
 }
 
+.main-input-validation-message {
+  z-index: -1;
+  opacity: 0;
+}
+
+.main-input-validation-message.visible {
+  z-index: 2;
+  opacity: 1;
+}
 

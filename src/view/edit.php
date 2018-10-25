@@ -1,25 +1,10 @@
 <?php
 function render_template(string $id, string $name, string $username, string $email, string $address, string $phoneNumber, $response = null) {
-  // Jangan lupa jon buat message dari response;
   $path = 'src/model/profile/';
   if(file_exists($path . $id .'.jpg')) {
     $path = $path . $id . '.jpg';
   } else {
     $path = 'src/model/profile/avatar_default.jpg';
-  }
-
-  $printed = !is_null($response);
-  if ($printed) {
-    $printed = $printed && !$response['success'];
-  }
-
-  $str = '';
-  if ($printed) {
-    $str = <<<HTML
-    <div id='errorMessageContainer' class='auth-error-message-container'>
-      <p>{$response['error'][0]}</p>
-    </div>
-HTML;
   }
 
   return <<<HTML
@@ -40,11 +25,9 @@ HTML;
   <title>{$username} - Edit Profile</title>
 </head>
 <body>
-HTML
-.
-$str
-.
-  <<<HTML
+  <div id='inputValidationMessageContainer' class='main-input-validation-message-container'>
+    <p id='inputValidationMessage' class='main-input-validation-message'></p>
+  </div>
 	<div class='main-page-container'>
     <div class='main-header-container'>
       <div class='main-header-top-container'>
@@ -112,7 +95,7 @@ $str
                   <h4>Name</h4>
                 </div>
                 <div class='edit-detail-content-row-content-container'>
-                  <input class='edit-detail-content-row-content' type='text' name='name' value='{$name}'>
+                  <input id='nameField' class='edit-detail-content-row-input' type='text' name='name' value='{$name}'>
                 </div>
               </div>
               <div class='edit-detail-content-row-container'>
@@ -121,7 +104,7 @@ $str
                   <h4>Address</h4>
                 </div>
                 <div class='edit-detail-content-row-content-container'>
-                  <textarea class='edit-detail-content-row-content' name='address'>{$address}</textarea>
+                  <textarea id='addressField' class='edit-detail-content-row-textarea' name='address'>{$address}</textarea>
                 </div>
               </div>
               <div class='edit-detail-content-row-container'>
@@ -130,7 +113,7 @@ $str
                   <h4>Phone Number</h4>
                 </div>
                 <div class='edit-detail-content-row-content-container'>
-                  <input class='edit-detail-content-row-content' type='text' name='phone_number' value='{$phoneNumber}'>
+                  <input id='phoneNumberField' class='edit-detail-content-row-input' type='text' name='phone_number' value='{$phoneNumber}'>
                 </div>
               </div>
               <div class='edit-button-container'>
@@ -141,7 +124,7 @@ $str
                     </button>
                   </a>
                 </div>
-                <div>
+                <div id='submitButtonContainer'>
                   <button id='submitButton' form='editForm' type='submit'>
                     SUBMIT
                   </button>
