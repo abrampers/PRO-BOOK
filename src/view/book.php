@@ -84,6 +84,24 @@ HTML;
   <title>{$book['title']} - Browse</title>
 </head>
 <body>
+  <div id='purchaseMessageBackground' class='book-purchase-message-background'>
+  </div>
+  <div id='purchaseMessagePopup' class='book-purchase-message-popup'>
+    <div class='book-purchase-message-popup-close-container'>
+      <div id='purchaseMessagePopupCloseButton' class='book-purchase-message-popup-close'></div>
+    </div>
+    <div class='book-purchase-message-popup-content'>
+      <div class='book-purchase-message-popup-content-icon-container'>
+        <div class='book-purchase-message-popup-content-icon'>
+          <div class='book-purchase-message-popup-content-icon-img'></div>
+        </div>
+      </div>
+      <div class='book-purchase-message-popup-content-text-container'>
+        <h3>Purchase Successful!</h3>
+        <p id='purchaseMessagePopupText'></p>
+      </div>
+    </div>
+  </div>
 	<div class='main-page-container'>
     <div class='main-header-container'>
       <div class='main-header-top-container'>

@@ -188,6 +188,8 @@
   align-items: center;
   background-color: #25a3ec;
   cursor: pointer;
+  color: white;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
@@ -209,11 +211,6 @@
 .main-content-container {
   width: 100%;
   margin-top: 162px;
-}
-
-h3 {
-  color: white;
-  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 
 h5 {

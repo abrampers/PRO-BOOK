@@ -1,6 +1,7 @@
 import $$ from './lib/jQowi.js';
 
 $$('#orderButton').onclick = () => {
+  $$('#orderButton').disabled = true;
   $$.ajax({
     method: 'POST',
     url: '/order',
@@ -10,12 +11,23 @@ $$('#orderButton').onclick = () => {
     },
     callback: (response) => {
       response = JSON.parse(response);
-      console.log(response);
-      if (response.orderNumber != undefined) {
-        alert('Purchase succesful! Order number: ' + response.orderNumber);
-      } else {
-        alert('Purchase failed, try again!');
-      }
+      $$('#orderButton').disabled = false;
+      $$('#purchaseMessagePopupText').innerHTML = 'Transaction Number: ' + response.orderNumber;
+      $$('#purchaseMessageBackground').style.zIndex = 2;
+      $$('#purchaseMessagePopup').style.zIndex = 2;
+      setTimeout(() => {
+        $$('#purchaseMessageBackground').classList.add('visible');
+        $$('#purchaseMessagePopup').classList.add('visible');
+      }, 100);
     },
   })
+};
+
+$$('#purchaseMessagePopupCloseButton').onclick = () => {
+  $$('#purchaseMessageBackground').classList.remove('visible');
+  $$('#purchaseMessagePopup').classList.remove('visible');
+  setTimeout(() => {
+    $$('#purchaseMessageBackground').style.zIndex = -1;
+    $$('#purchaseMessagePopup').style.zIndex = -1;
+  }, 250);
 };
