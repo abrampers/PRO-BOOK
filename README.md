@@ -51,7 +51,7 @@ Run this command on your terminal
 php -S localhost:5000
 ```
 
-## Features and advantages of this project
+## Features and Advantages of This Project
 #### List of Features
 - **Browse** : You can search any books do you want and view its detail. The detail contains title, author, synopsis, cover, ratings, and list of reviews. 
 - **Order** : When you on the book's detail page, you can order the book by choosing the amount of the book and click on the Order Button.
@@ -61,7 +61,7 @@ php -S localhost:5000
 - **Edit Profile** : On the profile page, you can click **edit** button and change some personal information about you. You are allowed to change your profile picture, name, address, and phone number.
 
 #### Advantages of this project
-We **create** our own library to support this project. We build this project from **scratch**. List of our own library:
+We build this project from **scratch**. We **create** our own library to support this project. They are scalable and easy to use. List of our own library:
 - [**Router**](#router)
 - [**Request**](#request)
 - [**MarufDB**](#marufdb)
@@ -70,9 +70,26 @@ We **create** our own library to support this project. We build this project fro
 - [**dotEthes**](#dotethes)
 - [**JKWToken**](#jkwtoken)
 
+#### List of Libraries
+Here is the documentation about our own library. We will tell you about its functionality and how to use it.
 ##### Router
 ##### Request
 ##### MarufDB
+This is the library for Pro-Book Database. It is a PDO-MySQL Connection Class that contains some functions to help us doing CRUD Operation on our Database.
+###### Member Variables
+```
+private $host; #MySQL host 
+private $dbName; #MySQL Database Name
+private $dbUser; #MySQL Username
+private $dbPassword; #MySQL Password 
+private $pdo; #PDO Object
+```
+###### Member Function
+public function __construct() #Class Constructor. It will assign member variables with defined variables on .ethes file (environment file) and create pdo connection.
+private function Connect() #Create PDO Connection with member variables as parameters.
+public function getUserId($token) #Get current userId by their token cookies.
+public function getUser($token) #Get current user data from Users table by their token cookies. 
+
 ##### jQowi
 ##### Template Engine
 ##### dotEthes
