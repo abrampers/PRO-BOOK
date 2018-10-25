@@ -133,22 +133,22 @@ $str
                   <input class='edit-detail-content-row-content' type='text' name='phone_number' value='{$phoneNumber}'>
                 </div>
               </div>
+              <div class='edit-button-container'>
+                <div>
+                  <a href='/profile'>
+                    <button class='edit-back-button' type='button'>
+                      BACK
+                    </button>
+                  </a>
+                </div>
+                <div>
+                  <button id='submitButton' form='editForm' type='submit'>
+                    SUBMIT
+                  </button>
+                </div>
+              </div>
             </div>
           </form>
-          <div class='edit-button-container'>
-            <div>
-              <a href='/profile'>
-                <button class='edit-back-button' type='submit'>
-                  BACK
-                </button>
-              </a>
-            </div>
-            <div>
-              <button id='submitButton' form='editForm' type='submit'>
-                SUBMIT
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
