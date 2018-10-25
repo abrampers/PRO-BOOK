@@ -85,11 +85,27 @@ private $dbPassword; #MySQL Password
 private $pdo; #PDO Object
 ```
 ###### Member Function
+```
 public function __construct() #Class Constructor. It will assign member variables with defined variables on .ethes file (environment file) and create pdo connection.
 private function Connect() #Create PDO Connection with member variables as parameters.
 public function getUserId($token) #Get current userId by their token cookies.
-public function getUser($token) #Get current user data from Users table by their token cookies. 
-
+public function getUser($token) #Get current user data from Users table by their token cookies.
+public function getUsername($token) #Get current username by their token cookies.
+public function checkLogin($username, $password) #Check whether user has the correct combination of username and password or not when they try to login into Pro-Book.
+public function searchBook($title) #Get all books where $title is a substring on their title.
+public function addToken($user_id, $token) #Add user token to Pro-Book Database, so user doesn't need to login as long as the cookie expired time.
+public function checkToken($token) #Validate user token whether the token has already expired or not.
+public function validateUsername($username) #Check if the username isn't on the database yet.
+public function validateEmail($email) #Check if the email isn't on the database yet.
+public function orderBook($book_id, $user_id, $amount, $order_timestamp) #Insert order detail into Orders Database when user purchases a book.
+public function addProfile($name, $username, $email, $password, $address, $phonenumber) #Register a new account into Users Database.
+public function editProfile($name, $address, $phonenumber, $user_id) #Save edited user's data into database.
+public function getHistory($user_id) #Get list of orders history users.
+public function getBookIdByOrderId($order_id) #Get BookId by OrderId.
+public function getBookDetail($book_id) #Get book detail by bookId,
+public function addReview($user_id, $username, $book_id, $rating, $comment, $order_id) #Insert user's review into database.
+public function getReviews($book_id) #Get list of reviews by bookId,
+```
 ##### jQowi
 ##### Template Engine
 ##### dotEthes
