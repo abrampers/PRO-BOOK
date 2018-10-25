@@ -93,21 +93,21 @@ function render_template(string $username, $book, $user_id, $order_id) {
             <input hidden name='book_id' value={$book_id}>
             <input hidden name='order_id' value={$order_id}>
           </div>
-          <div class='review-button-container'>
-            <div class='review-back-container'>
-              <a href='/history'>
-                <button class='review-back-button'>
-                  BACK
-                </button>
-              </a>
-            </div>
-            <div class='review-submit-container'>
-              <button type='submit' form='reviewForm'>
-                SUBMIT
-              </button>
-            </div>
-          </div>
         </form>
+        <div class='review-button-container'>
+          <div class='review-back-container'>
+            <a href='/history'>
+              <button class='review-back-button'>
+                BACK
+              </button>
+            </a>
+          </div>
+          <div class='review-submit-container'>
+            <button type='submit' form='reviewForm'>
+              SUBMIT
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 	</div>
