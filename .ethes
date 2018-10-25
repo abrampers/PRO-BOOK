@@ -1,8 +1,8 @@
 #list of ethes variables
-DB_HOST=localhost
+DB_HOST=us-cdbr-iron-east-01.cleardb.net
 DB_NAME=probook
-DB_USERNAME=root
-DB_PASSWORD=
+DB_USERNAME=ba9006b3e23e70
+DB_PASSWORD=e490e431
 HOST_NAME=intense-thicket-60275.herokuapp.com
 HOST_PORT=
 COOKIE_EXPIRED_TIME=60000
