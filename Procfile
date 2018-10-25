@@ -1,1 +1,1 @@
-web: vendor/bin/php -S 5000
+web: php -S 5000
