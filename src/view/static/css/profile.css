@@ -142,7 +142,7 @@
 .profile-detail-content-container {
   width: 620px;
   margin: 30px 0px 60px 0px;
-  padding: 60px 0px 40px 100px;
+  padding: 60px 65px 40px 65px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
