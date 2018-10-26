@@ -33,10 +33,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ededed;
-	background-image: url('../img/bg_auth.jpg');
-  background-blend-mode: screen;
-  background-size: 50% 65%;
 }
 
 .main-content-padding {
