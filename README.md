@@ -46,12 +46,17 @@ apt-get install php7.1-pdo-mysql
 apt-get install mysql
 apt-get install mysql-server
 ```
+4. Create .ethes file
+```
+cp ethes.sample .ethes #edit .ethes file with your own setting
+```
 
 ## Run Pro-Book
 Run this command on your terminal
 ```
 php -S localhost:5000
 ```
+You can try to open Pro-Book on your browser with URL localhost:5000
 
 ## Features
 - **Browse** : You can search any books do you want and view its detail. The detail contains title, author, synopsis, cover, ratings, and list of reviews.
