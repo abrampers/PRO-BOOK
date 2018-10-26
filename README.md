@@ -125,16 +125,16 @@ This library tries to solve much of the same problems as what jQuery is trying t
 
 #### DOM Element Selection
 ```javascript
-# Select all elements with 'button' class
-# Note that selecting by class result an array of elements
+// Select all elements with 'button' class
+// Note that selecting by class result an array of elements
 $$('.button').forEach((element) => {
   element.onmouseenter = () => {
     console.log('Hello, world!');
   };
 });
 
-# Select the element with 'submitButton' id
-# Note that selecting by id results in just one element
+// Select the element with 'submitButton' id
+// Note that selecting by id results in just one element
 $$('#submitButton').onmouseenter = () => {
   console.log('Hello, world!');
 };
@@ -143,7 +143,7 @@ $$('#submitButton').onmouseenter = () => {
 
 #### AJAX
 ```javascript
-# Sending an AJAX GET request
+// Sending an AJAX GET request
 xhttp = $$.ajax({
   method: 'GET',
   url: 'http://just.an/example',
@@ -153,7 +153,7 @@ xhttp = $$.ajax({
   }
 });
 
-# Sending an AJAX POST request
+// Sending an AJAX POST request
 $$.ajax({
   method: 'POST',
   url: 'http://just.an/example',
@@ -164,7 +164,7 @@ $$.ajax({
   },
 });
 ```
-> Note: Every instance of an AJAX request returns an XMLHttpRequest object for that request
+> Note: Every instance of an AJAX request returns an `XMLHttpRequest` object for that request
 
 ### Template Engine
 
