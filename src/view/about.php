@@ -112,8 +112,7 @@ function render_template(string $username) {
                 <img class='icon' src='src/view/static/img/icon_facebook.svg'>
               </div>
               <div class='about-content'>
-                <p>-</p>
-                  <!-- <a href=''>@nicho_cholas</a> -->
+                <a href='https://www.facebook.com/nicholas.uzumaki'><p>Nicholas R Putra</p></a>
               </div>
             </div>
           </div>

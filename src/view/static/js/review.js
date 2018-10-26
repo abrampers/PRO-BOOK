@@ -32,6 +32,7 @@ function unhoverStars() {
 
 function selectStars(index) {
   $$('#ratingField').value = index;
+  validateInput();
   $$('.review-star').forEach((element) => {
     element.classList.remove('pre-selected');
     element.classList.remove('pre-removed');
@@ -88,7 +89,6 @@ $$('.review-star').forEach((element) => {
   };
 });
 
-$$('#ratingField').onchange = validateInput;
 $$('#commentField').oninput = validateInput;
 
 updateInputValidationMessage(invalidCommentMessage);
