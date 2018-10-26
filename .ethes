@@ -1,7 +1,7 @@
 #list of ethes variables
 DB_HOST=us-cdbr-iron-east-01.cleardb.net
-DB_NAME=heroku_b8676655e47e910
-DB_USERNAME=ba9006b3e23e70
+DB_NAME=heroku_d9208786da3bbf7
+DB_USERNAME=b565751f9ecceb
 DB_PASSWORD=e490e431
 #HOST_NAME=localhost
 #intense-thicket-60275.herokuapp.com
