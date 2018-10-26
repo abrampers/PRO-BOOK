@@ -2,13 +2,14 @@ import $$ from './lib/jQowi.js';
 
 $$('#orderButton').onclick = () => {
   $$('#orderButton').disabled = true;
+  const data = {
+    'book_id': parseInt($$('#bookIdField').value, 10),
+    'quantity': parseInt($$('#orderQuantitySelector').value, 10)
+  }
   $$.ajax({
     method: 'POST',
     url: '/order',
-    data: {
-      'book_id': parseInt($$('#bookIdField').value, 10),
-      'quantity': parseInt($$('#orderQuantitySelector').value, 10)
-    },
+    data: JSON.stringify(data),
     callback: (response) => {
       response = JSON.parse(response);
       $$('#orderButton').disabled = false;

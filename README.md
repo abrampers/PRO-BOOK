@@ -121,6 +121,50 @@ public function addReview($user_id, $username, $book_id, $rating, $comment, $ord
 public function getReviews($book_id) #Get list of reviews by bookId,
 ```
 ### jQowi
+This library tries to solve much of the same problems as what jQuery is trying to solve--hence the name resemblance--by simplifying DOM element selection and AJAX request handling. We implemented jQowi as a simple wrapper for `Document.querySelector()` and `XMLHttpRequest` by profiding a simple and clear API.
+
+#### DOM Element Selection
+```javascript
+# Select all elements with 'button' class
+# Note that selecting by class result an array of elements
+$$('.button').forEach((element) => {
+  element.onmouseenter = () => {
+    console.log('Hello, world!');
+  };
+});
+
+# Select the element with 'submitButton' id
+# Note that selecting by id results in just one element
+$$('#submitButton').onmouseenter = () => {
+  console.log('Hello, world!');
+};
+```
+> Note: jQowi uses the same query syntax as `Document.querySelector()`
+
+#### AJAX
+```javascript
+# Sending an AJAX GET request
+xhttp = $$.ajax({
+  method: 'GET',
+  url: 'http://just.an/example',
+  callback: (response) => {
+    response = JSON.parse(response);
+    console.log(response);
+  }
+});
+
+# Sending an AJAX POST request
+$$.ajax({
+  method: 'POST',
+  url: 'http://just.an/example',
+  data: JSON.stringify(data),
+  callback: (response) => {
+    response = JSON.parse(response);
+    console.log(response);
+  },
+});
+```
+> Note: Every instance of an AJAX request returns an XMLHttpRequest object for that request
 
 ### Template Engine
 
