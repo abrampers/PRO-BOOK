@@ -65,7 +65,7 @@ We build this project from **scratch**. We **create** our own library to support
 - [**Router**](#router)
 - [**Request**](#request)
 - [**MarufDB**](#marufdb)
-- [**jQowi**](#jQowi)
+- [**jQowi**](#jqowi)
 - [**Template Engine**](#templateengine)
 - [**dotEthes**](#dotethes)
 - [**JKWToken**](#jkwtoken)
@@ -167,6 +167,26 @@ $$.ajax({
 > Note: Every instance of an AJAX request returns an `XMLHttpRequest` object for that request
 
 ### Template Engine
+This library provides a simple and clear interface to serve a templated HTML page using PHP.
+
+#### Format
+You can get a pretty clear picture of the templating format by reading one of our implementation [here](src/view/search.php). In short, you just need to create a .php file implement a `render_template` function that takes whatever parameters you want for your template and returns an HTML string.
+```php
+<?php
+function render_template(string $username) {
+  return <<<HTML
+    <h1>Hello {$username}</h1>
+HTML;
+}
+```
+
+#### Usage
+```php
+<?php
+$template = new Template('path/to/template.php');
+$username = 'mrjoko';
+echo $template->render($username);
+```
 
 ### dotEthes
 
