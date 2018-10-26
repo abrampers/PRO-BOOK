@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/mutklIu.png">
+<img src="docs/logo.png">
 
 Pro-Book
 &middot;
@@ -19,15 +19,16 @@ Pro-Book
 - [References](#references)
 
 ## Introduction
-This is the implementation of a web-based online book store using **PHP**. It is open-source and everyone could contribute to probook by creating pull request.
+This is an implementation of a web-based online book store using **PHP**. It is open-source and everyone can contribute to probook by creating pull request.
+
 #### *Creating an online book store has never been so easy*
-**Online Book Store Template** - This web-based online book store template is your solution to start your own online book store.
+**Online Book Store Template** - This web-based online book store template is your one-stop solution to start your own online book store.
 
 #### *What's the point of Pro-Book?*
-Pro-Book wants to contribute to community by creating this open-source project about web-based online book store. Young entrepreneurs can start their own online book store business by cloning this repository and deploy it on their own servers.
+Pro-Book wants to contribute to community by creating this open-source project about a web-based online book store. Young entrepreneurs can start their own online book store business by cloning this repository and deploy it on their own servers.
 
 #### *Why should I care?*
-Because Pro-Book is for *people* :tada:. You have contributed to community by cloning or creating a pull request on this Pro-Book projects.
+Because Pro-Book is for *people* :tada:. You have contributed to the community by cloning or creating a pull request on this Pro-Book project.
 
 ## Installation
 In order to run this web on your local server, you need to run it on **PHP 7.1** and install:
@@ -65,7 +66,7 @@ We build this project from **scratch**. We **create** our own library to support
 - [**Router**](#router)
 - [**Request**](#request)
 - [**MarufDB**](#marufdb)
-- [**jQowi**](#jQowi)
+- [**jQowi**](#jqowi)
 - [**Template Engine**](#templateengine)
 - [**dotEthes**](#dotethes)
 - [**JKWToken**](#jkwtoken)
@@ -121,7 +122,7 @@ public function addReview($user_id, $username, $book_id, $rating, $comment, $ord
 public function getReviews($book_id) #Get list of reviews by bookId,
 ```
 ### jQowi
-This library tries to solve much of the same problems as what jQuery is trying to solve--hence the name resemblance--by simplifying DOM element selection and AJAX request handling. We implemented jQowi as a simple wrapper for `Document.querySelector()` and `XMLHttpRequest` by profiding a simple and clear API.
+This library tries to solve much of the same problems as what jQuery is trying to solve--hence the name resemblance--by simplifying DOM element selection and AJAX request handling. We implemented jQowi as a simple wrapper for `Document.querySelector()` and `XMLHttpRequest` by providing simple and clear APIs.
 
 #### DOM Element Selection
 ```javascript
@@ -167,6 +168,26 @@ $$.ajax({
 > Note: Every instance of an AJAX request returns an `XMLHttpRequest` object for that request
 
 ### Template Engine
+This library provides a simple and clear interface to serve a templated HTML page using PHP.
+
+#### Format
+You can get a pretty clear picture of the templating format by reading one of our implementation [here](src/view/search.php). In short, you just need to create a .php file implement a `render_template` function that takes whatever parameters you want for your template and returns an HTML string.
+```php
+<?php
+function render_template(string $username) {
+  return <<<HTML
+    <h1>Hello {$username}</h1>
+HTML;
+}
+```
+
+#### Usage
+```php
+<?php
+$template = new Template('path/to/template.php');
+$username = 'mrjoko';
+echo $template->render($username);
+```
 
 ### dotEthes
 
