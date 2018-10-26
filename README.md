@@ -48,7 +48,8 @@ apt-get install mysql-server
 ```
 4. Create .ethes file
 ```
-cp ethes.sample .ethes #edit .ethes file with your own setting
+cp ethes.sample .ethes
+#edit .ethes file with your own setting
 ```
 
 ## Run Pro-Book
