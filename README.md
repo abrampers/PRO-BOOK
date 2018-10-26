@@ -59,12 +59,12 @@ php -S localhost:5000
 You can try to open Pro-Book on your browser with URL localhost:5000
 
 ## Features
-- **Browse** : You can search any books do you want and view its detail. The detail contains title, author, synopsis, cover, ratings, and list of reviews.
-- **Order** : When you on the book's detail page, you can order the book by choosing the amount of the book and click on the Order Button.
+- **Browse** : You can search any books that you want and view its detailed information that contains title, author, synopsis, cover, ratings, and list of reviews.
+- **Order** : When you are on the book's detail page, you can order the book by choosing the amount of copies you want and click on the Order button.
 - **History** : You can see your history of orders.
-- **Review** : On your history page, you can click **review** button in order to give review about your purchased books. You can give the rating and comment about the book.
-- **View Profile** : You can view your profile on the profile page.
-- **Edit Profile** : On the profile page, you can click **edit** button and change some personal information about you. You are allowed to change your profile picture, name, address, and phone number.
+- **Review** : On your history page, you can click the **review** button in order to give a review about your purchased books. You can also give a rating and comment about the book.
+- **View Profile** : You can view your profile details on the profile page.
+- **Edit Profile** : On the profile page, you can click the **edit** button and change some personal information about you. You are allowed to change your profile picture, name, address, and phone number.
 
 ## Implemented Libraries
 We build this project from **scratch**. We **create** our own library to support this project. They are scalable and easy to use. List of our own library:
@@ -76,7 +76,7 @@ We build this project from **scratch**. We **create** our own library to support
 - [**dotEthes**](#dotethes)
 - [**JKWToken**](#jkwtoken)
 
-Here is the documentation about our own library. We will tell you about its functionality and how to use it.
+Here is the documentation about our own library. We will tell you about it's functionality and how to use it.
 
 ### Router
 Router is a library to simplify php routing. When user input a path to your server, Rather than following the projects directory hierarchy, Router will check their input path and redirect it using its controller policy.
@@ -89,10 +89,10 @@ $router->get('/login', function($request) {
 ```
 
 ### Request
-Request is a library contains of RequestInterface and a Request class that implements a RequestInterface that works as a class which save all request parameters ($_SERVER , GET, POST).
+Request is a library that contains RequestInterface and a Request class that implements a RequestInterface that works as a class which save all request parameters ($_SERVER , GET, POST).
 
 ### MarufDB
-This is the library for Pro-Book Database. It is a PDO-MySQL Connection Class that contains some functions to help us doing CRUD Operation on our Database.
+This is the library for Pro-Book database. It is a PDO-MySQL Connection class that contains some functions to help us doing CRUD operations on our database.
 
 #### Member Variables
 ```php
@@ -221,7 +221,7 @@ echo $template->render($username);
 dotEthes is a class that could read .ethes file that contains our environment variables and load it into **$_ENV** superglobal variable. dotEthes library has two main class:
 
 #### DotEthes
-DotEthes is one of the main class in dotEthes library that focused on getting the .ethes filepath and then use Loader class to load all the environment variables into **$_ENV**.
+DotEthes is one of the main class in dotEthes library that focuses on getting the .ethes filepath and then use Loader class to load all the environment variables into **$_ENV**.
 ##### Member Variables
 ```php
 protected $filePath;
@@ -242,7 +242,7 @@ protected function loadData()
 ```
 
 #### Loader
-Loader is one of the main class in dotEthes library that focused on parsing the .ethes file and load it into **$_ENV**.
+Loader is one of the main class in dotEthes library that focuses on parsing the .ethes file and load it into **$_ENV**.
 ##### Member Variables
 ```php
 protected $filePath
@@ -271,7 +271,7 @@ public function getEnvironmentVariable($name)
 ```
 
 ### JKWToken
-JKWToken is a class that could generate a 16-bytes random string that will be used as user's token cookie.
+JKWToken is a class to generate a 16-bytes random string that will be used as the user's token cookie.
 #### Member Function
 ```php
 public function generateJKWToken() {
