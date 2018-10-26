@@ -12,7 +12,8 @@ Pro-Book
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Run Pro-Book](#run-pro-book)
-- [Features and advantages of this project](#features-and-advantages-of-this-project)
+- [Features](#features)
+- [Implemented Libraries](#implemented-libraries)
 - [Authors](#authors)
 - [Words From Authors](#words-from-authors)
 - [References](#references)
@@ -134,7 +135,8 @@ public function getReviews($book_id) #Get list of reviews by bookId,
 
 ## Words from Authors
 Thanks to our lovely lecturer Mr. Dr.Techn. Muhammad Zuhri Catur Candra ST,MT for his amazing project about [Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web](http://gitlab.informatika.org/IF3110-2018/tugasbesar1_2018).
-> *"You already know how hard it is to build a software right? Do you still want to use pirated softwares?" - Dr.Techn. Muhammad Zuhri Catur Candra ST,MT*
+> *"You already know how hard it is to build a software right? Do you still want to use pirated softwares?"*
+> *- Dr.Techn. Muhammad Zuhri Catur Candra ST,MT*
 
 ## References
 * [Tugas 1 IF3110 Pengembangan Aplikasi Berbasis Web](http://gitlab.informatika.org/IF3110-2018/tugasbesar1_2018)
