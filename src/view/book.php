@@ -71,16 +71,14 @@ HTML;
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <link rel='stylesheet' href='src/view/static/css/book.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
   <script type='module' src='src/view/static/js/book.js'></script>
-  <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+  <link rel="stylesheet" href="src/view/static/css/fonts.css" type='text/css'>
   <title>{$book['title']} - Browse</title>
 </head>
 <body>

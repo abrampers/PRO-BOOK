@@ -11,7 +11,7 @@ $dotEthes->load();
 
 /** GET */
 $router->get('/', function($request) {
-  header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/browse");
+  header("Location: /browse");
   exit();
 });
 

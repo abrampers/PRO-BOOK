@@ -8,7 +8,7 @@ class LoginPostController implements ControllerInterface {
       $token = $JKWToken->generateJKWToken();
       if ($db->addToken($user_id, $token) == 1) {
         setcookie("token", $token, time() + (int)$_ENV['COOKIE_EXPIRED_TIME'], '/');
-        header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/");
+        header("Location: /");
         exit();
       } else {
         return '<h1>Failed</h1>';

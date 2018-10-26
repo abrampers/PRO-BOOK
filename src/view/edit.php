@@ -12,16 +12,14 @@ function render_template(string $id, string $name, string $username, string $ema
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <link rel='stylesheet' href='src/view/static/css/common.css'>
   <link rel='stylesheet' href='src/view/static/css/main.css'>
   <link rel='stylesheet' href='src/view/static/css/edit.css'>
   <script type='module' src='src/view/static/js/main.js'></script>
   <script type='module' src='src/view/static/js/edit.js'></script>
-  <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Bungee+Shade' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Chathura' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet'>
-  <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+  <link rel="stylesheet" href="src/view/static/css/fonts.css" type='text/css'>
   <title>{$username} - Edit Profile</title>
 </head>
 <body>
