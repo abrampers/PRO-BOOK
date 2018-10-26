@@ -1,8 +1,11 @@
 #list of ethes variables
-DB_HOST=us-cdbr-iron-east-01.cleardb.net
-DB_NAME=heroku_d9208786da3bbf7
-DB_USERNAME=b565751f9ecceb
-DB_PASSWORD=72981280
+DB_HOST=localhost
+DB_NAME=probook
+DB_USERNAME=root
+DB_PASSWORD=
+#DB_NAME=heroku_d9208786da3bbf7
+#DB_USERNAME=b565751f9ecceb
+#DB_PASSWORD=72981280
 #HOST_NAME=localhost
 #intense-thicket-60275.herokuapp.com
 #HOST_PORT=8000
