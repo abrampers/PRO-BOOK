@@ -1,21 +1,10 @@
 <?php
 class Loader {
   protected $filePath;
-  protected $immutable;
   public $variableNames = array();
 
-  public function __construct($filePath, $immutable = false) {
+  public function __construct($filePath) {
     $this->filePath = $filePath;
-    $this->immutable = $immutable;
-  }
-
-  public function setImmutable($immutable = false) {
-    $this->immutable = $immutable;
-    return $this;
-  }
-
-  public function getImmutable() {
-    return $this->immutable;
   }
 
   public function load() {
@@ -53,7 +42,7 @@ class Loader {
   public function setEnvironmentVariable($line) {
     list($name, $value) = $this->splitLine($line);
     $this->variableNames[] = $name;
-    if ($this->immutable && $this->getEnvironmentVariable($name) !== null) {
+    if ($this->getEnvironmentVariable($name) !== null) {
       return;
     }
     $_ENV[$name] = $value;

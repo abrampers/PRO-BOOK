@@ -5,7 +5,7 @@ class DotEthes {
 
   public function __construct($path, $file = '.ethes') {
     $this->filePath = $this->getFilePath($path, $file);
-    $this->loader = new Loader($this->filePath, true);
+    $this->loader = new Loader($this->filePath);
   }
 
   public function load() {
@@ -20,7 +20,7 @@ class DotEthes {
     return $filePath;
   }
 
-  protected function loadData($overload = false) {
-    return $this->loader->setImmutable(!$overload)->load();
+  protected function loadData() {
+    return $this->loader->load();
   }
 }

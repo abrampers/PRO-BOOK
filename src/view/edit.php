@@ -4,7 +4,7 @@ function render_template(string $id, string $name, string $username, string $ema
   if(file_exists($path . $id .'.jpg')) {
     $path = $path . $id . '.jpg';
   } else {
-    $path = 'src/model/profile/avatar_default.svg';
+    $path = 'src/model/profile/avatar_default.jpg';
   }
 
   return <<<HTML
