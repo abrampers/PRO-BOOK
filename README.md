@@ -74,8 +74,17 @@ We build this project from **scratch**. We **create** our own library to support
 Here is the documentation about our own library. We will tell you about its functionality and how to use it.
 
 ### Router
+Router is a library to simplify php routing. When user input a path to your server, Rather than following the projects directory hierarchy, Router will check their input path and redirect it using its controller policy.
+Snippet of code example:
+```php
+//When user request a GET http method into /login, router will return a LoginGetController if the request pass the TokenValidationMiddleware and LoginRegisterMiddleware
+$router->get('/login', function($request) {
+  return LoginGetController::control($request);
+}, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
+```
 
 ### Request
+Request is a library contains of RequestInterface and a Request class that implements a RequestInterface that works as a class which save all request parameters ($_SERVER , GET, POST).
 
 ### MarufDB
 This is the library for Pro-Book Database. It is a PDO-MySQL Connection Class that contains some functions to help us doing CRUD Operation on our Database.
