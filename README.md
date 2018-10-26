@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/mutklIu.png">
+<img src="docs/logo.png">
 
 Pro-Book
 &middot;
