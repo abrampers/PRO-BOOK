@@ -74,8 +74,17 @@ We build this project from **scratch**. We **create** our own library to support
 Here is the documentation about our own library. We will tell you about its functionality and how to use it.
 
 ### Router
+Router is a library to simplify php routing. When user input a path to your server, Rather than following the projects directory hierarchy, Router will check their input path and redirect it using its controller policy.
+Snippet of code example:
+```php
+//When user request a GET http method into /login, router will return a LoginGetController if the request pass the TokenValidationMiddleware and LoginRegisterMiddleware
+$router->get('/login', function($request) {
+  return LoginGetController::control($request);
+}, [new TokenValidationMiddleware, new LoginRegisterMiddleware]);
+```
 
 ### Request
+Request is a library contains of RequestInterface and a Request class that implements a RequestInterface that works as a class which save all request parameters ($_SERVER , GET, POST).
 
 ### MarufDB
 This is the library for Pro-Book Database. It is a PDO-MySQL Connection Class that contains some functions to help us doing CRUD Operation on our Database.
@@ -106,20 +115,34 @@ public function getUser($token)
 #Get current user data from Users table by their token cookies.
 public function getUsername($token)
 #Get current username by their token cookies.
-public function checkLogin($username, $password) #Check whether user has the correct combination of username and password or not when they try to login into Pro-Book.
-public function searchBook($title) #Get all books where $title is a substring on their title.
-public function addToken($user_id, $token) #Add user token to Pro-Book Database, so user doesn't need to login as long as the cookie expired time.
-public function checkToken($token) #Validate user token whether the token has already expired or not.
-public function validateUsername($username) #Check if the username isn't on the database yet.
-public function validateEmail($email) #Check if the email isn't on the database yet.
-public function orderBook($book_id, $user_id, $amount, $order_timestamp) #Insert order detail into Orders Database when user purchases a book.
-public function addProfile($name, $username, $email, $password, $address, $phonenumber) #Register a new account into Users Database.
-public function editProfile($name, $address, $phonenumber, $user_id) #Save edited user's data into database.
-public function getHistory($user_id) #Get list of orders history users.
-public function getBookIdByOrderId($order_id) #Get BookId by OrderId.
-public function getBookDetail($book_id) #Get book detail by bookId,
-public function addReview($user_id, $username, $book_id, $rating, $comment, $order_id) #Insert user's review into database.
-public function getReviews($book_id) #Get list of reviews by bookId,
+public function checkLogin($username, $password)
+#Check whether user has the correct combination of username and password or not when they try to login into Pro-Book.
+public function searchBook($title)
+#Get all books where $title is a substring on their title.
+public function addToken($user_id, $token)
+#Add user token to Pro-Book Database, so user doesn't need to login as long as the cookie expired time.
+public function checkToken($token)
+#Validate user token whether the token has already expired or not.
+public function validateUsername($username)
+#Check if the username isn't on the database yet.
+public function validateEmail($email)
+#Check if the email isn't on the database yet.
+public function orderBook($book_id, $user_id, $amount, $order_timestamp)
+#Insert order detail into Orders Database when user purchases a book.
+public function addProfile($name, $username, $email, $password, $address, $phonenumber)
+#Register a new account into Users Database.
+public function editProfile($name, $address, $phonenumber, $user_id)
+#Save edited user's data into database.
+public function getHistory($user_id)
+#Get list of orders history users.
+public function getBookIdByOrderId($order_id)
+#Get BookId by OrderId.
+public function getBookDetail($book_id)
+#Get book detail by bookId,
+public function addReview($user_id, $username, $book_id, $rating, $comment, $order_id)
+#Insert user's review into database.
+public function getReviews($book_id)
+#Get list of reviews by bookId,
 ```
 ### jQowi
 This library tries to solve much of the same problems as what jQuery is trying to solve--hence the name resemblance--by simplifying DOM element selection and AJAX request handling. We implemented jQowi as a simple wrapper for `Document.querySelector()` and `XMLHttpRequest` by providing simple and clear APIs.
@@ -190,8 +213,67 @@ echo $template->render($username);
 ```
 
 ### dotEthes
+dotEthes is a class that could read .ethes file that contains our environment variables and load it into **$_ENV** superglobal variable. dotEthes library has two main class:
+
+#### DotEthes
+DotEthes is one of the main class in dotEthes library that focused on getting the .ethes filepath and then use Loader class to load all the environment variables into **$_ENV**.
+##### Member Variables
+```php
+protected $filePath;
+#path to .ethes file
+protected $loader;
+#loader class which can parse .ethes file
+```
+##### Member Functions
+```php
+public function __construct($path, $file = '.ethes')
+#Set $filePath and create new Loader class for $loader variable
+public function load()
+#Load .ethes variable into $_ENV
+public function getFilePath($path, $file)
+#Convert to a valid File Path by using rtrim
+protected function loadData()
+#call $loader load() to parse .ethes file and load it into $_ENV
+```
+
+#### Loader
+Loader is one of the main class in dotEthes library that focused on parsing the .ethes file and load it into **$_ENV**.
+##### Member Variables
+```php
+protected $filePath
+#path to .ethes file
+public $variableNames = array()
+#container for all environment variables in .ethes file
+```
+##### Member Functions
+```php
+public function __construct($filePath)
+#Set $filePath variable
+public function load()
+#Read from .ethes file per lines and set it as environment variables
+protected function readLinesFromFile($filePath)
+#Return an array of line on .ethes file
+protected function isComment($line)
+#Check whether line is a comment or an environment variable
+protected function isSetter($line)
+#Check whether a line is a setter for environment variable
+public function setEnvironmentVariable($line)
+#Set environment variable from .ethes into $_ENV
+public function clearAllEnvironmentVariables()
+#Clear all .ethes environment variables from $_ENV
+public function getEnvironmentVariable($name)
+#Check whether a variable is already exist or not
+```
 
 ### JKWToken
+JKWToken is a class that could generate a 16-bytes random string that will be used as user's token cookie.
+#### Member Function
+```php
+public function generateJKWToken() {
+    return bin2hex(openssl_random_pseudo_bytes((int)$_ENV['JKWTOKEN_BYTES_LENGTH']));
+  }
+#Generate random string using openssl_random_pseudo_bytes.
+```
 
 ## Authors
 1. Nicholas Rianto Putra - 13516020 - https://github.com/nicholaz99
