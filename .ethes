@@ -3,7 +3,8 @@ DB_HOST=us-cdbr-iron-east-01.cleardb.net
 DB_NAME=heroku_b8676655e47e910
 DB_USERNAME=ba9006b3e23e70
 DB_PASSWORD=e490e431
-HOST_NAME=intense-thicket-60275.herokuapp.com
-HOST_PORT=80
+#HOST_NAME=localhost
+#intense-thicket-60275.herokuapp.com
+#HOST_PORT=8000
 COOKIE_EXPIRED_TIME=60000
 JKWTOKEN_BYTES_LENGTH=16

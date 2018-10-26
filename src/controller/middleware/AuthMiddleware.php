@@ -4,7 +4,7 @@ class AuthMiddleware implements MiddlewareInterface {
     $token = $_COOKIE['token'];
     $db = new MarufDB();
     if (is_null($token)) {
-      header("Location: http://{$_ENV['HOST_NAME']}:{$_ENV['HOST_PORT']}/login?redirected=1");
+      header("Location: /login?redirected=1");
       return False;
     } else {
       return True;
