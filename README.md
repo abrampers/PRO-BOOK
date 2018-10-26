@@ -2,7 +2,7 @@
 
 Pro-Book
 &middot;
-[![GitLab license](https://img.shields.io/github/license/Day8/re-frame.svg)](license.txt)
+[![GitLab license](https://img.shields.io/github/license/Day8/re-frame.svg)](LICENSE)
 ![Build Pass](https://img.shields.io/badge/Linux%2FOSX%20Build-passing-brightgreen.svg)
 ![Downloads](https://img.shields.io/badge/downloads-1m-brightgreen.svg?longCache=true&style=flat)
 =====
